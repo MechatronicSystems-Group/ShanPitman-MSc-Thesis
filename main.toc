@@ -1,6 +1,6 @@
 \babel@toc {british}{}\relax 
-\contentsline {chapter}{List of Figures}{iv}{chapter*.5}%
-\contentsline {chapter}{List of Tables}{v}{chapter*.6}%
+\contentsline {chapter}{List of Figures}{iii}{chapter*.5}%
+\contentsline {chapter}{List of Tables}{iv}{chapter*.6}%
 \contentsline {chapter}{\chapternumberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Background and Motivation}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Literature Review}{1}{section.1.2}%
@@ -25,13 +25,24 @@
 \contentsline {section}{\numberline {4.1}Literature Review}{4}{section.4.1}%
 \contentsline {subsection}{\numberline {4.1.1}Reasons for Optimising Camera Placement}{4}{subsection.4.1.1}%
 \contentsline {subsection}{\numberline {4.1.2}Optimisation Approaches for Sensor Placement}{4}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Modelling the Problem}{4}{subsection.4.1.3}%
+\contentsline {subsection}{\numberline {4.1.4}Summary}{4}{subsection.4.1.4}%
 \contentsline {section}{\numberline {4.2}Genetic Algorithm Theory Development}{4}{section.4.2}%
 \contentsline {subsection}{\numberline {4.2.1}Genetic Algorithm Terminology}{4}{subsection.4.2.1}%
 \contentsline {subsection}{\numberline {4.2.2}Encoding Schemes}{4}{subsection.4.2.2}%
 \contentsline {subsection}{\numberline {4.2.3}Selection Methods}{4}{subsection.4.2.3}%
 \contentsline {subsection}{\numberline {4.2.4}Crossover Techniques}{4}{subsection.4.2.4}%
-\contentsline {subsection}{\numberline {4.2.5}Choosing Parameter Values}{4}{subsection.4.2.5}%
 \contentsline {section}{\numberline {4.3}Methodology}{4}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}GA attributes}{4}{subsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.1.1}Selecting Parameter Values}{4}{subsubsection.4.3.1.1}%
+\contentsline {subsubsection}{\numberline {4.3.1.2}Initial Population}{4}{subsubsection.4.3.1.2}%
+\contentsline {subsubsection}{\numberline {4.3.1.3}Double Point Crossover}{4}{subsubsection.4.3.1.3}%
+\contentsline {subsubsection}{\numberline {4.3.1.4}Mutation}{4}{subsubsection.4.3.1.4}%
+\contentsline {subsubsection}{\numberline {4.3.1.5}Elitism}{4}{subsubsection.4.3.1.5}%
+\contentsline {subsection}{\numberline {4.3.2}Cost Function}{4}{subsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.2.1}Resolution Uncertainty Cost Function}{4}{subsubsection.4.3.2.1}%
+\contentsline {subsubsection}{\numberline {4.3.2.2}Dynamic Occlusion Cost Function}{4}{subsubsection.4.3.2.2}%
+\contentsline {subsubsection}{\numberline {4.3.2.3}Combined Cost Function}{4}{subsubsection.4.3.2.3}%
 \contentsline {section}{\numberline {4.4}Results and Discussion}{4}{section.4.4}%
 \contentsline {chapter}{\chapternumberline {5}Optical Motion Capture}{5}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Literature Review}{5}{section.5.1}%
@@ -41,16 +52,20 @@
 \contentsline {subsubsection}{\numberline {5.1.2.2}Communication Architectures}{5}{subsubsection.5.1.2.2}%
 \contentsline {section}{\numberline {5.2}Camera Selection and System Integration}{6}{section.5.2}%
 \contentsline {section}{\numberline {5.3}Theory Development}{6}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}3D Geometry and Reference Frames}{6}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.1}Rigid-body Motion}{6}{subsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.1.1}Reference Frames}{6}{subsubsection.5.3.1.1}%
+\contentsline {subsubsection}{\numberline {5.3.1.2}Representing Pose}{6}{subsubsection.5.3.1.2}%
 \contentsline {subsection}{\numberline {5.3.2}Computer Vision}{6}{subsection.5.3.2}%
-\contentsline {subsection}{\numberline {5.3.3}Image Formation}{6}{subsection.5.3.3}%
-\contentsline {subsection}{\numberline {5.3.4}Image Processing}{6}{subsection.5.3.4}%
-\contentsline {subsection}{\numberline {5.3.5}Triangulation}{6}{subsection.5.3.5}%
-\contentsline {subsection}{\numberline {5.3.6}Estimation Filtering}{6}{subsection.5.3.6}%
-\contentsline {subsubsection}{\numberline {5.3.6.1}The Kalman Filter}{6}{subsubsection.5.3.6.1}%
-\contentsline {subsubsection}{\numberline {5.3.6.2}The Extended Kalman Filter}{6}{subsubsection.5.3.6.2}%
-\contentsline {subsubsection}{\numberline {5.3.6.3}The Invariant Extended Kalman Filter}{6}{subsubsection.5.3.6.3}%
-\contentsline {subsubsection}{\numberline {5.3.6.4}The Two-Frames Group In-EKF}{6}{subsubsection.5.3.6.4}%
+\contentsline {subsection}{\numberline {5.3.3}Light and Colour}{6}{subsection.5.3.3}%
+\contentsline {subsubsection}{\numberline {5.3.3.1}Colour Spaces}{6}{subsubsection.5.3.3.1}%
+\contentsline {subsection}{\numberline {5.3.4}Image Formation}{6}{subsection.5.3.4}%
+\contentsline {subsection}{\numberline {5.3.5}Image Processing}{6}{subsection.5.3.5}%
+\contentsline {subsection}{\numberline {5.3.6}Triangulation}{6}{subsection.5.3.6}%
+\contentsline {subsection}{\numberline {5.3.7}Estimation Filtering and Noisy Signals}{6}{subsection.5.3.7}%
+\contentsline {subsubsection}{\numberline {5.3.7.1}The Kalman Filter}{6}{subsubsection.5.3.7.1}%
+\contentsline {subsubsection}{\numberline {5.3.7.2}The Extended Kalman Filter}{6}{subsubsection.5.3.7.2}%
+\contentsline {subsubsection}{\numberline {5.3.7.3}The Invariant Extended Kalman Filter}{6}{subsubsection.5.3.7.3}%
+\contentsline {subsubsection}{\numberline {5.3.7.4}The Two-Frames Group In-EKF}{6}{subsubsection.5.3.7.4}%
 \contentsline {section}{\numberline {5.4}Algorithm Development}{6}{section.5.4}%
 \contentsline {section}{\numberline {5.5}Implementation}{6}{section.5.5}%
 \contentsline {subsection}{\numberline {5.5.1}Camera Calibration}{6}{subsection.5.5.1}%
