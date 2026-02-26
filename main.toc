@@ -23,7 +23,14 @@
 \contentsline {subsection}{\numberline {3.3.1}Performance Requirements}{3}{subsection.3.3.1}%
 \contentsline {chapter}{\chapternumberline {4}Optimal Camera Placement}{4}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Literature Review}{4}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Theory Development}{4}{section.4.2}%
+\contentsline {subsection}{\numberline {4.1.1}Reasons for Optimising Camera Placement}{4}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Optimisation Approaches for Sensor Placement}{4}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}Genetic Algorithm Theory Development}{4}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Genetic Algorithm Terminology}{4}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Encoding Schemes}{4}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Selection Methods}{4}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Crossover Techniques}{4}{subsection.4.2.4}%
+\contentsline {subsection}{\numberline {4.2.5}Choosing Parameter Values}{4}{subsection.4.2.5}%
 \contentsline {section}{\numberline {4.3}Methodology}{4}{section.4.3}%
 \contentsline {section}{\numberline {4.4}Results and Discussion}{4}{section.4.4}%
 \contentsline {chapter}{\chapternumberline {5}Optical Motion Capture}{5}{chapter.5}%

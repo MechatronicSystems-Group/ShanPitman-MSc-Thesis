@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.7.21)  26 FEB 2026 14:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.7.21)  26 FEB 2026 15:07
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1787,7 +1787,7 @@ Package biblatex Info: ... file 'main.bbl' found.
  (main.bbl)
 Package biblatex Info: Reference section=0 on input line 74.
 Package biblatex Info: Reference segment=0 on input line 74.
-<Figures/UCT_MSG_wide.png, id=187, 526.8483pt x 120.45pt>
+<Figures/UCT_MSG_wide.png, id=215, 526.8483pt x 120.45pt>
 File: Figures/UCT_MSG_wide.png Graphic file (type png)
 <use Figures/UCT_MSG_wide.png>
 Package pdftex.def Info: Figures/UCT_MSG_wide.png  used on input line 78.
@@ -1977,23 +1977,23 @@ LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 405E98E2105E6E7757DC6A10E8FFC4B4;7851.
+(rerunfilecheck)             Checksum: 81B1E4623D6A44430CCD3B379B48DDFE;9376.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 49346 strings out of 468149
- 999462 string characters out of 5426690
- 2147054 words of memory out of 5000000
- 77153 multiletter control sequences out of 15000+600000
+ 49360 strings out of 468149
+ 999700 string characters out of 5426690
+ 2147060 words of memory out of 5000000
+ 77160 multiletter control sequences out of 15000+600000
  689097 words of font info for 127 fonts, out of 8000000 for 9000
  1145 hyphenation exceptions out of 8191
  85i,12n,120p,2717b,3014s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbxi10.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro10.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
-Output written on main.pdf (13 pages, 390748 bytes).
+Output written on main.pdf (13 pages, 396207 bytes).
 PDF statistics:
- 368 PDF objects out of 1000 (max. 8388607)
- 69 named destinations out of 1000 (max. 500000)
- 41846 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 405 PDF objects out of 1000 (max. 8388607)
+ 76 named destinations out of 1000 (max. 500000)
+ 41902 words of extra memory for PDF output out of 42996 (max. 10000000)
 
