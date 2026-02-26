@@ -1,33 +1,3 @@
-% MechatronicSystems.Group Latex Template, based on:
-% Maggi Memoir Thesis
-% XeLaTeX Template
-% Version 1.0 (04/09/25)
-%
-% This template has been downloaded from:
-% http://www.LaTeXTemplates.com
-%
-% Original authors:
-% Federico Maggi (fede@maggi.cc) with extensive modifications by:
-% James Hepworth (james.hepworth@uct.ac.za)
-%
-% License:
-% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
-%
-% Important notes:
-% This template needs to be compiled with XeLaTeX.
-%
-% Most of the document content and packages are specified within structure.tex
-% so if you need to make modifications to the template have a look there first!
-%
-% This template uses several fonts that are not available on most operating 
-% systems by default. These are: EB Garamond, Envy Code R and 
-% Optima Regular. You will either need to obtain these and install them on your
-% system or change them to different fonts. Simply go to the Fonts block just
-% below here and modify their names to other fonts. You can also comment them 
-% out completely to use the default LaTeX font.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %----------------------------------------------------------------------------------------
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
@@ -197,14 +167,13 @@ This work contributes an exemplar that explains what each report section should 
 
 \pagestyle{Ruled} % Include the chapter/section in the header along with a horizontal rule underneath
 
-\include{Chapters/introduction} % Include the introduction chapter
-\include{Chapters/literature_review} % Literature Review
-\include{Chapters/theory} % Theoretical Development
-\include{Chapters/methodology} % Methodology
-\include{Chapters/results} % Results/Findings
-\include{Chapters/discussion} % Discussion
-\include{Chapters/conclusions} % Conclusions
-\include{Chapters/recommendations} % Recommendations
+\include{Chapters/Introduction} % Include the introduction chapter
+\include{Chapters/Literature_Review} % Literature Review of overarching goal
+\include{Chapters/Systems_Specifications} % User requirements + specific goals
+\include{Chapters/OCP} % Optimal Camera Placement and Genetic Algorithm 
+\include{Chapters/TrackingAlgorithm} % Motion Capture Algorithm + Hardware
+\include{Chapters/Conclusion} % Conclusions
+
 
 
 \chapterstyle{default} % Reset the chapter style back to the default used for non-content chapters
@@ -218,7 +187,7 @@ This work contributes an exemplar that explains what each report section should 
 % APPENDICES
 %----------------------------------------------------------------------------------------
 \chapterstyle{thesis} % Change the style of the Chapter header to that defined in structure.tex
-\include{Chapters/appendices}
+\include{Chapters/Appendices}
 
 %----------------------------------------------------------------------------------------
 %	INDEX
