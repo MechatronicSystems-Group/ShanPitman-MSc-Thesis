@@ -19,6 +19,48 @@
 
 \refsection{0}
   \datalist[entry]{none/global//global/global/global}
+    \entry{rahimianOptimalCameraPlacement2017}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=129424088ee175ac5b9668ce89f3b856}{%
+           family={Rahimian},
+           familyi={R\bibinitperiod},
+           given={Pooya},
+           giveni={P\bibinitperiod}}}%
+        {{hash=69811b207a4f92298bd5ec7301bb450b}{%
+           family={Kearney},
+           familyi={K\bibinitperiod},
+           given={Joseph\bibnamedelima K.},
+           giveni={J\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+      }
+      \strng{namehash}{55a0c21d801cd7bb9d7fce99fa257add}
+      \strng{fullhash}{55a0c21d801cd7bb9d7fce99fa257add}
+      \strng{fullhashraw}{55a0c21d801cd7bb9d7fce99fa257add}
+      \strng{bibnamehash}{55a0c21d801cd7bb9d7fce99fa257add}
+      \strng{authorbibnamehash}{55a0c21d801cd7bb9d7fce99fa257add}
+      \strng{authornamehash}{55a0c21d801cd7bb9d7fce99fa257add}
+      \strng{authorfullhash}{55a0c21d801cd7bb9d7fce99fa257add}
+      \strng{authorfullhashraw}{55a0c21d801cd7bb9d7fce99fa257add}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1941-0506}
+      \field{journaltitle}{IEEE Transactions on Visualization and Computer Graphics}
+      \field{month}{3}
+      \field{number}{3}
+      \field{title}{Optimal {{Camera Placement}} for {{Motion Capture Systems}}}
+      \field{urlday}{30}
+      \field{urlmonth}{6}
+      \field{urlyear}{2025}
+      \field{volume}{23}
+      \field{year}{2017}
+      \field{urldateera}{ce}
+      \field{pages}{1209\bibrangedash 1221}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1109/TVCG.2016.2637334
+      \endverb
+    \endentry
     \entry{kirchhofOptimalPlacementMultiple2013}{inproceedings}{}{}
       \name{author}{1}{}{%
         {{hash=064cee7148de1bfc203d13b61d0000f9}{%
@@ -35,8 +77,8 @@
       \strng{authornamehash}{064cee7148de1bfc203d13b61d0000f9}
       \strng{authorfullhash}{064cee7148de1bfc203d13b61d0000f9}
       \strng{authorfullhashraw}{064cee7148de1bfc203d13b61d0000f9}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{International {{Conference}} on {{Indoor Positioning}} and {{Indoor Navigation}}}
@@ -84,8 +126,8 @@
       \strng{authornamehash}{cdda197d324f539ccf7c6dbe00929571}
       \strng{authorfullhash}{690e7bd6cd53ea383a78f04208629580}
       \strng{authorfullhashraw}{690e7bd6cd53ea383a78f04208629580}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{0921-0296, 1573-0409}
@@ -146,8 +188,8 @@
       \strng{authornamehash}{3d2c05116ef6e2bb58f19b476f275c9e}
       \strng{authorfullhash}{bbc682b14c93db624fffb9e26e5f774f}
       \strng{authorfullhashraw}{bbc682b14c93db624fffb9e26e5f774f}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1434-9957}
@@ -220,8 +262,8 @@
       \strng{editornamehash}{e142927ed4c568a28ff1ee06e834fa8b}
       \strng{editorfullhash}{db1ba1ae33e1bb8db2f7d8387604abd0}
       \strng{editorfullhashraw}{db1ba1ae33e1bb8db2f7d8387604abd0}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Advances in {{Service}} and {{Industrial Robotics}}}
@@ -232,48 +274,6 @@
       \range{pages}{8}
       \verb{doi}
       \verb 10.1007/978-3-031-32606-6_6
-      \endverb
-    \endentry
-    \entry{rahimianOptimalCameraPlacement2017}{article}{}{}
-      \name{author}{2}{}{%
-        {{hash=129424088ee175ac5b9668ce89f3b856}{%
-           family={Rahimian},
-           familyi={R\bibinitperiod},
-           given={Pooya},
-           giveni={P\bibinitperiod}}}%
-        {{hash=69811b207a4f92298bd5ec7301bb450b}{%
-           family={Kearney},
-           familyi={K\bibinitperiod},
-           given={Joseph\bibnamedelima K.},
-           giveni={J\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
-      }
-      \strng{namehash}{55a0c21d801cd7bb9d7fce99fa257add}
-      \strng{fullhash}{55a0c21d801cd7bb9d7fce99fa257add}
-      \strng{fullhashraw}{55a0c21d801cd7bb9d7fce99fa257add}
-      \strng{bibnamehash}{55a0c21d801cd7bb9d7fce99fa257add}
-      \strng{authorbibnamehash}{55a0c21d801cd7bb9d7fce99fa257add}
-      \strng{authornamehash}{55a0c21d801cd7bb9d7fce99fa257add}
-      \strng{authorfullhash}{55a0c21d801cd7bb9d7fce99fa257add}
-      \strng{authorfullhashraw}{55a0c21d801cd7bb9d7fce99fa257add}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{issn}{1941-0506}
-      \field{journaltitle}{IEEE Transactions on Visualization and Computer Graphics}
-      \field{month}{3}
-      \field{number}{3}
-      \field{title}{Optimal {{Camera Placement}} for {{Motion Capture Systems}}}
-      \field{urlday}{30}
-      \field{urlmonth}{6}
-      \field{urlyear}{2025}
-      \field{volume}{23}
-      \field{year}{2017}
-      \field{urldateera}{ce}
-      \field{pages}{1209\bibrangedash 1221}
-      \range{pages}{13}
-      \verb{doi}
-      \verb 10.1109/TVCG.2016.2637334
       \endverb
     \endentry
     \entry{puligandlaMultiresolutionApproachLarge2022}{article}{}{}
@@ -297,8 +297,8 @@
       \strng{authornamehash}{a2a245f6c805da54eb93252a4246353c}
       \strng{authorfullhash}{a2a245f6c805da54eb93252a4246353c}
       \strng{authorfullhashraw}{a2a245f6c805da54eb93252a4246353c}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{2169-3536}
@@ -352,8 +352,8 @@
       \strng{authornamehash}{b83cb10e66cbc070abf1b59bde8592cd}
       \strng{authorfullhash}{22493d1bf37a3739a994f3aec7e1c8ca}
       \strng{authorfullhashraw}{22493d1bf37a3739a994f3aec7e1c8ca}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{https://www.mdpi.com/2076-3417/14/5/1722}

@@ -2,7 +2,8 @@
 \label{OCP}
 
 \section{Literature Review}
-The effectiveness of an indoor localisation system depends on the strategic positioning of the sensor network. The application influences what the distribution prioritises. For example, it may be necessary to ensure the entire area is covered with sufficiently distinct viewpoints to capture elaborate motion, or coverage serves as a mean to be able to view the entire expanse, or it may need to be configured to mitigate the \gls{GDOP} arising from the sensor network's limited resolution \parencite{kirchhofOptimalPlacementMultiple2013}. This placement problem constitutes an optimisation task involving determination of both the quantity and pose of sensors so as to improve measurement quality by not exacerbating uncertainty due to poor placement. This section explores the various approaches to the \gls{OCP} problem; examining both the (1) characterisation and modeling of sources of inherent uncertainty, attributable to image quantisation and occlusion of the target, and strategies for addressing them, as well as (2) the range of optimisation methods employed, from heuristic algorithms to integer programming.
+The quality of a multi-camera localisation system depends on the geometric arrangement of its sensors, and optimising this configuration requires both a model of error sources and an effective search strategy. When the sensor placement is poor, the consequences tend to compound in two distinct ways. The first is measurement uncertainty due to the spatial relationship between camera and target. Cameras discretise their images into pixels; the further a target sits from a camera, the fewer pixels it subtends, and the larger the resulting position estimate. When two cameras observe the same target from nearly parallel viewing angles, the small pixel-level uncertainty propagates into a large displacement along the depth axis, precluding triangulation and consequently the recovered pose estimate. The second degrading factor is visibility loss caused by occlusion (both by obstacles in the environment and the target itself). If a camera is unable to view the target, the amount of measurements are reduced and the uncertainty is amplified \parencite{rahimianOptimalCameraPlacement2017}. Together, these two effects display how an arbitrary camera arrangement can culminate in localisation errors exacerbated 3D recontruction errors beyond the intrinsic noise of the sensors themselves. Thus, optimising the placement is not optional; it should be a prerewuisite for accurate tracking. However, the placement problem is combinatorially explosive, and NP-hard, which necessitates an optimisation strategy capable of exploring a large search space withoin reasonable computational time rather than relying on exhaustive evaluation \parencite{kirchhofOptimalPlacementMultiple2013}. This section reviews the literature on the \gls{OCP} problem for both of these factes: first, the optimisation strategies employed to search the multi-objective, unsmooth, ill-defined search space in sufficently good time, from heuristic algorithms to integer programming formulations; and second, how the sources of meausrement uncertainty, quantisation and occlusion, have been characterised and modelled.  
+
 
 \subsection{Background of OCP}
 The OCP descends from the well-studied \gls{AGP}, which investigated the minimum number of guards required to observe an entire 2D polygon with $n$ vertices. The AGP assumed guards had unlimited $360 \degree$ field of view, infinite range, and operated in two dimensions only. Fisk elegantly proved that $\lfloor\frac{n}{3}\rfloor$ guards are always sufficient to cover any simple polygon, using a proof based on triangulation and 3-colouring; in practice, specific polygons often require fewer, as demonstrated in Figure %\ref{fig:fisk} \parencite{fiskArtGalleryProblem1978}. 
@@ -26,14 +27,41 @@ Provided below is a summary table of the different optimisation qualities found 
 As mentioned earlier due to the large search space which is made so large becaus ethe problem is combinatorial (meaning additonal combinations of different aspects like position and roientation of each camera) which is NP-hard and increases expeonently with each additonal sensor added to the network it becomes necessary to make some simplifications as an exhaustive search especially for a room-sized scale search simply becomes intractable and computationally inefficent. This is often why the search-space is dicsretised both in the flight-space arena and in the possible mounting locations of the camera. 
 
 \subsection{Summary}
+
+The measurement uncertainty attributed to the spatial relationship between the target and the cameras can be modelled based on the distance between the target and camera which can excerbated pixel resolution and the orientation between camera's view vectors where the increasingly more parallel these vectors are results in ill-conditioned triangulation geometry, culminating in poor pose estimates and hence poor tracking
+
 As seen there have been a plethora of proposed methodologies for optimising camera placement in the literature which are summarised in the timeline below where they have been broadly categorised as heuristic optimisation or binary integer programming and their objectives have also been listed based on thematic colour rings indicated in the key. 
 
 \section{Theoretical Framework}
 \subsection{Genetic Algorithm Terminology}
+The language used to describe genetic algorithms borrows heavily from evolutionary biology. Table~\ref{tab:ga-terminology} defines these terms in both domains to clarify the analogy and establish consistent vocabulary for the sections that follow.
+
+\begin{table}[h]
+\centering
+\caption{Comparison of biological and genetic algorithm terminology.}
+\begin{tabularx}{\textwidth}{l X X}
+\toprule 
+Term & Biological Meaning & Genetic Algorithm Meaning \\
+\midrule 
+Chromosome & A structure of \gls{DNA} carrying genetic information & A complete candidate solution encoded in some representation, e.g bit strings \\
+Gene & A unit of heredity determining a specific trait & A single element or parameter within the candidate solution, e.g a bit \\
+Population & A group of interbreeding individuals of the same species & The set of candidate solutions existing at a given iteration \\
+Fitness & An organism's ability to survive and reproduce in its environment & An objective function quantifying how well a candidate solution achieves the desired goal \\
+Generation & All individuals born and living at approximately the same time & One complete iteration of the algorithm producing a new population \\
+Selection & Differential survival and reproduction due to heritable trait variation & An operator that chooses higher-performing individuals to serve as parents \\
+Crossover & Exchange of genetic material between homologous chromosomes during meiosis & An operator that combines portions of two parent solutions to create offspring \\
+Mutation & A random, heritable change in genetic sequence, ususally caused by a erroneous \gls{DNA} replication & An operator that randomly perturbs one or more genes in a solution \\
+\bottomrule
+\end{tabularx}
+\label{tab:ga-terminology}
+\end{table}
+
+This biological analogy provides useful intuition: just as natural selection refines a species over generations by favouring advantageous traits, genetic algorithms iteratively improve a population of solutions by favouring those with higher fitness. While genetic algorithms lack the biological complexity of true evolution, they do provide a productive conceptual framework. The effectiveness of this process depends on how solutions are represented, this is often reffered to as the encoding.
 \subsection{Encoding Schemes}
 \subsection{Selection Methods}
 \subsection{Crossover Techniques}
 \subsection{Convergence Analysis}
+
 
 
 \section{Methodology}

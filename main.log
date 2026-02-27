@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.7.21)  27 FEB 2026 14:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.7.21)  27 FEB 2026 18:09
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1955,16 +1955,23 @@ Chapter 5.
 
 [8]
 
-[9])
+[9]
+Underfull \hbox (badness 1097) in paragraph at lines 55--55
+[]|\T1/lmr/m/n/10.95 (+20) A ran-dom, her-it-able change
+ []
 
-[10]
+
+
+[10])
+
+[11]
 \openout2 = `Chapters/Conclusion.aux'.
 
  (Chapters/Conclusion.tex
 Chapter 6.
 )
 
-[11
+[12
 
 
 
@@ -1975,13 +1982,13 @@ Package microtype Info: Character `029' is missing
 (microtype)             Ignoring protrusion settings for this character.
 
 
-[12
+[13
 
 
 
 ]
 
-[13]
+[14]
 \openout2 = `Chapters/Appendices.aux'.
 
  (Chapters/Appendices.tex)
@@ -2001,23 +2008,23 @@ LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 2C8660325D7AD4919D1D4E1C214F5C66;14486.
+(rerunfilecheck)             Checksum: D46979A49CA493BB0D8DED6DFCABAF56;14486.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 49867 strings out of 468149
- 1010123 string characters out of 5426690
- 2153779 words of memory out of 5000000
- 77527 multiletter control sequences out of 15000+600000
- 694866 words of font info for 160 fonts, out of 8000000 for 9000
+ 49900 strings out of 468149
+ 1010623 string characters out of 5426690
+ 2153870 words of memory out of 5000000
+ 77544 multiletter control sequences out of 15000+600000
+ 701393 words of font info for 168 fonts, out of 8000000 for 9000
  1145 hyphenation exceptions out of 8191
  85i,12n,120p,2717b,3014s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbxi10.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro10.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
-Output written on main.pdf (21 pages, 518718 bytes).
+<C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx9.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbxi10.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr9.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro10.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
+Output written on main.pdf (22 pages, 575347 bytes).
 PDF statistics:
- 701 PDF objects out of 1000 (max. 8388607)
- 148 named destinations out of 1000 (max. 500000)
- 44190 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 725 PDF objects out of 1000 (max. 8388607)
+ 150 named destinations out of 1000 (max. 500000)
+ 48286 words of extra memory for PDF output out of 51595 (max. 10000000)
 
