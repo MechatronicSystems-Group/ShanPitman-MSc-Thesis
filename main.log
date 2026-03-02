@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.7.21)  27 FEB 2026 18:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.7.21)  2 MAR 2026 18:00
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1787,7 +1787,7 @@ Package biblatex Info: ... file 'main.bbl' found.
  (main.bbl)
 Package biblatex Info: Reference section=0 on input line 74.
 Package biblatex Info: Reference segment=0 on input line 74.
-<Figures/UCT_MSG_wide.png, id=335, 526.8483pt x 120.45pt>
+<Figures/UCT_MSG_wide.png, id=339, 526.8483pt x 120.45pt>
 File: Figures/UCT_MSG_wide.png Graphic file (type png)
 <use Figures/UCT_MSG_wide.png>
 Package pdftex.def Info: Figures/UCT_MSG_wide.png  used on input line 78.
@@ -1945,33 +1945,55 @@ Chapter 4.
  (Chapters/OCP.tex
 Chapter 5.
 
+Underfull \hbox (badness 10000) in paragraph at lines 3--5
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--8
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--11
+
+ []
+
+
 
 [7
 
 
 
 
-{C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}]
+]
+Underfull \hbox (badness 10000) in paragraph at lines 16--18
 
-[8]
+ []
+
+
+
+[8{C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}]
 
 [9]
-Underfull \hbox (badness 1097) in paragraph at lines 55--55
+
+[10]
+Underfull \hbox (badness 1097) in paragraph at lines 71--71
 []|\T1/lmr/m/n/10.95 (+20) A ran-dom, her-it-able change
  []
 
 
 
-[10])
+[11])
 
-[11]
+[12]
 \openout2 = `Chapters/Conclusion.aux'.
 
  (Chapters/Conclusion.tex
 Chapter 6.
 )
 
-[12
+[13
 
 
 
@@ -1982,13 +2004,13 @@ Package microtype Info: Character `029' is missing
 (microtype)             Ignoring protrusion settings for this character.
 
 
-[13
+[14
 
 
 
 ]
 
-[14]
+[15]
 \openout2 = `Chapters/Appendices.aux'.
 
  (Chapters/Appendices.tex)
@@ -2008,23 +2030,23 @@ LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: D46979A49CA493BB0D8DED6DFCABAF56;14486.
+(rerunfilecheck)             Checksum: 17AF7BBD7D5AEC5095B2130903194F14;14641.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 49900 strings out of 468149
- 1010623 string characters out of 5426690
- 2153870 words of memory out of 5000000
- 77544 multiletter control sequences out of 15000+600000
- 701393 words of font info for 168 fonts, out of 8000000 for 9000
+ 49987 strings out of 468149
+ 1012022 string characters out of 5426690
+ 2155015 words of memory out of 5000000
+ 77621 multiletter control sequences out of 15000+600000
+ 701642 words of font info for 171 fonts, out of 8000000 for 9000
  1145 hyphenation exceptions out of 8191
  85i,12n,120p,2717b,3014s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx9.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbxi10.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr9.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro10.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Shannon Pitman/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
-Output written on main.pdf (22 pages, 575347 bytes).
+Output written on main.pdf (23 pages, 584072 bytes).
 PDF statistics:
- 725 PDF objects out of 1000 (max. 8388607)
- 150 named destinations out of 1000 (max. 500000)
- 48286 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 756 PDF objects out of 1000 (max. 8388607)
+ 154 named destinations out of 1000 (max. 500000)
+ 48294 words of extra memory for PDF output out of 51595 (max. 10000000)
 

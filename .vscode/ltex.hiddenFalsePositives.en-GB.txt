@@ -1,0 +1,2 @@
+{"rule":"OXFORD_SPELLING_Z_NOT_S","sentence":"^\\QSensor noise, calibration accuracy, and algorithmic performance all matter; yet even a perfectly calibrated, high-quality camera system with a refined proprietary algorithm can still fail to localise the target if its cameras are poorly arranged.\\E$"}
+{"rule":"OXFORD_SPELLING_Z_NOT_S","sentence":"^\\QThe quality of a multi-camera localisation is determined as much by the geometric arrangement as by hardware.\\E$"}

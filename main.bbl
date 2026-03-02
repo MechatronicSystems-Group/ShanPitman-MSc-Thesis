@@ -19,6 +19,43 @@
 
 \refsection{0}
   \datalist[entry]{none/global//global/global/global}
+    \entry{sharmaAnalysisUncertaintyBounds1998}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=e480f911d13c8fef86576f5c5d41aa60}{%
+           family={Sharma},
+           familyi={S\bibinitperiod},
+           given={Rajeev},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{e480f911d13c8fef86576f5c5d41aa60}
+      \strng{fullhash}{e480f911d13c8fef86576f5c5d41aa60}
+      \strng{fullhashraw}{e480f911d13c8fef86576f5c5d41aa60}
+      \strng{bibnamehash}{e480f911d13c8fef86576f5c5d41aa60}
+      \strng{authorbibnamehash}{e480f911d13c8fef86576f5c5d41aa60}
+      \strng{authornamehash}{e480f911d13c8fef86576f5c5d41aa60}
+      \strng{authorfullhash}{e480f911d13c8fef86576f5c5d41aa60}
+      \strng{authorfullhashraw}{e480f911d13c8fef86576f5c5d41aa60}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0091-3286}
+      \field{journaltitle}{Optical Engineering}
+      \field{month}{1}
+      \field{number}{1}
+      \field{title}{Analysis of Uncertainty Bounds Due to Quantization for Three-Dimensional Position Estimation Using Multiple Cameras}
+      \field{urlday}{22}
+      \field{urlmonth}{8}
+      \field{urlyear}{2025}
+      \field{volume}{37}
+      \field{year}{1998}
+      \field{urldateera}{ce}
+      \field{pages}{280}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1117/1.601615
+      \endverb
+    \endentry
     \entry{rahimianOptimalCameraPlacement2017}{article}{}{}
       \name{author}{2}{}{%
         {{hash=129424088ee175ac5b9668ce89f3b856}{%
@@ -40,8 +77,8 @@
       \strng{authornamehash}{55a0c21d801cd7bb9d7fce99fa257add}
       \strng{authorfullhash}{55a0c21d801cd7bb9d7fce99fa257add}
       \strng{authorfullhashraw}{55a0c21d801cd7bb9d7fce99fa257add}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1941-0506}
@@ -61,6 +98,68 @@
       \verb 10.1109/TVCG.2016.2637334
       \endverb
     \endentry
+    \entry{aissaouiDesigningCameraPlacement2018}{article}{}{}
+      \name{author}{6}{}{%
+        {{hash=49fc1b25e960717e282cf9d570f5acac}{%
+           family={Aissaoui},
+           familyi={A\bibinitperiod},
+           given={Azeddine},
+           giveni={A\bibinitperiod}}}%
+        {{hash=f9a30af732dce6cedd4b208f0caa8f47}{%
+           family={Ouafi},
+           familyi={O\bibinitperiod},
+           given={Abdelkrim},
+           giveni={A\bibinitperiod}}}%
+        {{hash=7819a27e5741d8900d331f41709d4e61}{%
+           family={Pudlo},
+           familyi={P\bibinitperiod},
+           given={Philippe},
+           giveni={P\bibinitperiod}}}%
+        {{hash=7b791513c43d3233b41b2a72c1827550}{%
+           family={Gillet},
+           familyi={G\bibinitperiod},
+           given={Christophe},
+           giveni={C\bibinitperiod}}}%
+        {{hash=120e31915dc3c81e3b1350d80327f440}{%
+           family={Baarir},
+           familyi={B\bibinitperiod},
+           given={Zine-Eddine},
+           giveni={Z\bibinithyphendelim E\bibinitperiod}}}%
+        {{hash=34ee50ab6c6b1b2e16b88a5886fa9f54}{%
+           family={{Taleb-Ahmed}},
+           familyi={T\bibinitperiod},
+           given={Abdelmalik},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{3d2c05116ef6e2bb58f19b476f275c9e}
+      \strng{fullhash}{bbc682b14c93db624fffb9e26e5f774f}
+      \strng{fullhashraw}{bbc682b14c93db624fffb9e26e5f774f}
+      \strng{bibnamehash}{bbc682b14c93db624fffb9e26e5f774f}
+      \strng{authorbibnamehash}{bbc682b14c93db624fffb9e26e5f774f}
+      \strng{authornamehash}{3d2c05116ef6e2bb58f19b476f275c9e}
+      \strng{authorfullhash}{bbc682b14c93db624fffb9e26e5f774f}
+      \strng{authorfullhashraw}{bbc682b14c93db624fffb9e26e5f774f}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1434-9957}
+      \field{journaltitle}{Virtual Reality}
+      \field{month}{3}
+      \field{number}{1}
+      \field{title}{Designing a Camera Placement Assistance System for Human Motion Capture Based on a Guided Genetic Algorithm}
+      \field{urlday}{9}
+      \field{urlmonth}{7}
+      \field{urlyear}{2025}
+      \field{volume}{22}
+      \field{year}{2018}
+      \field{urldateera}{ce}
+      \field{pages}{13\bibrangedash 23}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1007/s10055-017-0310-7
+      \endverb
+    \endentry
     \entry{kirchhofOptimalPlacementMultiple2013}{inproceedings}{}{}
       \name{author}{1}{}{%
         {{hash=064cee7148de1bfc203d13b61d0000f9}{%
@@ -77,8 +176,8 @@
       \strng{authornamehash}{064cee7148de1bfc203d13b61d0000f9}
       \strng{authorfullhash}{064cee7148de1bfc203d13b61d0000f9}
       \strng{authorfullhashraw}{064cee7148de1bfc203d13b61d0000f9}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{International {{Conference}} on {{Indoor Positioning}} and {{Indoor Navigation}}}
@@ -126,8 +225,8 @@
       \strng{authornamehash}{cdda197d324f539ccf7c6dbe00929571}
       \strng{authorfullhash}{690e7bd6cd53ea383a78f04208629580}
       \strng{authorfullhashraw}{690e7bd6cd53ea383a78f04208629580}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{0921-0296, 1573-0409}
@@ -145,68 +244,6 @@
       \range{pages}{39}
       \verb{doi}
       \verb 10.1007/s10846-007-9164-7
-      \endverb
-    \endentry
-    \entry{aissaouiDesigningCameraPlacement2018}{article}{}{}
-      \name{author}{6}{}{%
-        {{hash=49fc1b25e960717e282cf9d570f5acac}{%
-           family={Aissaoui},
-           familyi={A\bibinitperiod},
-           given={Azeddine},
-           giveni={A\bibinitperiod}}}%
-        {{hash=f9a30af732dce6cedd4b208f0caa8f47}{%
-           family={Ouafi},
-           familyi={O\bibinitperiod},
-           given={Abdelkrim},
-           giveni={A\bibinitperiod}}}%
-        {{hash=7819a27e5741d8900d331f41709d4e61}{%
-           family={Pudlo},
-           familyi={P\bibinitperiod},
-           given={Philippe},
-           giveni={P\bibinitperiod}}}%
-        {{hash=7b791513c43d3233b41b2a72c1827550}{%
-           family={Gillet},
-           familyi={G\bibinitperiod},
-           given={Christophe},
-           giveni={C\bibinitperiod}}}%
-        {{hash=120e31915dc3c81e3b1350d80327f440}{%
-           family={Baarir},
-           familyi={B\bibinitperiod},
-           given={Zine-Eddine},
-           giveni={Z\bibinithyphendelim E\bibinitperiod}}}%
-        {{hash=34ee50ab6c6b1b2e16b88a5886fa9f54}{%
-           family={{Taleb-Ahmed}},
-           familyi={T\bibinitperiod},
-           given={Abdelmalik},
-           giveni={A\bibinitperiod}}}%
-      }
-      \strng{namehash}{3d2c05116ef6e2bb58f19b476f275c9e}
-      \strng{fullhash}{bbc682b14c93db624fffb9e26e5f774f}
-      \strng{fullhashraw}{bbc682b14c93db624fffb9e26e5f774f}
-      \strng{bibnamehash}{bbc682b14c93db624fffb9e26e5f774f}
-      \strng{authorbibnamehash}{bbc682b14c93db624fffb9e26e5f774f}
-      \strng{authornamehash}{3d2c05116ef6e2bb58f19b476f275c9e}
-      \strng{authorfullhash}{bbc682b14c93db624fffb9e26e5f774f}
-      \strng{authorfullhashraw}{bbc682b14c93db624fffb9e26e5f774f}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{issn}{1434-9957}
-      \field{journaltitle}{Virtual Reality}
-      \field{month}{3}
-      \field{number}{1}
-      \field{title}{Designing a Camera Placement Assistance System for Human Motion Capture Based on a Guided Genetic Algorithm}
-      \field{urlday}{9}
-      \field{urlmonth}{7}
-      \field{urlyear}{2025}
-      \field{volume}{22}
-      \field{year}{2018}
-      \field{urldateera}{ce}
-      \field{pages}{13\bibrangedash 23}
-      \range{pages}{11}
-      \verb{doi}
-      \verb 10.1007/s10055-017-0310-7
       \endverb
     \endentry
     \entry{zieglerOptimalCameraPlacement2023}{inproceedings}{}{}
@@ -262,8 +299,8 @@
       \strng{editornamehash}{e142927ed4c568a28ff1ee06e834fa8b}
       \strng{editorfullhash}{db1ba1ae33e1bb8db2f7d8387604abd0}
       \strng{editorfullhashraw}{db1ba1ae33e1bb8db2f7d8387604abd0}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Advances in {{Service}} and {{Industrial Robotics}}}
@@ -297,8 +334,8 @@
       \strng{authornamehash}{a2a245f6c805da54eb93252a4246353c}
       \strng{authorfullhash}{a2a245f6c805da54eb93252a4246353c}
       \strng{authorfullhashraw}{a2a245f6c805da54eb93252a4246353c}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{2169-3536}
@@ -352,8 +389,8 @@
       \strng{authornamehash}{b83cb10e66cbc070abf1b59bde8592cd}
       \strng{authorfullhash}{22493d1bf37a3739a994f3aec7e1c8ca}
       \strng{authorfullhashraw}{22493d1bf37a3739a994f3aec7e1c8ca}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{https://www.mdpi.com/2076-3417/14/5/1722}
@@ -364,43 +401,6 @@
       \field{urlyear}{2025}
       \field{year}{2024}
       \field{urldateera}{ce}
-    \endentry
-    \entry{sharmaAnalysisUncertaintyBounds1998}{article}{}{}
-      \name{author}{1}{}{%
-        {{hash=e480f911d13c8fef86576f5c5d41aa60}{%
-           family={Sharma},
-           familyi={S\bibinitperiod},
-           given={Rajeev},
-           giveni={R\bibinitperiod}}}%
-      }
-      \strng{namehash}{e480f911d13c8fef86576f5c5d41aa60}
-      \strng{fullhash}{e480f911d13c8fef86576f5c5d41aa60}
-      \strng{fullhashraw}{e480f911d13c8fef86576f5c5d41aa60}
-      \strng{bibnamehash}{e480f911d13c8fef86576f5c5d41aa60}
-      \strng{authorbibnamehash}{e480f911d13c8fef86576f5c5d41aa60}
-      \strng{authornamehash}{e480f911d13c8fef86576f5c5d41aa60}
-      \strng{authorfullhash}{e480f911d13c8fef86576f5c5d41aa60}
-      \strng{authorfullhashraw}{e480f911d13c8fef86576f5c5d41aa60}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{issn}{0091-3286}
-      \field{journaltitle}{Optical Engineering}
-      \field{month}{1}
-      \field{number}{1}
-      \field{title}{Analysis of Uncertainty Bounds Due to Quantization for Three-Dimensional Position Estimation Using Multiple Cameras}
-      \field{urlday}{22}
-      \field{urlmonth}{8}
-      \field{urlyear}{2025}
-      \field{volume}{37}
-      \field{year}{1998}
-      \field{urldateera}{ce}
-      \field{pages}{280}
-      \range{pages}{1}
-      \verb{doi}
-      \verb 10.1117/1.601615
-      \endverb
     \endentry
     \entry{daiOptimalCameraConfiguration}{article}{}{}
       \name{author}{1}{}{%
