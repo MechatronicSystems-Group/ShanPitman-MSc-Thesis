@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="354" height="242" viewBox="0 0 354 242">
+<path fill="none" stroke-width="0.4" stroke-linecap="butt" stroke-linejoin="round" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M 144 656 L 208 720 L 224 656 L 288 672 L 240 704 L 368 752 L 384 672 L 464 640 L 352 592 L 256 512 L 208 592 L 112 560 L 176 624 L 144 656 " transform="matrix(1, 0, 0, -1, -111, 753)"/>
+<path fill="none" stroke-width="0.4" stroke-linecap="butt" stroke-linejoin="round" stroke="rgb(0%, 0%, 100%)" stroke-opacity="1" stroke-miterlimit="10" d="M 144 656 L 224 656 L 176 624 " transform="matrix(1, 0, 0, -1, -111, 753)"/>
+<path fill="none" stroke-width="0.4" stroke-linecap="butt" stroke-linejoin="round" stroke="rgb(0%, 0%, 100%)" stroke-opacity="1" stroke-miterlimit="10" d="M 176 624 L 208 592 " transform="matrix(1, 0, 0, -1, -111, 753)"/>
+<path fill="none" stroke-width="0.4" stroke-linecap="butt" stroke-linejoin="round" stroke="rgb(0%, 0%, 100%)" stroke-opacity="1" stroke-miterlimit="10" d="M 208 592 L 352 592 " transform="matrix(1, 0, 0, -1, -111, 753)"/>
+<path fill="none" stroke-width="0.4" stroke-linecap="butt" stroke-linejoin="round" stroke="rgb(0%, 0%, 100%)" stroke-opacity="1" stroke-miterlimit="10" d="M 208 592 L 224 656 " transform="matrix(1, 0, 0, -1, -111, 753)"/>
+<path fill="none" stroke-width="0.4" stroke-linecap="butt" stroke-linejoin="round" stroke="rgb(0%, 0%, 100%)" stroke-opacity="1" stroke-miterlimit="10" d="M 224 656 L 352 592 " transform="matrix(1, 0, 0, -1, -111, 753)"/>
+<path fill="none" stroke-width="0.4" stroke-linecap="butt" stroke-linejoin="round" stroke="rgb(0%, 0%, 100%)" stroke-opacity="1" stroke-miterlimit="10" d="M 288 672 L 352 592 " transform="matrix(1, 0, 0, -1, -111, 753)"/>
+<path fill="none" stroke-width="0.4" stroke-linecap="butt" stroke-linejoin="round" stroke="rgb(0%, 0%, 100%)" stroke-opacity="1" stroke-miterlimit="10" d="M 352 592 L 384 672 L 288 672 " transform="matrix(1, 0, 0, -1, -111, 753)"/>
+<path fill="none" stroke-width="0.4" stroke-linecap="butt" stroke-linejoin="round" stroke="rgb(0%, 0%, 100%)" stroke-opacity="1" stroke-miterlimit="10" d="M 288 672 L 368 752 " transform="matrix(1, 0, 0, -1, -111, 753)"/>
+</svg>

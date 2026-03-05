@@ -4,4 +4,5 @@
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces In this example, a polygon with $n=13$ vertices is first triangulated, then each vertex is assigned one of three colours such that no triangle shares two vertices of the same colour; placing guards at all vertices of the least frequent colour guarantees complete coverage.}}{15}{figure.caption.10}%
 \addvspace {10pt}

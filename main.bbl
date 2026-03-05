@@ -139,6 +139,7 @@
       \strng{authornamehash}{3d2c05116ef6e2bb58f19b476f275c9e}
       \strng{authorfullhash}{bbc682b14c93db624fffb9e26e5f774f}
       \strng{authorfullhashraw}{bbc682b14c93db624fffb9e26e5f774f}
+      \field{extraname}{1}
       \field{sortinit}{3}
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
@@ -194,6 +195,51 @@
       \verb 10.1109/IPIN.2013.6817862
       \endverb
     \endentry
+    \entry{olagueOptimalCameraPlacement2002}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=3b8f867df81780dc38a95c9f749ca2ce}{%
+           family={Olague},
+           familyi={O\bibinitperiod},
+           given={Gustavo},
+           giveni={G\bibinitperiod}}}%
+        {{hash=875e7d63b52aca0b503cd86bc2679d37}{%
+           family={Mohr},
+           familyi={M\bibinitperiod},
+           given={Roger},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier BV}%
+      }
+      \strng{namehash}{7cb7f08bd0f17f88122eecc69b81b2df}
+      \strng{fullhash}{7cb7f08bd0f17f88122eecc69b81b2df}
+      \strng{fullhashraw}{7cb7f08bd0f17f88122eecc69b81b2df}
+      \strng{bibnamehash}{7cb7f08bd0f17f88122eecc69b81b2df}
+      \strng{authorbibnamehash}{7cb7f08bd0f17f88122eecc69b81b2df}
+      \strng{authornamehash}{7cb7f08bd0f17f88122eecc69b81b2df}
+      \strng{authorfullhash}{7cb7f08bd0f17f88122eecc69b81b2df}
+      \strng{authorfullhashraw}{7cb7f08bd0f17f88122eecc69b81b2df}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0031-3203}
+      \field{journaltitle}{Pattern Recognition}
+      \field{month}{4}
+      \field{number}{4}
+      \field{title}{Optimal Camera Placement for Accurate Reconstruction}
+      \field{urlday}{9}
+      \field{urlmonth}{7}
+      \field{urlyear}{2025}
+      \field{volume}{35}
+      \field{year}{2002}
+      \field{urldateera}{ce}
+      \field{pages}{927\bibrangedash 944}
+      \range{pages}{18}
+      \verb{doi}
+      \verb 10.1016/s0031-3203(01)00076-0
+      \endverb
+    \endentry
     \entry{bodorOptimalCameraPlacement2007}{article}{}{}
       \name{author}{4}{}{%
         {{hash=c9faa13aaa9afbf18113f354033269a8}{%
@@ -225,8 +271,8 @@
       \strng{authornamehash}{cdda197d324f539ccf7c6dbe00929571}
       \strng{authorfullhash}{690e7bd6cd53ea383a78f04208629580}
       \strng{authorfullhashraw}{690e7bd6cd53ea383a78f04208629580}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{0921-0296, 1573-0409}
@@ -299,8 +345,8 @@
       \strng{editornamehash}{e142927ed4c568a28ff1ee06e834fa8b}
       \strng{editorfullhash}{db1ba1ae33e1bb8db2f7d8387604abd0}
       \strng{editorfullhashraw}{db1ba1ae33e1bb8db2f7d8387604abd0}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Advances in {{Service}} and {{Industrial Robotics}}}
@@ -312,6 +358,55 @@
       \verb{doi}
       \verb 10.1007/978-3-031-32606-6_6
       \endverb
+    \endentry
+    \entry{zhouSensorPlacementOptimization2024}{misc}{}{}
+      \name{author}{5}{}{%
+        {{hash=da6a0f814880001a7463887d3e5bf8e9}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={Jiahui},
+           giveni={J\bibinitperiod}}}%
+        {{hash=2fd639c608ed08d2e4b7075b3bfede5f}{%
+           family={Deng},
+           familyi={D\bibinitperiod},
+           given={Heng},
+           giveni={H\bibinitperiod}}}%
+        {{hash=90ba5394cf8b8d693349afe1d16caf27}{%
+           family={Zhao},
+           familyi={Z\bibinitperiod},
+           given={Zhiyao},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=b05676c42078eb5403349406a834f979}{%
+           family={Zou},
+           familyi={Z\bibinitperiod},
+           given={Yu},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=15269a7b5672f488c814b93d6cd69946}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Xujia},
+           giveni={X\bibinitperiod}}}%
+      }
+      \strng{namehash}{b83cb10e66cbc070abf1b59bde8592cd}
+      \strng{fullhash}{22493d1bf37a3739a994f3aec7e1c8ca}
+      \strng{fullhashraw}{22493d1bf37a3739a994f3aec7e1c8ca}
+      \strng{bibnamehash}{22493d1bf37a3739a994f3aec7e1c8ca}
+      \strng{authorbibnamehash}{22493d1bf37a3739a994f3aec7e1c8ca}
+      \strng{authornamehash}{b83cb10e66cbc070abf1b59bde8592cd}
+      \strng{authorfullhash}{22493d1bf37a3739a994f3aec7e1c8ca}
+      \strng{authorfullhashraw}{22493d1bf37a3739a994f3aec7e1c8ca}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{https://www.mdpi.com/2076-3417/14/5/1722}
+      \field{month}{2}
+      \field{title}{Sensor {{Placement Optimization}} of {{Visual Sensor Networks}} for {{Target Tracking Based}} on {{Multi-Objective Constraints}}}
+      \field{urlday}{14}
+      \field{urlmonth}{8}
+      \field{urlyear}{2025}
+      \field{year}{2024}
+      \field{urldateera}{ce}
     \endentry
     \entry{puligandlaMultiresolutionApproachLarge2022}{article}{}{}
       \name{author}{2}{}{%
@@ -353,55 +448,6 @@
       \verb 10.1109/ACCESS.2022.3176817
       \endverb
     \endentry
-    \entry{zhouSensorPlacementOptimization2024}{misc}{}{}
-      \name{author}{5}{}{%
-        {{hash=da6a0f814880001a7463887d3e5bf8e9}{%
-           family={Zhou},
-           familyi={Z\bibinitperiod},
-           given={Jiahui},
-           giveni={J\bibinitperiod}}}%
-        {{hash=2fd639c608ed08d2e4b7075b3bfede5f}{%
-           family={Deng},
-           familyi={D\bibinitperiod},
-           given={Heng},
-           giveni={H\bibinitperiod}}}%
-        {{hash=90ba5394cf8b8d693349afe1d16caf27}{%
-           family={Zhao},
-           familyi={Z\bibinitperiod},
-           given={Zhiyao},
-           giveni={Z\bibinitperiod}}}%
-        {{hash=b05676c42078eb5403349406a834f979}{%
-           family={Zou},
-           familyi={Z\bibinitperiod},
-           given={Yu},
-           giveni={Y\bibinitperiod}}}%
-        {{hash=15269a7b5672f488c814b93d6cd69946}{%
-           family={Wang},
-           familyi={W\bibinitperiod},
-           given={Xujia},
-           giveni={X\bibinitperiod}}}%
-      }
-      \strng{namehash}{b83cb10e66cbc070abf1b59bde8592cd}
-      \strng{fullhash}{22493d1bf37a3739a994f3aec7e1c8ca}
-      \strng{fullhashraw}{22493d1bf37a3739a994f3aec7e1c8ca}
-      \strng{bibnamehash}{22493d1bf37a3739a994f3aec7e1c8ca}
-      \strng{authorbibnamehash}{22493d1bf37a3739a994f3aec7e1c8ca}
-      \strng{authornamehash}{b83cb10e66cbc070abf1b59bde8592cd}
-      \strng{authorfullhash}{22493d1bf37a3739a994f3aec7e1c8ca}
-      \strng{authorfullhashraw}{22493d1bf37a3739a994f3aec7e1c8ca}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{https://www.mdpi.com/2076-3417/14/5/1722}
-      \field{month}{2}
-      \field{title}{Sensor {{Placement Optimization}} of {{Visual Sensor Networks}} for {{Target Tracking Based}} on {{Multi-Objective Constraints}}}
-      \field{urlday}{14}
-      \field{urlmonth}{8}
-      \field{urlyear}{2025}
-      \field{year}{2024}
-      \field{urldateera}{ce}
-    \endentry
     \entry{daiOptimalCameraConfiguration}{article}{}{}
       \name{author}{1}{}{%
         {{hash=bf000eb1f91bb323c6d55f806a77af6d}{%
@@ -423,6 +469,74 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Optimal {{Camera Configuration}} for {{Large-Scale Motion Capture Systems}}}
+    \endentry
+    \entry{aissaouiOptimisationTechniqueCamera2014}{article}{}{}
+      \name{author}{7}{}{%
+        {{hash=95a28207a0e1b174a95b2668465d00ae}{%
+           family={Aissaoui},
+           familyi={A\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=66eb9e60ef0bedee5b06b29335e0ae00}{%
+           family={Baarir},
+           familyi={B\bibinitperiod},
+           given={Z.},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=f2a442b070a8be85fd128d3a0528e5bf}{%
+           family={Ouafi},
+           familyi={O\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=b90ed375485696185f28251ab909c2e1}{%
+           family={Pudlo},
+           familyi={P\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+        {{hash=6853d6aa0423fd9bf0d4ff3120756833}{%
+           family={{Taleb-Ahmed}},
+           familyi={T\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=2eec662ca243b5aff591dad189f2cedf}{%
+           family={Gillet},
+           familyi={G\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=4115c49d3c73ddfc1bde13ccd22f23e1}{%
+           family={Deraz},
+           familyi={D\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{04d8de185eda8cfb6b0664b43c4dc962}
+      \strng{fullhash}{6567d9a88ddd52e4a6f6c7a9d0b98c4e}
+      \strng{fullhashraw}{6567d9a88ddd52e4a6f6c7a9d0b98c4e}
+      \strng{bibnamehash}{04d8de185eda8cfb6b0664b43c4dc962}
+      \strng{authorbibnamehash}{04d8de185eda8cfb6b0664b43c4dc962}
+      \strng{authornamehash}{04d8de185eda8cfb6b0664b43c4dc962}
+      \strng{authorfullhash}{6567d9a88ddd52e4a6f6c7a9d0b98c4e}
+      \strng{authorfullhashraw}{6567d9a88ddd52e4a6f6c7a9d0b98c4e}
+      \field{extraname}{2}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1025-5842, 1476-8259}
+      \field{journaltitle}{Computer Methods in Biomechanics and Biomedical Engineering}
+      \field{month}{8}
+      \field{number}{sup1}
+      \field{title}{Optimisation Technique of Camera Placement for Motion Capture Simulations}
+      \field{urlday}{30}
+      \field{urlmonth}{6}
+      \field{urlyear}{2025}
+      \field{volume}{17}
+      \field{year}{2014}
+      \field{urldateera}{ce}
+      \field{pages}{122\bibrangedash 123}
+      \range{pages}{2}
+      \verb{doi}
+      \verb 10.1080/10255842.2014.931517
+      \endverb
     \endentry
   \enddatalist
 \endrefsection

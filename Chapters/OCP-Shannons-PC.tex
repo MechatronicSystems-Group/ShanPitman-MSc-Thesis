@@ -1,0 +1,105 @@
+\chapter{Optimal Camera Placement}
+\label{OCP}
+The quality of a multi-camera localisation system is determined as much by the geometric arrangement as by hardware. Sensor noise, calibration accuracy, and algorithmic performance all matter; yet even a perfectly calibrated, high-quality camera system running a sophisticated algorithm can still fail to localise the target if its cameras are poorly arranged. To dtermine an \gls{OCP} requires both a model of how error arises and propagates, and an effective optimsation strategy that is capable of navigating a large search space. 
+\\
+
+When the sensor placement is suboptimal, the inaccuracy tends to compound in two ways. The first results from the geometric measurement uncertainty. Cameras discretise their worldview into pixels; the target is projected onto a finite grid of pixels, and its position is inferred from this quantised image (as explained in \ref{sec:CameraModelProjection}). The further a target is from a camera, the fewer pixels it subtends, reducing the spatial resolution and increasing the resulting position estimate's variance. Moreover, when two cameras observe a target from nearly parallel viewing angles, small pixel-level uncertainties preclude triangulation \parencite{sharmaAnalysisUncertaintyBounds1998}. The resulting depth estimate becomes ill-conditioned, degrading the tracking prediction \parencite{rahimianOptimalCameraPlacement2017}. Hence, in these avoidable configurations, the limitation of the tracking system is not the sensor itself but the geometry of the arrangement.
+\\
+
+The second degrading source of tracking accuracy is visibility loss. Intuitively a camera cannot measure what it cannot see. Occlusion, whether caused by invariant static obstacles in the environment or dynamically occurring by the target itself reduce the number of measurements \parencite{rahimianOptimalCameraPlacement2017}. Similarly, limited coverage may result in area's being unobserved. Therefore, it may be necessary to optimise for an arrangement that rewards redundant views whilst still ensuring that most of the flight space is observable \parencite{aissaouiDesigningCameraPlacement2018}. Thus, the arrangement of the sensors can exacerbate localisation error beyond the intrinsic noise characteristics of the cameras themselves. 
+\\
+
+Optimising placement, however, is combinatorially explosive, and classified as \gls{NP-hard} \parencite{kirchhofOptimalPlacementMultiple2013}. As the number of inputs (camera, candidate placements, and workspace size) grow, the number of possible configurations grows exponentially; consequently, an exhaustive search becomes intractable.  In this context, \gls{NP-hard} denotes that the problem becomes increasingly computationally challenging to find a guaranteed global solution with a multitude of inputs. The literature suggests that heuristic- or metaheauristic-based algorithms, such as genetic algorithms, greedy methods, or \gls{PSO} approaches, are adopted because of their proficiency in exploring large, unsmooth, multi-objective search spaces efficiently [CITATION NEEDED]. Alternatives, like integer and mixed-integer programming attempt to find globally optimal solutions but under more heavily imposed constraints. Therefore, each optimisation technique reflects a tradeoff between optimality guarantees, scalability, efficiency and modelling fidelity.
+
+\section{Literature Review}
+   
+Optimising camera placement is not optional; it should be a prerequisite for accurate tracking. This section reviews the literature on the \gls{OCP} problem. First, the optimisation strategies employed to search the ill-defined, non-convex search space in sufficiently good time are examined. Second, an examination of how the sources of measurement uncertainty, quantisation, triangulation geometry,  and occlusion, have been characterized and modelled is provided.  Together, this provides the state of the art in designing geometrically valid and computationally reasonable multi-camera tracking systems.
+\\
+\subsection{Background of OCP}
+\gls{OCP} descends from the well-studied \gls{AGP}, which established the combinatorial foundations of visibility-based sensor placement but was formulated under idealised assumptions which is too limiting for physical sensors. The \gls{AGP} found the  minimum number of omnidirectional guards required to observe an entire 2D polygon with $n$ vertices. Fisk proved, via triangulation and 3-colouring, that $\lfloor\frac{n}{3}\rfloor$ guards are always sufficient for covering any simple polygon, as demonstrated in Figure %\ref{fig:fisk} \parencite{fiskArtGalleryProblem1978}.
+The AGP usefulness is bounded by its assumptions: where guard are endowed with unlimited sensing range for 360 $\circ$ \gls{FOV}, and perfect visibility. Real cameras violate these assumptions; where physical sensors have a limited range of marker detection and resolution that degrades with distance, a finite \gls{FOV}, and the target's may be occluded during observation. [CITATION NEEDED: O'Rourke (1987) Art Gallery Theorems and Algorithms  AGP complexity is NP-hard->OCP is also NP-hard]
+
+(maybe make this part of the caption: In this example, a polygon with $n=13$ vertices is first triangulated, then each vertex is assigned one of three colours such that no triangle shares two vertices of the same colour; placing guards at all vertices of the least frequent colour guarantees complete coverage.)
+\\
+Therefore, although the \gls{OCP} inherits the NP-hard combinatorial structure of the \gls{AGP} it is necessary for the optimisation to account for the sensor's limitations, favour double coverage for triangulation, and to quantify the observational quality spatially rather than described as a binary visibility test.  
+
+\subsection{Motivation for Optimal Placement}
+These constraints are motivated by diverse applications, such as: surveillance and monitoring \parencite{bodorOptimalCameraPlacement2007}, motion capture \parencite{aissaouiDesigningCameraPlacement2018, zieglerOptimalCameraPlacement2023}, augmented and virtual reality \parencite{rahimianOptimalCameraPlacement2017}, and autonomous driving \parencite{puligandlaMultiresolutionApproachLarge2022}. In such visual sensor networks, accurate localisation requires that each marker or feature be visible to at least two cameras, enabling 3D position recovery through triangulation \parencite{aissaouiDesigningCameraPlacement2018,zieglerOptimalCameraPlacement2023}. Most papers emphasise that sensor placement (including amount, location, orientation, and arrangement to the other sensors in the network) significantly affects system coverage and tracking performance \parencite{zhouSensorPlacementOptimization2024}. However, the OCP is NP-hard and combinatorial; this means that the search space grows explosively with the number of candidate positions and orientations, rendering exhaustive search intractable. Consequently, most investigators resort to heuristic-based approximation algorithms as they offer a practical path to reach acceptable solutions within reasonable computation time.
+
+Generally, the OCP can be stated as follows: given a set of candidate camera locations and orientations, find the configuration that maximises 3D reconstruction quality of a target within a defined workspace, subject to practical constraints such as mounting options and budget. Solving this problem requires balancing trade-offs among coverage, accuracy, and computational efficiency. Without the aid of an optimisation algorithm, the sensors are arranged in an ad-hoc configuration by the designer, which requires expertise or trial and error, which can be time-consuming or sacrificial if a sub-par arrangement is settled on with no mathematical  quantitative guidance. Thus, the resulting localisation error is neither calculated nor considered mathematically. Here lies the need to optimise the camera network based on metrics that minimise degrading effects like resolution uncertainty and probabilistic occlusion even if the trajectory of the target is not known exactly beforehand.
+
+\subsection{Optimisation Approaches for Sensor Placement}
+Recent research has diverged into avenues of how to formulate the problem, when to conclude that an optimal solution has been found, and what consitutes success as a benchmark. Two primary classes of optimisation methods have emerged: heuristic algorithms and integer programming. The problem formulation typically depends of defining a specific objective function, sensor model, and workspace representation. Eventhough the search space is continuous it is typical of designers to discretise both the workspace and the possible camera locations to make the problem more computable. Depending on the application, available resources, and workspace constraints, different optimisation objectives have been prioritised in the literature. Broadly, these can be categorised into coverage-based objectives and accuracy-based objectives. In terms of coverage-based objectives, the goal is to maximise the visible area of the workspace, and sometimes going further to handle aspects of occlusion both static and dynamic and hence usually ensuring a two-cover coverage. This is particularly relevant in surveillance applications where ensuring that all regions are monitored is critical \parencite{bodorOptimalCameraPlacement2007}. Conversely, accuracy-based objectives focus on minimising localisation error, which is crucial in motion capture and augmented reality applications where precise tracking is required and more than one camera arranged sufficiently non-parallel is needed to ensure triangulation is possible \parencite{aissaouiDesigningCameraPlacement2018, rahimianOptimalCameraPlacement2017}. Wu, Sharma, and Huang proposed another accuracy-based metric of placement which assessed how the limited camera intrinsics and quantisation lead to inaccurate measurements exacerbated by the placement of two cameras \parencite{sharmaAnalysisUncertaintyBounds1998}. Many studies have proposed hybrid objectives that balance the trade-off of accuracy with coverage \parencite{zieglerOptimalCameraPlacement2023, zhouSensorPlacementOptimization2024}. Some works have also considered additional constraints such as budget limits and physical mounting options \parencite{aissaouiDesigningCameraPlacement2018, puligandlaMultiresolutionApproachLarge2022, daiOptimalCameraConfiguration}.
+
+\subsubsection{Optimisation Objectives}
+The configuration quality for 3D marker tracking and trinagulation is mostly affected by two main sources of error: marker visibility and triangulation accuracy. In terms of the application being \gls{MoCap}, a marker should not be occluded by any obstacle, including itself, the marker must be within the cameras field of view, vissible given the camera's resolution and range of capture. These are necessary to ensure consistent and continual tracking. Furthermore, at least two cameras should be arranged sufficiently non-parallel so that triangulation is well-conditioned. Sometimes, the easy answer is just to throw more cameras at the problem as that does give redundant views and ensures we can place camera pairs to cover the scene in a sufficently non-parallel format but in most research situationships, it is not prudent to over-exhaust the budget and hence it may be a desirable goal to asses the least amount of cameras required to achieve a level of accuracy/ coverage to minimise cost.  
+
+Provided below is a summary table of the different optimisation qualities found across papers in the literature
+(insert table with rows indication paper citation and application and columns of optimsation objectives)
+
+\subsection{Modelling the Problem}
+As mentioned earlier due to the large search space which is made so large becaus ethe problem is combinatorial (meaning additonal combinations of different aspects like position and roientation of each camera) which is NP-hard and increases expeonently with each additonal sensor added to the network it becomes necessary to make some simplifications as an exhaustive search especially for a room-sized scale search simply becomes intractable and computationally inefficent. This is often why the search-space is dicsretised both in the flight-space arena and in the possible mounting locations of the camera. 
+
+\subsection{Summary}
+
+The measurement uncertainty attributed to the spatial relationship between the target and the cameras can be modelled based on the distance between the target and camera which can excerbated pixel resolution and the orientation between camera's view vectors where the increasingly more parallel these vectors are results in ill-conditioned triangulation geometry, culminating in poor pose estimates and hence poor tracking
+
+As seen there have been a plethora of proposed methodologies for optimising camera placement in the literature which are summarised in the timeline below where they have been broadly categorised as heuristic optimisation or binary integer programming and their objectives have also been listed based on thematic colour rings indicated in the key. 
+
+The optimal camera placement problem extends the \gls{AGP} foundation by introducing constraints that reflect the true capabilities and limitations of physical sensors.
+
+\section{Theoretical Framework}
+\subsection{Genetic Algorithm Terminology}
+The language used to describe genetic algorithms borrows heavily from evolutionary biology. Table~\ref{tab:ga-terminology} defines these terms in both domains to clarify the analogy and establish consistent vocabulary for the sections that follow.
+
+\begin{table}[h]
+\centering
+\caption{Comparison of biological and genetic algorithm terminology.}
+\begin{tabularx}{\textwidth}{l X X}
+\toprule 
+Term & Biological Meaning & Genetic Algorithm Meaning \\
+\midrule 
+Chromosome & A structure of \gls{DNA} carrying genetic information & A complete candidate solution encoded in some representation, e.g bit strings \\
+Gene & A unit of heredity determining a specific trait & A single element or parameter within the candidate solution, e.g a bit \\
+Population & A group of interbreeding individuals of the same species & The set of candidate solutions existing at a given iteration \\
+Fitness & An organism's ability to survive and reproduce in its environment & An objective function quantifying how well a candidate solution achieves the desired goal \\
+Generation & All individuals born and living at approximately the same time & One complete iteration of the algorithm producing a new population \\
+Selection & Differential survival and reproduction due to heritable trait variation & An operator that chooses higher-performing individuals to serve as parents \\
+Crossover & Exchange of genetic material between homologous chromosomes during meiosis & An operator that combines portions of two parent solutions to create offspring \\
+Mutation & A random, heritable change in genetic sequence, ususally caused by a erroneous \gls{DNA} replication & An operator that randomly perturbs one or more genes in a solution \\
+\bottomrule
+\end{tabularx}
+\label{tab:ga-terminology}
+\end{table}
+
+This biological analogy provides useful intuition: just as natural selection refines a species over generations by favouring advantageous traits, genetic algorithms iteratively improve a population of solutions by favouring those with higher fitness. While genetic algorithms lack the biological complexity of true evolution, they do provide a productive conceptual framework. The effectiveness of this process depends on how solutions are represented, this is often reffered to as the encoding.
+\subsection{Encoding Schemes}
+\subsection{Selection Methods}
+\subsection{Crossover Techniques}
+\subsection{Convergence Analysis}
+
+
+
+\section{Methodology}
+\subsection{Algorithm Configuration}
+\subsubsection{Parameter Selection}
+\subsubsection{Initial Population}
+\subsubsection{Tournament Selection}
+\subsubsection{Double Point Crossover}
+\subsubsection{Mutation}
+\subsubsection{Elitism}
+\subsection{Cost Function}
+\subsubsection{Resolution Uncertainty Cost Function}
+\subsubsection{Dynamic Occlusion Cost Function}
+\subsubsection{Combined Cost Function}
+\subsection{Termination Criteria}
+
+
+\section{Results and Discussion}
+\subsection{Convergence Behaviour}
+\subsection{Cost Function Evaluation}
+\subsection{Parameter Sensitivity Analysis}
+\subsection{Optimal Placement Configurations}
+Different Modalities
+Random Placement, ad hoc placement 
+\subsection{System Limitations} ?

@@ -30,6 +30,7 @@
 \usepackage{etoolbox}   % Toolbox of programming facilities
 
 % Mathematics
+\usepackage{amsmath}
 \usepackage{mathtools}  % Extension of amsmath, provides additional math tools
 \usepackage{amssymb}    % Extended math symbol collection
 \usepackage{siunitx}    % Comprehensive (SI) units package
@@ -46,12 +47,14 @@
 \usepackage{multicol}   % Create tabular cells spanning multiple columns
 
 % Figures and floats
-\usepackage{graphicx}   % Enhanced support for images
 \usepackage{float}      % Improved interface for floating objects
 \usepackage[labelfont=bf,justification=centering,footnotesize]{caption} % Captions
 \usepackage{subcaption} % Support for sub-captions
 \usepackage{pdfpages}   % Include PDF documents
 \usepackage{placeins}   % Keep floating objects in their place
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,calc,backgrounds,fit,shadows}
+\usepackage{svg}
 
 % Algorithims
 \usepackage[ruled]{algorithm2e} % Algorithm environment
@@ -95,6 +98,8 @@
 
 \checkandfixthelayout % Makes sure your specifications are correct and implements them in the document
 
+% Paragraph break length
+\setlength{\parskip}{1em}
 %----------------------------------------------------------------------------------------
 %	CHAPTER HEADING STYLE
 %----------------------------------------------------------------------------------------
