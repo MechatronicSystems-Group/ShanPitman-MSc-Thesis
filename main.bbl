@@ -448,6 +448,59 @@
       \verb 10.1109/ACCESS.2022.3176817
       \endverb
     \endentry
+    \entry{zhangCoverageOptimizationVisual2019}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=591f1c0ccbdb518c6d0d8e851e589480}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Xuebo},
+           giveni={X\bibinitperiod}}}%
+        {{hash=1717ddb6d6257d1600a436e6cbfe3876}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Boyu},
+           giveni={B\bibinitperiod}}}%
+        {{hash=0c475071538366636655ccf385c755e7}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Xiang},
+           giveni={X\bibinitperiod}}}%
+        {{hash=1be285bc5a26052b9d905788e8b8e650}{%
+           family={Fang},
+           familyi={F\bibinitperiod},
+           given={Yongchun},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{ecd80ba19b29683f0a4431ef03ca668a}
+      \strng{fullhash}{5ff38bb6b91ff6604235280ae05d0ba4}
+      \strng{fullhashraw}{5ff38bb6b91ff6604235280ae05d0ba4}
+      \strng{bibnamehash}{5ff38bb6b91ff6604235280ae05d0ba4}
+      \strng{authorbibnamehash}{5ff38bb6b91ff6604235280ae05d0ba4}
+      \strng{authornamehash}{ecd80ba19b29683f0a4431ef03ca668a}
+      \strng{authorfullhash}{5ff38bb6b91ff6604235280ae05d0ba4}
+      \strng{authorfullhashraw}{5ff38bb6b91ff6604235280ae05d0ba4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{issn}{2366-598X}
+      \field{journaltitle}{International Journal of Intelligent Robotics and Applications}
+      \field{month}{12}
+      \field{number}{4}
+      \field{shorttitle}{Coverage Optimization of Visual Sensor Networks for Observing 3-{{D}} Objects}
+      \field{title}{Coverage Optimization of Visual Sensor Networks for Observing 3-{{D}} Objects: Survey and Comparison}
+      \field{urlday}{14}
+      \field{urlmonth}{8}
+      \field{urlyear}{2025}
+      \field{volume}{3}
+      \field{year}{2019}
+      \field{urldateera}{ce}
+      \field{pages}{342\bibrangedash 361}
+      \range{pages}{20}
+      \verb{doi}
+      \verb 10.1007/s41315-019-00102-6
+      \endverb
+    \endentry
     \entry{daiOptimalCameraConfiguration}{article}{}{}
       \name{author}{1}{}{%
         {{hash=bf000eb1f91bb323c6d55f806a77af6d}{%
@@ -469,6 +522,56 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Optimal {{Camera Configuration}} for {{Large-Scale Motion Capture Systems}}}
+    \endentry
+    \entry{junPlacingVisualSensors2018}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=ea5e5b587b8da013ed251b2e458c436f}{%
+           family={Jun},
+           familyi={J\bibinitperiod},
+           given={Sungbum},
+           giveni={S\bibinitperiod}}}%
+        {{hash=455b653b4588dc5667aa6d9f02e3ff70}{%
+           family={Chang},
+           familyi={C\bibinitperiod},
+           given={Tai-Woo},
+           giveni={T\bibinithyphendelim W\bibinitperiod}}}%
+        {{hash=a59c30fbbd30a43a61a334313f7b841f}{%
+           family={Yoon},
+           familyi={Y\bibinitperiod},
+           given={Hyuk-Jin},
+           giveni={H\bibinithyphendelim J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Multidisciplinary Digital Publishing Institute}%
+      }
+      \strng{namehash}{d5f8c4ca8820b9e35aa949d71a1111c2}
+      \strng{fullhash}{a166dd97a4bd38cd5b595560556c7b1f}
+      \strng{fullhashraw}{a166dd97a4bd38cd5b595560556c7b1f}
+      \strng{bibnamehash}{a166dd97a4bd38cd5b595560556c7b1f}
+      \strng{authorbibnamehash}{a166dd97a4bd38cd5b595560556c7b1f}
+      \strng{authornamehash}{d5f8c4ca8820b9e35aa949d71a1111c2}
+      \strng{authorfullhash}{a166dd97a4bd38cd5b595560556c7b1f}
+      \strng{authorfullhashraw}{a166dd97a4bd38cd5b595560556c7b1f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2076-3417}
+      \field{journaltitle}{Applied Sciences}
+      \field{month}{1}
+      \field{number}{1}
+      \field{title}{Placing {{Visual Sensors Using Heuristic Algorithms}} for {{Bridge Surveillance}}}
+      \field{urlday}{14}
+      \field{urlmonth}{8}
+      \field{urlyear}{2025}
+      \field{volume}{8}
+      \field{year}{2018}
+      \field{urldateera}{ce}
+      \field{pages}{70}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3390/app8010070
+      \endverb
     \endentry
     \entry{aissaouiOptimisationTechniqueCamera2014}{article}{}{}
       \name{author}{7}{}{%
@@ -539,6 +642,7 @@
       \endverb
     \endentry
   \enddatalist
+  \missing{zhaoApproximateTechniquesSolving2013}
 \endrefsection
 \endinput
 
