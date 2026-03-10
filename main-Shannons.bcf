@@ -2444,23 +2444,7 @@
     <bcf:citekey order="53" intorder="1">aissaouiDesigningCameraPlacement2018</bcf:citekey>
     <bcf:citekey order="53" intorder="2">puligandlaMultiresolutionApproachLarge2022</bcf:citekey>
     <bcf:citekey order="53" intorder="3">daiOptimalCameraConfiguration</bcf:citekey>
-    <bcf:citekey order="54" intorder="1">olagueOptimalCameraPlacement2002</bcf:citekey>
-    <bcf:citekey order="55" intorder="1">kirchhofOptimalPlacementMultiple2013</bcf:citekey>
-    <bcf:citekey order="56" intorder="1">zhouSensorPlacementOptimization2024</bcf:citekey>
-    <bcf:citekey order="57" intorder="1">rahimianOptimalCameraPlacement2017</bcf:citekey>
-    <bcf:citekey order="58" intorder="1">aissaouiDesigningCameraPlacement2018</bcf:citekey>
-    <bcf:citekey order="59" intorder="1">zhaoApproximateTechniquesSolving2013</bcf:citekey>
-    <bcf:citekey order="60" intorder="1">aurandAccuracyMapOptical2017</bcf:citekey>
-    <bcf:citekey order="61" intorder="1">nagymate2018optitrack</bcf:citekey>
-    <bcf:citekey order="62" intorder="1">olagueOptimalCameraPlacement2002</bcf:citekey>
-    <bcf:citekey order="63" intorder="1">aissaouiDesigningCameraPlacement2018</bcf:citekey>
-    <bcf:citekey order="64" intorder="1">aissaouiDesigningCameraPlacement2018</bcf:citekey>
-    <bcf:citekey order="65" intorder="1">aissaouiDesigningCameraPlacement2018</bcf:citekey>
-    <bcf:citekey order="66" intorder="1">sharmaAnalysisUncertaintyBounds1998</bcf:citekey>
-    <bcf:citekey order="67" intorder="1">rahimianOptimalCameraPlacement2017</bcf:citekey>
-    <bcf:citekey order="68" intorder="1">rahimianOptimalCameraPlacement2017</bcf:citekey>
-    <bcf:citekey order="69" intorder="1">aurandAccuracyMapOptical2017</bcf:citekey>
-    <bcf:citekey order="70" intorder="1">aissaouiOptimisationTechniqueCamera2014</bcf:citekey>
+    <bcf:citekey order="54" intorder="1">aissaouiOptimisationTechniqueCamera2014</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

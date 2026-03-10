@@ -55,10 +55,12 @@ Without a formal optimiser, camera networks are typicaaly set-up through ad-hoc 
 Thus, the motivation to optimise is evident but the problem itself is involved. The \gls{AGP}, from which the \gls{OCP} descends, is NP-hard even under its idealised two-dimensional, panoptic-guard assumptions \parencite{kirchhofOptimalPlacementMultiple2013}. Subsequently, the \gls{OCP} is even more complex since it requires more inputs: each camera is described both by a three-dimensional position $(x,y,z)$ and orientation $(\theta, \phi, \psi)$, and the sensor has constraints, such as a finite field of view and depth of field that the \gls{AGP} does not consider [Citation NEEDED/ section reference here about AGP being NP hard and thus with OCP having more constraints it becomes increasingly challenging]. The placement of $k$ cameras over a subsampled three-dimensional workspace creates a search space that grows combinatorially. If the mounting locations are discretised, further reducing the cardinality of the problem, into $N$ candidate positions, each allowing $M$ candidate orientations, then the number of distinct camera configurations is $\binom{NM}{k}$. For a modest $N=50$ possible positions, $M= 8$ orientations, and $k=6$ cameras this exceeds $5^{12}$ combinations; every one of which requires its own assessment based on the cost function which involves visibility quality and or triangulation geometry computations. Consequently, most investigators resort to meta-heuristic-based approximation algorithms which, albeit without global optimality guarantees, offer the only practical path to obtain acceptable solutions within reasonable computation time.
 
 \subsection{Optimisation Approaches for Sensor Placement}
-The \gls{OCP} literature divides broadly into two optimisation techniques, distinguished by how the cost function is accessed by the solver. In the first, the placement problem is formulated as a mathematical program, typically a \gls{BIP} or \gls{MILP}, in which the cost function and constraints are expressed algebraically as linear or quadratic functions of binary decision variables. Exact solvers such as CPLEX can exploit this structure to compute optimality limits via branch-and-bound, but this requires that sensor models, visibility checks, and accuracy metrics all be linearised or relaxed into the required form \parencite{zhaoApproximateTechniquesSolving2013}. In practice, this linearisation either limits the fidelity of the sensor model or, for complex 3D environments with occlusion, produces BIP instances too large to solve exactly, forcing the use of approximate sub-solvers such as greedy heuristics or LP relaxations even within the mathematical programming framework [NEED CITATION].
+\label{sec:lit-review-approaches}
+The \gls{OCP} literature is conventionally divided into two groups of solver: mathematical programming (typically \gls{BIP} or \gls{MILP}) and metaheuristic search (\gls{GA}, \gls{PSO}, \gls{SA}). This framing is not wrong, but it obscures a more consequential distinction. The choice that most constrains both the solver and the fidelity of the resulting solution is whether the placement space is discretised. In a discrete formulation, the continuous room is sampled onto a finite grid of candidate positions and orientations before optimisation begins; the solver then selects a subset of these candidates. In a continuous formulation, the solver operates directly on real-valued camera parameters, position and orientation, without any prior commitment to a grid. Everything downstream, including which algorithms are admissible, what optimality guarantees are available, and how faithfully the cost function can represent the underlying physics, follows from this single modelling decision.
 
-In the second paradigm, the cost function is treated as a black box: the optimiser submits candidate camera configurations and receives a scalar cost value, with no knowledge of or requirement on the function's internal structure. Metaheuristic algorithms including genetic algorithms, particle swarm optimisation, and simulated annealing, operate in this manner, exploring the search space through stochastic, population-based mechanisms that require neither gradient information nor a linearised objective. This formulation-independence is what permits arbitrarily complex cost functions, such as those involving ray-cast visibility checks or probabilistic dynamic occlusion models, which cannot be expressed as linear constraints.  \ref{fig: Heuristic Distribution}, GAs are the most prevalent metaheuristic in the surveyed \gls{OCP} literature, followed by PSO, 
-with SA and greedy approaches appearing less frequently.
+Discrete formulations are the natural domain of mathematical programming. \gls{BIP} and \gls{MILP} encode the placement problem as a selection over binary decision variables: each candidate sensor pose is either included or excluded. This structure admits exact solvers such as CPLEX, which exploit branch-and-bound to compute optimality bounds, and permits the designer to prove that a solution is within a known factor of the global optimum \parencite{kirchhofOptimalPlacementMultiple2013}. Kirchhof presented both a \gls{BIP} and a \gls{MILP} formulation for indoor sensor placement, using \gls{GDOP} as the placement quality metric, and demonstrated that for moderately sized instances the solver can certify optimality. Dai formulated the multi-camera \gls{MoCap} problem as a \gls{BIP} with an occlusion culling factor, proving a logarithmic performance ratio $H(k)$ for the greedy sub-solver used to handle larger instances \parencite{daiOptimalCameraConfiguration}. The cost, however, is modelling fidelity. \gls{BIP} requires that the objective function, visibility checks, and accuracy metrics all be expressed as linear or quadratic functions of binary variables. In practice, this either limits the sensor model to what can be linearised, or it produces problem instances too large for exact solvers, forcing the use of approximate sub-solvers such as greedy heuristics or LP relaxations even within the mathematical programming framework \parencite{zhaoApproximateTechniquesSolving2013}. Discretisation also introduces a modelling artefact: the optimal solution is constrained to lie on the grid. The coarser the grid, the larger the potential gap between the discrete optimum and the true continuous one; yet finer grids produce \gls{BIP} instances that grow combinatorially, which was the motivation for discretising in the first place.
+
+Meta-heuristic algorithms approach the problem from the opposite direction. Rather than requiring the cost function to conform to an algebraic structure, they treat it as a black box: the solver submits a candidate camera configuration and receives a scalar cost, where the optimiser has no knowledge of or requirement on the function's internal form. \gls{GA}s, \gls{PSO}, and \gls{SA} all operate in this manner, exploring the search space through stochastic, population-based or neighbourhood-based mechanisms that require neither gradient information nor a linearised objective. This formulation-independence is precisely what permits complex cost functions involving ray-cast visibility checks, probabilistic dynamic occlusion models, or \gls{GDOP}-based triangulation metrics, none of which can be expressed as linear constraints. As shown in Figure \ref{fig: Heuristic Distribution}, \gls{GA}s are the most prevalent metaheuristic in the surveyed \gls{OCP} literature, followed by \gls{PSO}, with \gls{SA} and greedy approaches appearing less frequently. Note that the placement space itself may still be discretised under this paradigm: Zhou et al., for instance, discretised candidate sensor positions at regular intervals along the workspace perimeter before applying a multi-objective metaheuristic \parencite{zhouSensorPlacementOptimization2024}. The distinction between algebraic and black-box solvers is therefore orthogonal to the distinction between discrete and continuous placement spaces, and conflating the two obscures the actual design choices made by each author.
 
 \begin{figure}[htbp]
     \centering
@@ -69,25 +71,71 @@ with SA and greedy approaches appearing less frequently.
     \label{fig: Heuristic Distribution}
 \end{figure}
 
-paragraph on strengths/weaknesses of different meta-heuristics 
-Some are combined to create hybrid methods. Note that the placement space itself may still be discretised under this paradigm: Zhou et al., for instance, discretised candidate sensor positions at regular intervals along the workspace perimeter before applying a multi-objective metaheuristic \parencite{zhouSensorPlacementOptimization2024}. 
+The diversity of solvers in the literature is not arbitrary; each reflects a deliberate trade-off between the guarantees the designer was willing to forgo and the modelling complexity they needed to retain. Kirchhof adopted \gls{BIP} because indoor localisation with a small number of candidate poses permitted exact optimality certification, and his \gls{GDOP} metric could be linearised without excessive distortion; but he also presented a continuous NLP alternative for comparison, acknowledging that the discrete formulation imposes a ceiling on solution quality \parencite{kirchhofOptimalPlacementMultiple2013}. Dai retained the \gls{BIP} framework for a larger \gls{MoCap} problem but conceded the need for a greedy sub-solver once the instance size exceeded what branch-and-bound could handle, proving only a logarithmic approximation ratio rather than exact optimality \parencite{daiOptimalCameraConfiguration}. At the other extreme, Rahimian and Kearney chose simulated annealing because their occlusion-based error metric, which integrates visibility over all possible orientations of a dynamic occluder whilst simultaneously enforcing triangulability, cannot be decomposed into linear constraints; SA's probabilistic acceptance of worse solutions also provided a mechanism to escape the local minima that pervade such non-convex landscapes \parencite{rahimianOptimalCameraPlacement2017}. Olague and Mohr selected a real-valued GA for a similar reason: the covariance of 3D point reconstruction that they sought to minimise is a nonlinear function of continuous camera parameters, and the GA's population-based search offered broad exploration without requiring gradient information \parencite{olagueOptimalCameraPlacement2002}. Aissaoui et al. adopted a GA but found that an unguided population converged too slowly over the high-dimensional search space of a multi-camera \gls{MoCap} system; their response was to seed the initial population using a distribution-and-estimation technique that restricted the search to a physically plausible capture zone based on an expected trajectory, producing what they termed a "guided genetic algorithm" \parencite{aissaouiDesigningCameraPlacement2018}. Ziegler et al. avoided meta-heuristics entirely, smoothing the binary visibility function with a $\tanh$ approximation to render the problem differentiable and solving the resulting nonlinear program with IPOPT, a gradient-based interior-point solver \parencite{zieglerOptimalCameraPlacement2023}. The pattern that emerges is instructive: as the cost function retains physical fidelity, the solver must become more flexible, and the designer must accept weaker guarantees about the quality of the returned solution.
+
+The most revealing trend in the recent literature is not the dominance of any single algorithm but the growing prevalence of hybrid methods. Zhou et al. combined \gls{PSO} with a \gls{GA} explicitly to compensate for the tendency of each to stagnate: \gls{PSO} converges rapidly but is prone to premature convergence in multimodal landscapes, while the \gls{GA}'s crossover and mutation operators maintain diversity but converge slowly on their own \parencite{zhouSensorPlacementOptimization2024}. Zhang et al. compared and combined \gls{GA} and \gls{PSO} formulations for 3D object coverage \parencite{zhangCoverageOptimizationVisual2019}. Aissaoui et al.'s guided \gls{GA} is itself a bit of a hybrid: domain knowledge is used to reduce the effective search space before the stochastic optimiser begins, combining deterministic preprocessing with evolutionary search \parencite{aissaouiDesigningCameraPlacement2018}. That investigators keep bolting supplementary mechanisms onto individual solvers is itself the most compelling evidence that no single algorithm has proven sufficient. The problem resists tidy solutions, and the literature has responded not by finding the right algorithm but by combining imperfect ones.
+
+
+Returning to the discrete-versus-continuous axis: the literature's treatment of the placement space is seemingly inconsistent. Kirchhof sampled sensor poses at regular intervals along wall edges and mountable surfaces as a prerequisite for his \gls{BIP} \parencite{kirchhofOptimalPlacementMultiple2013}. Dai discretised candidate locations into a grid of positions with associated orientation bins \parencite{daiOptimalCameraConfiguration}. Zhou et al. placed candidate positions at regular perimeter intervals before applying their hybrid meta-heuristic \parencite{zhouSensorPlacementOptimization2024}. In each case, discretisation was adopted to make the problem more computationally manageable, but none of these authors systematically examined what was lost in doing so. On the continuous side, Olague and Mohr encoded camera parameters as real-valued chromosomes \parencite{olagueOptimalCameraPlacement2002}; Aissaoui et al. represented each individual as a real-valued vector of translation and orientation parameters \parencite{aissaouiDesigningCameraPlacement2018}; Rahimian and Kearney optimised over continuous camera poses constrained to user-specified geometric regions \parencite{rahimianOptimalCameraPlacement2017}; and Ziegler et al. solved a continuous nonlinear program directly \parencite{zieglerOptimalCameraPlacement2023}. Kirchhof is uniquely instructive because he presented both a discrete \gls{BIP} and a continuous NLP formulation and compared their runtime and solution quality, but this dual treatment remains the exception rather than the norm. What is absent from the literature is a single system that is designed to operate across the spectrum: fully continuous placement when the mounting environment permits it, and discrete placement when physical constraints such as fixed bracket locations demand it, with the same underlying cost function and genetic operators adapted to both modes. (add when the search and mounting space was 3d or constrined to 2d )
+
+\subsection{Modelling the Problem}
+maybe restructure the discrete vs contnuous aspect here 
 
 \subsubsection{Optimisation Objectives}
+
+The most intuitive \gls{OCP} objective, and historically the first, is spatial coverage: ensuring that every point in the workspace is observed by at least one camera, or by at least $k$ cameras for redundancy. This objective descends directly from the \gls{AGP}, where success is defined as a binary visibility test, a point is either seen or it is not. Bodor et al. maximised an aggregate observability measure weighted by task-specific motion statistics, which is fundamentally a coverage metric, albeit one that prioritises regions of expected activity over uniform spatial exhaustiveness \parencite{bodorOptimalCameraPlacement2007}. Zhou etal. included a spatial coverage term in their multi-objective function to ensure that the workspace is adequately monitored \parencite{zhouSensorPlacementOptimization2024}. For surveillance applications, where the goal is exhaustive monitoring rather than precise reconstruction, coverage-dominant objectives are often sufficient. For \gls{MoCap}, they are not. A marker that is visible to only one camera cannot be triangulated. Coverage guarantees observation; it does not guarantee measurement.
+
+For applications requiring three-dimensional reconstruction, the objective must encode measurement quality, and the literature has characterised this quality through three distinct but complementary mechanisms. The first is triangulation geometry. When two cameras observe a target from nearly parallel viewing angles, the resulting depth estimate becomes ill-conditioned regardless of how precisely each camera localises the target in its own image plane. Kirchhof used \gls{GDOP} explicitly as a metric of geometric quality, penalising configurations where the angular separation between sensor lines-of-sight is insufficient for well-conditioned triangulation \parencite{kirchhofOptimalPlacementMultiple2013}. Ziegler et al. constrained the convergence angle between optical axes and demonstrated that triangulation error increases exponentially as the convergence angle approaches $0\degree$ or $180\degree$ \parencite{zieglerOptimalCameraPlacement2023}. Olague and Mohr minimised the maximum diagonal element of the covariance matrix of 3D point reconstruction, capturing the worst-case error propagation for a given configuration \parencite{olagueOptimalCameraPlacement2002}. The second mechanism is resolution uncertainty, which operates before triangulation at the image-formation stage. Wu, Sharma, and Huang derived analytical uncertainty bounds arising from pixel quantisation as a function of camera-target geometry, showing that the further a target lies from the camera and the more oblique its projection, the larger the variance in the resulting position estimate \parencite{sharmaAnalysisUncertaintyBounds1998}. The third is dynamic occlusion. Rahimian and Kearney defined a metric that integrates target visibility over all possible orientations of a vertical planar occluder, simultaneously enforcing that the visible camera pairs satisfy a triangulability constraint on their convergence angle \parencite{rahimianOptimalCameraPlacement2017}. Dai modelled occlusion probabilistically via volumetric occlusion zones with density-dependent visibility, deriving a closed-form approximation for the probability that a marker is seen by at least two cameras \parencite{daiOptimalCameraConfiguration}. In each case, the designer recognised that the arrangement of cameras,not merely their presence, determines whether the system can produce a usable measurement.
+
+
+The most recent and arguably most honest formulation of the \gls{OCP} treats it as an explicitly multi-objective problem, recognising that coverage and accuracy are not independent and that neither alone captures the full cost of a poor configuration. Ziegler et al. maximised the measurement volume whilst enforcing convergence angle constraints, combining a coverage objective with a geometric accuracy requirement in a single optimisation \parencite{zieglerOptimalCameraPlacement2023}. Zhou et al. constructed a multi-objective function that balanced reconstruction error against spatial coverage, weighted by designer-specified priorities \parencite{zhouSensorPlacementOptimization2024}. Aissaoui et al. integrated a composite error metric at the GA evaluation level that combined field-of-view coverage, resolution degradation, and occlusion into a single weighted fitness score \parencite{aissaouiDesigningCameraPlacement2018}. Several authors further incorporated budget constraints, seeking either to minimise the number of cameras required to achieve a specified quality threshold \parencite{kirchhofOptimalPlacementMultiple2013, daiOptimalCameraConfiguration} or to maximise quality for a fixed camera count \parencite{aissaouiDesigningCameraPlacement2018, rahimianOptimalCameraPlacement2017}. The field has converged toward the recognition that single-objective formulations misrepresent the problem. The question is no longer whether to combine objectives but how to weight them, and this weighting inevitably reflects the priorities of the specific application. Table \ref{tab:ocp-lit-classification} summarises the classification of the reviewed literature across solver type, placement space, and objective category.
+
+
+\begin{table}[htbp]
+\centering
+\caption{Classification of the reviewed \gls{OCP} literature by solver, placement space, and optimisation objective.}
+\label{tab:ocp-lit-classification}
+\small
+\begin{tabularx}{\textwidth}{l l l l X}
+\toprule
+\textbf{Source} & \textbf{Solver} & \textbf{Space} & \textbf{Objective} & \textbf{Key Metrics} \\
+\midrule
+Kirchhof (2013) & BIP / NLP & Discrete / Continuous & Accuracy & GDOP; min.\ sensors \\
+Dai & BIP + Greedy & Discrete & Hybrid & Occlusion probability; min.\ cameras \\
+Bodor et al.\ (2007) & Hill-climbing & Discrete (refined) & Coverage & Task-weighted observability \\
+Olague \& Mohr (2002) & GA (real-valued) & Continuous & Accuracy & Covariance of 3D reconstruction \\
+Aissaoui et al.\ (2018) & Guided GA & Continuous & Hybrid & Reconstruction error; visibility; resolution; occlusion \\
+Rahimian \& Kearney (2017) & SA & Continuous & Accuracy & Dynamic occlusion + triangulability \\
+Zhou et al.\ (2024) & Hybrid PSO + GA & Discrete & Hybrid & Coverage + reconstruction error \\
+Ziegler et al.\ (2023) & NLP (IPOPT) & Continuous & Hybrid & Visibility volume + convergence angles \\
+Zhang et al.\ (2019) & GA + PSO & Mixed & Hybrid & Coverage of 3D objects \\
+Jun (2018) & GA (GPU) & Discrete & --- & Brute-force benchmark \\
+Wu et al.\ (1998) & Analytical & N/A & Accuracy & Quantisation uncertainty bounds \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
 Depending on the application, available resources, and workspace constraints, different optimisation objectives have been prioritised in the literature. Broadly, these can be categorised into coverage-based objectives and accuracy-based objectives. In terms of coverage-based objectives, the goal is to maximise the visible area of the workspace, and sometimes going further to handle aspects of occlusion both static and dynamic and hence usually ensuring a two-cover coverage. This is particularly relevant in surveillance applications where ensuring that all regions are monitored is critical \parencite{bodorOptimalCameraPlacement2007}. Conversely, accuracy-based objectives focus on minimising localisation error, which is crucial in motion capture and augmented reality applications where precise tracking is required and more than one camera arranged sufficiently non-parallel is needed to ensure triangulation is possible \parencite{aissaouiDesigningCameraPlacement2018, rahimianOptimalCameraPlacement2017}. Wu, Sharma, and Huang proposed another accuracy-based metric of placement which assessed how the limited camera intrinsics and quantisation lead to inaccurate measurements exacerbated by the placement of two cameras \parencite{sharmaAnalysisUncertaintyBounds1998}. Many studies have proposed hybrid objectives that balance the trade-off of accuracy with coverage \parencite{zieglerOptimalCameraPlacement2023, zhouSensorPlacementOptimization2024}. Some works have also considered additional constraints such as budget limits and physical mounting options \parencite{aissaouiDesigningCameraPlacement2018, puligandlaMultiresolutionApproachLarge2022, daiOptimalCameraConfiguration}.
 The configuration quality for 3D marker tracking and trinagulation is mostly affected by two main sources of error: marker visibility and triangulation accuracy. In terms of the application being \gls{MoCap}, a marker should not be occluded by any obstacle, including itself, the marker must be within the cameras field of view, vissible given the camera's resolution and range of capture. These are necessary to ensure consistent and continual tracking. Furthermore, at least two cameras should be arranged sufficiently non-parallel so that triangulation is well-conditioned. Sometimes, the easy answer is just to throw more cameras at the problem as that does give redundant views and ensures we can place camera pairs to cover the scene in a sufficently non-parallel format but in most research situationships, it is not prudent to over-exhaust the budget and hence it may be a desirable goal to asses the least amount of cameras required to achieve a level of accuracy/ coverage to minimise cost.  
 
-Provided below is a summary table of the different optimisation qualities found across papers in the literature
-(insert table with rows indication paper citation and application and columns of optimsation objectives)
 
-\subsection{Modelling the Problem}
-The problem formulation typically depends of defining a specific objective function, sensor model, and workspace representation. Eventhough the search space is continuous it is typical of designers to discretise both the workspace and the possible camera locations to make the problem more computable.
-As mentioned earlier due to the large search space which is made so large becaus ethe problem is combinatorial (meaning additonal combinations of different aspects like position and roientation of each camera) which is NP-hard and increases expeonently with each additonal sensor added to the network it becomes necessary to make some simplifications as an exhaustive search especially for a room-sized scale search simply becomes intractable and computationally inefficent. This is often why the search-space is dicsretised both in the flight-space arena and in the possible mounting locations of the camera. 
+\subsubsection{Validation Approaches in the Literature}
+\label{sec:lit-validation}
+
+A persistent weakness of the \gls{OCP} literature is the gap between simulated optimality and demonstrated real-world improvement. Most studies validate their optimisers exclusively in simulation, comparing the cost function value of the optimised configuration against that of a baseline (typically random or uniformly distributed cameras) without deploying the resulting configuration on physical hardware. Olague and Mohr evaluated their GA-optimised configurations by computing the covariance of reconstructed 3D points in simulation and comparing against heuristic placements, but did not report physical experiments \parencite{olagueOptimalCameraPlacement2002}. Kirchhof validated the \gls{GDOP}-based metric against both his \gls{BIP} and NLP solvers in simulation but acknowledged that experimental deployment was beyond the scope of the work \parencite{kirchhofOptimalPlacementMultiple2013}. Zhou et al.\ compared their hybrid PSO-GA solutions against individual PSO and GA runs, demonstrating superior convergence in simulation without physical validation \parencite{zhouSensorPlacementOptimization2024}.
+
+The most substantive experimental validation in the reviewed literature is that of Rahimian and Kearney, who deployed their simulated-annealing-optimised camera configurations on a physical OptiTrack system and compared tracking completeness against an ad-hoc arrangement \parencite{rahimianOptimalCameraPlacement2017}. Their metric was the percentage of captured frames in which all 37 markers on a moving human subject were successfully reconstructed: the optimised placement achieved full marker reconstruction on 86\% of frames, compared to only 30\% under the ad-hoc configuration. This nearly three-fold improvement provides the most direct evidence in the literature that simulation-based \gls{OCP} translates to measurable real-world gains. Aissaoui et al.\ similarly validated their guided GA by comparing the reconstruction error of a physical multi-camera system before and after optimisation, reporting reduced marker dropout rates in the optimised configuration \parencite{aissaouiDesigningCameraPlacement2018}. Zhao et al.\ conducted real-life experiments with a seven-camera surveillance network to validate their \gls{BIP} formulation against greedy and LP-relaxation solvers, measuring observability of walking subjects in a $7.6 \times 3.7$~m area \parencite{zhaoApproximateTechniquesSolving2013}.
+
+The question of what constitutes ground truth for validating a camera placement optimiser warrants careful consideration. In \gls{MoCap}, ground truth refers to the true three-dimensional position of the tracked markers, against which the system's reconstructed positions are compared. Optical motion capture systems such as OptiTrack are themselves frequently used as the ground truth reference for validating other tracking modalities (inertial measurement units, visual odometry, LiDAR-based localisation), owing to their sub-millimetre precision when properly calibrated. Aurand et al.\ systematically mapped the accuracy of a 42-camera OptiTrack Prime~41 system across a 135~m$^3$ capture volume by comparing single-marker motion against a ThorLabs linear motion stage with 5~$\mu$m positioning accuracy, finding that 97\% of the capture area exhibited errors below 200~$\mu$m \parencite{aurandAccuracyMapOptical2017}. Nagymáté and Kiss provided a comprehensive review of OptiTrack validation studies, noting that the majority of the biomechanical literature under-documents system setup parameters (camera type, number, frame rate, marker size), which undermines repeatability \parencite{nagymate2018optitrack}. This observation reinforces the importance of fully specifying the camera configuration, which is precisely what the \gls{OCP} optimiser determines.
+
+For the present work, the primary validation pathway is to compare the tracking performance of the optimised camera configuration against the default ad-hoc arrangement on the physical OptiTrack system, using metrics that bridge the gap between the simulation cost function and observable tracking quality. The calibration residual reported by OptiTrack's Motive software, which represents the mean offset between converging rays during 3D marker reconstruction, provides a direct measure of the system's triangulation precision for a given camera arrangement. Additionally, marker reconstruction completeness (the fraction of frames in which all markers are successfully resolved) and spatial coverage uniformity can be assessed empirically. These metrics are discussed further in Section \ref{sec:verification}.
+
 
 \subsection{Summary}
 
 The measurement uncertainty attributed to the spatial relationship between the target and the cameras can be modelled based on the distance between the target and camera which can excerbated pixel resolution and the orientation between camera's view vectors where the increasingly more parallel these vectors are results in ill-conditioned triangulation geometry, culminating in poor pose estimates and hence poor tracking
 
-As seen there have been a plethora of proposed methodologies for optimising camera placement in the literature which are summarised in the timeline below where they have been broadly categorised as heuristic optimisation or binary integer programming and their objectives have also been listed based on thematic colour rings indicated in the key. 
+As seen there have been a plethora of proposed methodologies for optimising camera placement in the literature which are summarised in the timeline below where they have been broadly categorised as heuristic optimisation or binary integer programming and their objectives have also been listed based on thematic colour rings indicated in the key. .3
 
 The optimal camera placement problem extends the \gls{AGP} foundation by introducing constraints that reflect the true capabilities and limitations of physical sensors. These extensions transform camera placement from a geometric covering problem into a constrained optimisation problem where the cost function must encode both visibility and measurement quality
 
@@ -95,7 +143,7 @@ Generally, the OCP can be stated as follows: given a set of candidate camera loc
 
 \section{Theoretical Framework}
 \subsection{Genetic Algorithm Terminology}
-The language used to describe genetic algorithms borrows heavily from evolutionary biology. Table~\ref{tab:ga-terminology} defines these terms in both domains to clarify the analogy and establish consistent vocabulary for the sections that follow.
+The language used to describe genetic algorithms borrows heavily from evolutionary biology. Table \ref{tab:ga-terminology} defines these terms in both domains to clarify the analogy and establish consistent vocabulary for the sections that follow.
 
 \begin{table}[h]
 \centering
@@ -118,26 +166,454 @@ Mutation & A random, heritable change in genetic sequence, ususally caused by a 
 \end{table}
 
 This biological analogy provides useful intuition: just as natural selection refines a species over generations by favouring advantageous traits, genetic algorithms iteratively improve a population of solutions by favouring those with higher fitness. While genetic algorithms lack the biological complexity of true evolution, they do provide a productive conceptual framework. The effectiveness of this process depends on how solutions are represented, this is often reffered to as the encoding.
-\subsection{Encoding Schemes}
-\subsection{Selection Methods}
-\subsection{Crossover Techniques}
-\subsection{Convergence Analysis}
 
+\subsection{Encoding Schemes}
+"coming up with the best encoding is tantamount to solving the problem itself"
+difference between binary encoding, gray code, real encoding, variable length chromosomes
+
+Binary encoding
+advantages: mutation and crossover are developed based on this type of encoding.
+limitations: Hamming cliff effect, encoding and decoding, computer based level of precision (binary precision) 
+
+Gray code:
+advantages: removes hamming cliff artefact
+limitations: not popularised 
+
+Real encoding
+advantages: no encoding and subsequent decoding step required, avoids hamming cliff artefact, more suited for a continous exploration
+limitations: mutation and crossover need to be restructured  
+explain that this was chosen for implementation -> how mutation and crossover were altered 
+
+\subsection{Selection Methods}
+Fitness proportionate selection: roulette-wheel selection, stochastic universal sampling
+number of times an individual is expected to reproduce is equal to its fitness divided by the average fitness in the population 
+roulette wheel: each individual is assigned a slice of the circular roulette wheel 
+
+
+rank-based selection
+tournament selection
+boltzmann selection
+elitism
+
+explain why tournament and elitism were chosen -> monotomic convergence (always improving or consistent best fitness)
+
+\subsection{Crossover Techniques}
+single-point crossover
+double point crossover
+parameterized uniform crossover
+
+\subsection{Convergence Analysis}
+iteration based
+fitness score based 
 
 
 \section{Methodology}
+\section{Methodology}
+\label{sec:methodology}
+
+This section describes the implementation of the real-coded guided genetic algorithm developed to solve the \gls{OCP} for a seven-camera OptiTrack motion capture system. The algorithm operates on a continuous placement space, directly encoding camera positions and orientations as real-valued chromosomes, and evaluates candidate configurations against a composite cost function that captures both resolution uncertainty and dynamic occlusion. The overall workflow is illustrated in Figure \ref{fig:ga-flowchart}.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[
+        node distance=1.1cm and 1.5cm,
+        % Block styles
+        startstop/.style={rectangle, rounded corners, minimum width=3.2cm, minimum height=0.8cm, text centered, draw=black, fill=red!15, font=\small},
+        process/.style={rectangle, minimum width=4.2cm, minimum height=0.8cm, text centered, draw=black, fill=blue!10, font=\small},
+        decision/.style={diamond, minimum width=3.5cm, minimum height=1cm, text centered, draw=black, fill=yellow!15, font=\small, aspect=2.2},
+        io/.style={trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=0.8cm, text centered, draw=black, fill=green!10, font=\small},
+        arrow/.style={-{Stealth[length=2.5mm]}, thick},
+        dashedarrow/.style={-{Stealth[length=2.5mm]}, thick, dashed, gray},
+        annot/.style={font=\scriptsize\itshape, text=gray},
+    ]
+    % Create nodes
+    \node (start) [startstop] {Start};
+    
+    \node (setup) [process, below=of start] {Setup hardware specs,\\target space, cost params};
+    
+    \node (init) [process, below=of setup] {Generate guided initial\\population (Alg. \ref{alg:init-pop})};
+    
+    \node (eval0) [process, below=of init] {Evaluate initial population\\(\texttt{parfor})};
+    
+    \node (best0) [process, below=of eval0] {Record best solution $\mathbf{c}^*$};
+    %Main
+    \node (select) [process, below=1.3cm of best0] {Tournament selection\\($k_t = 3$)};
+    
+    \node (cross) [process, below=of select] {Double-point crossover\\(camera-block-aware)};
+    
+    \node (mutate) [process, below=of cross] {Gaussian mutation\\($\mu = 0.2,\ \sigma = 0.1$)};
+    
+    \node (repair) [decision, below=1.1cm of mutate] {Repair\\needed?};
+    
+    \node (fix) [process, right=1.8cm of repair] {Reorient poor cameras\\(\texttt{fixPoorCameras})};
+    
+    \node (clamp) [process, below=1.1cm of repair] {Clamp to bounds\\$[\mathbf{C}_{\min},\, \mathbf{C}_{\max}]$};
+    
+    \node (evaloff) [process, below=of clamp] {Evaluate offspring\\(\texttt{parfor})};
+    
+    \node (merge) [process, below=of evaloff] {Merge parents + offspring,\\sort by cost, truncate to $N_{\text{pop}}$};
+    
+    \node (updatebest) [process, below=of merge] {Update $\mathbf{c}^*$ if improved};
+    
+    \node (check) [decision, below=1.1cm of updatebest] {$g < G_{\max}$?};
+    
+    \node (stop) [startstop, below=1.1cm of check] {Return $\mathbf{c}^*$, $f^*$};
+    
+    %Generation counter label
+    \node (genlabel) [annot, left=2.5cm of select] {Generation\\loop\\$g = 1 \ldots G_{\max}$};
+    
+    %ARROWS
+    \draw [arrow] (start) -- (setup);
+    \draw [arrow] (setup) -- (init);
+    \draw [arrow] (init) -- (eval0);
+    \draw [arrow] (eval0) -- (best0);
+    \draw [arrow] (best0) -- (select);
+    \draw [arrow] (select) -- (cross);
+    \draw [arrow] (cross) -- (mutate);
+    \draw [arrow] (mutate) -- (repair);
+    
+    \draw [arrow] (repair) -- node[above, font=\scriptsize] {Yes} (fix);
+    \draw [arrow] (repair) -- node[right, font=\scriptsize] {No} (clamp);
+    \draw [arrow] (fix) |- (clamp);
+    
+    \draw [arrow] (clamp) -- (evaloff);
+    \draw [arrow] (evaloff) -- (merge);
+    \draw [arrow] (merge) -- (updatebest);
+    \draw [arrow] (updatebest) -- (check);
+    
+    \draw [arrow] (check) -- node[right, font=\scriptsize] {No} (stop);
+    
+    % Loop back arrow
+    \draw [arrow] (check.west) -- node[above, font=\scriptsize] {Yes} ++(-3.2,0) |- (select.west);
+    
+    % Generation loop bracket
+    \draw [dashedarrow] (genlabel.east) -- ++(0.4,0);
+    
+    % Repair annotation
+    \node [annot, right=0.3cm of fix.east, text width=2.8cm] {Every 10th gen\\or 20\% chance};
+    
+    \end{tikzpicture}
+    \caption[Flowchart of the guided genetic algorithm.]{High-level flowchart of the real-coded guided genetic algorithm for camera placement optimisation. The generation loop (left annotation) repeats until the maximum generation count $G_{\max}$ is reached. Dashed elements indicate conditional paths.}
+    \label{fig:ga-flowchart}
+\end{figure}
+
+
 \subsection{Algorithm Configuration}
+\label{sec:algorithm-config}
+
+A real-coded genetic algorithm was selected as the optimisation solver for three principal reasons. First, the camera placement variables, three spatial coordinates $(x, y, z)$ and three Euler angles $(\alpha, \beta, \gamma)$ per camera, are inherently continuous. A binary encoding would require a discretisation step that introduces quantisation artefacts and constrains the solution to a finite grid, as discussed in Section \ref{sec:lit-review-approaches}. Olague and Mohr demonstrated the suitability of real-valued chromosomes for camera placement by encoding continuous camera parameters directly, avoiding the Hamming cliff problem inherent to binary representations \parencite{olagueOptimalCameraPlacement2002}. Aissaoui et al.\ adopted the same representation for their guided genetic algorithm applied to \gls{MoCap} camera networks \parencite{aissaouiDesigningCameraPlacement2018}. Second, the cost function employed here (Section \ref{sec:cost-function}) involves ray-casting visibility checks, covariance-based uncertainty estimation, and probabilistic occlusion modelling, none of which admit linearisation into the algebraic form required by \gls{BIP} or \gls{MILP} solvers. The GA treats the cost function as a black box, requiring only a scalar fitness value for each candidate, which permits arbitrarily complex objective functions. Third, the population-based nature of the GA provides broad exploration of the search space, mitigating the risk of entrapment in local minima that single-point solvers like gradient descent or simulated annealing are more susceptible to.
+
+\subsubsection{Chromosome Representation}
+
+Each candidate camera configuration is encoded as a single real-valued chromosome of length $6k$, where $k$ is the number of cameras. For the seven-camera system considered here, $k = 7$ and the chromosome length is $n_{\text{var}} = 42$. The chromosome is structured as $k$ contiguous six-gene blocks:
+%
+\begin{equation}
+\label{eq:chromosome}
+\mathbf{c} = \bigl[\underbrace{x_1, y_1, z_1, \alpha_1, \beta_1, \gamma_1}_{\text{Camera 1}},\ \underbrace{x_2, y_2, z_2, \alpha_2, \beta_2, \gamma_2}_{\text{Camera 2}},\ \ldots,\ \underbrace{x_k, y_k, z_k, \alpha_k, \beta_k, \gamma_k}_{\text{Camera } k}\bigr]
+\end{equation}
+%
+where $(x_i, y_i, z_i)$ specifies the position of camera $i$ in the world frame and $(\alpha_i, \beta_i, \gamma_i)$ are the Euler angles (XYZ convention) defining its orientation. This block structure is fundamental to the design of the crossover and mutation operators: the six genes constituting a single camera are treated as an atomic unit to preserve the physical coupling between a camera's position and its orientation. Splitting position from orientation during crossover would produce offspring where a camera points in a direction that was optimised for an entirely different position, yielding invalid configurations.
+
+The OptiTrack system under consideration comprises a configurable mix of narrow-angle cameras (focal length $f = 5.5$~mm) and wide-angle cameras (focal length $f_w = 3.5$~mm). When wide-angle lenses are available, the lens assignment is deterministic by chromosome slot index rather than encoded as an additional gene: cameras at designated slot indices receive the wide-angle lens, and the remaining cameras receive the narrow-angle lens. For example, in the default seven-camera configuration, cameras at even-indexed slots are assigned wide-angle lenses, yielding three wide-angle and four narrow-angle cameras. This deterministic assignment ensures that crossover and mutation cannot violate the hardware constraint on the number of each lens type, since the lens type is a property of the slot, not of the genes occupying it. When all cameras share the same lens type, this assignment reduces to a uniform intrinsic configuration and the distinction is transparent to the GA operators. The corresponding effective detection ranges are 16~m for the narrow-angle and 9~m for the wide-angle lenses, as specified in the OptiTrack datasheet. This design is parameterised via a configurable list of wide-angle slot indices (\texttt{wideAngleCamIndices}), allowing the user to adapt the system to any available lens inventory without modifying the GA logic.
+
+\subsubsection{Search Space Bounds}
+
+The search space is defined by the physical workspace and mounting constraints. The workspace volume for the target space is $[-4, 4] \times [-4, 4] \times [0, 4]$~m, matching the available flight envelope. Camera positions are permitted within slightly enlarged bounds to allow wall and ceiling mounting:
+%
+\begin{equation}
+\label{eq:bounds}
+\mathbf{c}_{\min} = [-5,\ -4.5,\ 0,\ -\pi,\ -\pi,\ -\pi], \qquad
+\mathbf{c}_{\max} = [5,\ 4.5,\ 4.8,\ \pi,\ \pi,\ \pi]
+\end{equation}
+%
+The position bounds extend beyond the target volume to model mounting on walls and the ceiling, while the orientation bounds span the full $[-\pi, \pi]$ range for each Euler angle. These per-camera bounds are tiled across all $k$ cameras to produce the chromosome-level bounds $\mathbf{C}_{\min} = \text{repmat}(\mathbf{c}_{\min}, 1, k)$ and $\mathbf{C}_{\max} = \text{repmat}(\mathbf{c}_{\max}, 1, k)$. After mutation, any gene that exceeds its bound is clamped to the nearest boundary value.
+
 \subsubsection{Parameter Selection}
+\label{sec:param-selection}
+
+The GA parameters governing the evolutionary search are summarised in Table \ref{tab:ga-params}. These values were selected based on preliminary experimentation and conventions established in the \gls{OCP} literature.
+
+\begin{table}[htbp]
+\centering
+\caption{Genetic algorithm parameter settings.}
+\label{tab:ga-params}
+\begin{tabular}{l l l}
+\toprule
+\textbf{Parameter} & \textbf{Symbol} & \textbf{Value} \\
+\midrule
+Population size & $N_{\text{pop}}$ & 150 \\
+Maximum generations & $G_{\max}$ & 150 \\
+Crossover fraction & $p_C$ & 1.0 \\
+Mutation probability & $\mu$ & 0.2 \\
+Mutation step size & $\sigma$ & 0.1 \\
+Tournament size & $k_t$ & 3 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+A population size of 150 balances diversity against computational expense. Each fitness evaluation requires projecting every target point through every camera and, for the combined cost function, computing both the resolution uncertainty and the occlusion metric. With parallel evaluation across six workers, a population of 150 completes a single generation in a reasonable time whilst maintaining sufficient genetic diversity to avoid premature convergence.
+
+The crossover fraction $p_C = 1.0$ means that the entire population participates in crossover, producing $N_{\text{pop}}$ offspring per generation. Combined with the elitist replacement strategy (Section \ref{sec:elitism}), this aggressive crossover rate ensures thorough exploration: all parents contribute genetic material, but only the best $N_{\text{pop}}$ individuals from the combined parent-offspring pool survive to the next generation.
+
+The mutation probability $\mu = 0.2$ specifies the per-gene probability of mutation. On average, $0.2 \times 42 \approx 8$ genes are perturbed per offspring, which introduces sufficient variation to escape local optima without being so disruptive as to destroy good solutions. The mutation step size $\sigma = 0.1$ controls the standard deviation of the Gaussian perturbation applied to mutated genes. Since position genes are measured in metres and orientation genes in radians, this value produces perturbations of approximately $\pm 0.2$~m and $\pm 0.2$~rad at one standard deviation, which are physically meaningful adjustments for the workspace dimensions considered.
+
 \subsubsection{Initial Population}
+\label{sec:initial-pop}
+
+An unguided random initialisation distributes cameras uniformly throughout the search volume, which would place many cameras in the interior of the workspace where they cannot observe targets, or orient them away from the target space. Aissaoui et al.\ demonstrated that seeding the initial population with domain knowledge significantly accelerates convergence by restricting the search to physically plausible configurations from the outset \parencite{aissaouiDesigningCameraPlacement2018}. The implementation adopts a guided initialisation strategy that places cameras on the boundary faces of the workspace and orients them toward the interior.
+
+The workspace is first subdivided into $\lfloor k/2 \rfloor$ sections, where $k$ is the number of cameras. The section centres are distributed on a balanced two-dimensional grid at the mid-height of the workspace. If the number of sections is odd, one section centre is placed at the geometric centre of the volume, with the remaining centres distributed on the grid. These section centres serve as initial aiming targets for the cameras.
+
+For each camera in the initial chromosome, a position is generated by randomly selecting one of five boundary faces (four walls and the ceiling, excluding the floor) and sampling uniformly on that face. The camera is then oriented toward the nearest section centre by computing the direction vector from the camera position to the centre and converting it to Euler angles via an axis-angle to quaternion to Euler angle decomposition. This procedure is summarised in Algorithm \ref{alg:init-pop}.
+
+\begin{algorithm}[htbp]
+\caption{Guided Initial Population Generation}
+\label{alg:init-pop}
+\begin{algorithmic}[1]
+\REQUIRE Bounds $\mathbf{c}_{\min}$, $\mathbf{c}_{\max}$; section centres $\mathbf{S}$; number of cameras $k$
+\ENSURE Chromosome $\mathbf{c}$ of length $6k$
+\FOR{$i = 1$ \TO $k$}
+    \STATE Randomly select boundary face $f \in \{+X, -X, +Y, -Y, +Z\}$
+    \STATE Sample position $\mathbf{p}_i$ uniformly on face $f$
+    \STATE Find nearest section centre: $\mathbf{s}^* = \arg\min_{\mathbf{s} \in \mathbf{S}} \|\mathbf{s} - \mathbf{p}_i\|$
+    \STATE Compute direction: $\hat{\mathbf{d}} = (\mathbf{s}^* - \mathbf{p}_i) / \|\mathbf{s}^* - \mathbf{p}_i\|$
+    \STATE Compute rotation from $\hat{\mathbf{z}}$ to $\hat{\mathbf{d}}$ via axis-angle: $\theta = \arccos(\hat{\mathbf{z}} \cdot \hat{\mathbf{d}})$, $\hat{\mathbf{k}} = \hat{\mathbf{z}} \times \hat{\mathbf{d}}$
+    \STATE Convert to quaternion: $\mathbf{q} = [\cos(\theta/2),\ \hat{\mathbf{k}}\sin(\theta/2)]$
+    \STATE Extract Euler angles: $(\alpha_i, \beta_i, \gamma_i) \leftarrow \text{quat2eul}(\mathbf{q})$ 
+    \STATE $\mathbf{c}[(i{-}1) \cdot 6 + 1 : i \cdot 6] \leftarrow [\mathbf{p}_i,\ \alpha_i,\ \beta_i,\ \gamma_i]$
+\ENDFOR
+\RETURN $\mathbf{c}$
+\end{algorithmic}
+\end{algorithm}
+
+By construction, every camera in the initial population is positioned on the perimeter of the workspace and aimed inward. This eliminates the generation-wasting phase in which an unguided GA must first evolve cameras from arbitrary interior positions to useful boundary positions. The floor face is excluded because a floor-mounted camera looking upward would observe only the ceiling, contributing negligibly to tracking coverage in the target volume.
+
 \subsubsection{Tournament Selection}
-\subsubsection{Double Point Crossover}
+\label{sec:tournament-selection}
+
+Selection determines which individuals from the current population are chosen as parents for crossover. The implementation uses tournament selection with a tournament size of $k_t = 3$. In each tournament, $k_t$ individuals are drawn uniformly at random (with replacement) from the population, and the individual with the lowest cost (highest fitness) is selected as a parent. This process is repeated $N_C$ times to fill the parent pool, where $N_C = p_C \cdot N_{\text{pop}}$ is the number of offspring to be produced.
+
+Tournament selection was chosen over roulette wheel (fitness-proportionate) selection for two reasons. First, roulette wheel selection is sensitive to the scaling of the fitness function: when the population converges and fitness values cluster, the selection pressure diminishes because all individuals receive nearly equal selection probabilities. Conversely, when one individual dominates, it consumes a disproportionate share of the probability mass, reducing diversity. Tournament selection avoids both failure modes because it depends only on the rank ordering of the $k_t$ sampled individuals, not on the absolute or relative magnitudes of their fitness values. Second, the tournament size $k_t$ provides a direct and intuitive control over selection pressure. A tournament size of $k_t = 2$ provides mild pressure (the better of two random individuals), while larger values increase the probability that the population's best individuals are selected. A value of $k_t = 3$ was chosen as a standard compromise that maintains diversity whilst still preferring high-quality parents.
+
+The selection is implemented in a vectorised manner for computational efficiency. All $N_C$ tournaments are constructed simultaneously by drawing an $N_C \times k_t$ matrix of random population indices. The costs of all participants are retrieved via a single indexing operation, and the column-wise minimum identifies the winner of each tournament, avoiding an explicit loop over individual tournaments.
+
+\subsubsection{Double-Point Crossover}
+\label{sec:crossover}
+
+Crossover recombines genetic material from two parent chromosomes to produce two offspring. The implementation uses double-point crossover operating on complete camera blocks rather than individual genes. Two crossover points $j_1$ and $j_2$ (where $j_1 < j_2$) are selected uniformly at random from the set $\{1, 2, \ldots, k\}$ of camera indices. The crossover points are then converted to gene indices: $g_1 = 6 j_1$ and $g_2 = 6 j_2$. The offspring are formed by exchanging the camera blocks between the two crossover points:
+%
+\begin{align}
+\label{eq:crossover}
+\mathbf{y}_1 &= [\mathbf{x}_1(1:g_1),\quad \mathbf{x}_2(g_1{+}1:g_2),\quad \mathbf{x}_1(g_2{+}1:\text{end})] \\
+\mathbf{y}_2 &= [\mathbf{x}_2(1:g_1),\quad \mathbf{x}_1(g_1{+}1:g_2),\quad \mathbf{x}_2(g_2{+}1:\text{end})]
+\end{align}
+%
+where $\mathbf{x}_1$ and $\mathbf{x}_2$ are the parent chromosomes. This block-aware crossover ensures that a camera's position and orientation are always inherited together. If crossover were permitted to split within a six-gene camera block, an offspring could inherit a position from one parent and an orientation from the other. Since each parent's orientation was optimised for its corresponding position, such a recombination would produce a camera pointing in a direction that is geometrically inconsistent with its location, equivalent to injecting noise rather than recombining useful building blocks.
+
+Double-point crossover was preferred over single-point crossover because single-point crossover exhibits positional bias: genes near the ends of the chromosome are less likely to be separated than genes near the centre. With two crossover points, any contiguous block of cameras can be exchanged with equal probability, providing a more uniform exploration of the combinatorial space of camera subsets. Because the lens type is determined by the slot index and not by the genes, crossover cannot violate the wide-angle and narrow-angle camera count constraint regardless of which blocks are exchanged.
+
 \subsubsection{Mutation}
+\label{sec:mutation}
+
+Mutation introduces random perturbations to offspring chromosomes to maintain genetic diversity and prevent premature convergence. Each gene in the offspring chromosome is independently mutated with probability $\mu$. A mutated gene receives a Gaussian perturbation:
+%
+\begin{equation}
+\label{eq:mutation}
+c'_j = c_j + \sigma \cdot \mathcal{N}(0, 1) \qquad \text{if } \text{rand}() < \mu
+\end{equation}
+%
+where $c_j$ is the original gene value, $\sigma$ is the mutation step size, and $\mathcal{N}(0,1)$ is a standard normal random variable. After mutation, all genes are clamped to their respective bounds: $c'_j \leftarrow \max(c'_j,\, C_{\min,j})$ and $c'_j \leftarrow \min(c'_j,\, C_{\max,j})$.
+
+The Gaussian mutation operator is the natural choice for real-coded chromosomes because it produces small perturbations with high probability and large perturbations with low probability, enabling fine-grained local search most of the time whilst retaining the ability to escape local optima through occasional large jumps. A uniform mutation operator, by contrast, would produce perturbations of arbitrary magnitude with equal probability, which is overly disruptive for a search space where near-optimal solutions often differ from each other by small positional or angular adjustments.
+
+\paragraph{Camera Repair Operator.}
+In addition to standard Gaussian mutation, a repair operator is applied periodically to correct cameras that contribute minimally to the network's coverage. The repair operator, referred to as \texttt{fixPoorCameras}, checks whether each camera in the offspring can project at least a threshold fraction (5\%) of the target points onto its image plane. Cameras falling below this threshold are assumed to be oriented away from the target space and are reoriented toward the nearest section centre, using the same axis-angle procedure as the initial population generator (Section \ref{sec:initial-pop}). The camera's position is left unchanged; only its three orientation genes are overwritten. This repair is applied every 10th generation deterministically, and with a 20\% probability in each other generation. This mixed schedule avoids the computational expense of repairing every offspring in every generation whilst ensuring that grossly misconfigured cameras are corrected before they consume evaluation budget. The repair operator represents a form of Lamarckian learning within the evolutionary framework: knowledge about the problem structure (cameras should face the workspace) is used to correct phenotypically deficient individuals, a strategy analogous to Aissaoui et al.'s guided initialisation but applied throughout the search rather than only at the start \parencite{aissaouiDesigningCameraPlacement2018}.
+
 \subsubsection{Elitism}
+\label{sec:elitism}
+
+Elitism ensures that the best solution found so far is never lost due to the stochastic nature of selection, crossover, and mutation. The implementation uses a $(\mu + \lambda)$ replacement strategy: the parent population of size $N_{\text{pop}}$ is merged with the offspring population of size $N_C$, the combined pool is sorted by cost in ascending order, and the best $N_{\text{pop}}$ individuals are retained as the next generation. This is equivalent to deterministic truncation selection applied to the union of parents and offspring.
+
+This strategy guarantees monotonic convergence: the best cost in the population can never increase from one generation to the next, because the best individual from the previous generation is always present in the merged pool and will survive truncation unless displaced by a superior offspring. Monotonic convergence is a valuable diagnostic property; any observed increase in the best cost across generations would indicate a software defect, such as updating the best solution from the wrong population array. The $(\mu + \lambda)$ strategy also provides implicit elitism without requiring a separate elite archive or explicit best-individual preservation, simplifying the implementation whilst achieving the same effect.
+
+The complete GA loop is summarised in Algorithm \ref{alg:ga-main}.
+
+\begin{algorithm}[htbp]
+\caption{Real-Coded Guided Genetic Algorithm for Camera Placement}
+\label{alg:ga-main}
+\begin{algorithmic}[1]
+\REQUIRE Cost function $f$; bounds $\mathbf{C}_{\min}$, $\mathbf{C}_{\max}$; parameters $N_{\text{pop}}$, $G_{\max}$, $\mu$, $\sigma$, $k_t$, $p_C$
+\ENSURE Best camera configuration $\mathbf{c}^*$ and cost $f^*$
+\STATE Initialise population $P = \{\mathbf{c}_1, \ldots, \mathbf{c}_{N_{\text{pop}}}\}$ using Algorithm \ref{alg:init-pop}
+\STATE Evaluate $f(\mathbf{c}_i)$ for all $i \in \{1, \ldots, N_{\text{pop}}\}$ \hfill \textit{(parallel)}
+\STATE $\mathbf{c}^* \leftarrow \arg\min_{\mathbf{c} \in P} f(\mathbf{c})$; \quad $f^* \leftarrow f(\mathbf{c}^*)$
+\FOR{$g = 1$ \TO $G_{\max}$}
+    \STATE Select $N_C$ parents via tournament selection (size $k_t$) from $P$
+    \FOR{$j = 1$ \TO $N_C / 2$}
+        \STATE $(\mathbf{y}_{2j-1},\, \mathbf{y}_{2j}) \leftarrow \text{DoublePointCrossover}(\mathbf{x}_{2j-1},\, \mathbf{x}_{2j})$ \hfill \textit{(camera-block-aware)}
+    \ENDFOR
+    \FOR{$j = 1$ \TO $N_C$}
+        \STATE $\mathbf{y}_j \leftarrow \text{Mutate}(\mathbf{y}_j,\, \mu,\, \sigma)$
+        \IF{$g \bmod 10 = 0$ \OR $\text{rand}() < 0.2$}
+            \STATE $\mathbf{y}_j \leftarrow \text{fixPoorCameras}(\mathbf{y}_j)$ \hfill \textit{(repair operator)}
+        \ENDIF
+        \STATE $\mathbf{y}_j \leftarrow \text{clamp}(\mathbf{y}_j,\, \mathbf{C}_{\min},\, \mathbf{C}_{\max})$
+    \ENDFOR
+    \STATE Evaluate $f(\mathbf{y}_j)$ for all $j \in \{1, \ldots, N_C\}$ \hfill \textit{(parallel)}
+    \IF{$\min_j f(\mathbf{y}_j) < f^*$}
+        \STATE $\mathbf{c}^* \leftarrow \arg\min_j \mathbf{y}_j$; \quad $f^* \leftarrow \min_j f(\mathbf{y}_j)$
+    \ENDIF
+    \STATE $P \leftarrow \text{sort}(P \cup \{\mathbf{y}_1, \ldots, \mathbf{y}_{N_C}\})$ by ascending cost
+    \STATE $P \leftarrow P(1 : N_{\text{pop}})$ \hfill \textit{(truncation / elitism)}
+\ENDFOR
+\RETURN $\mathbf{c}^*$, $f^*$
+\end{algorithmic}
+\end{algorithm}
+
 \subsection{Cost Function}
+\label{sec:cost-function}
+
+The cost function quantifies the quality of a candidate camera configuration by measuring two complementary sources of localisation error: resolution uncertainty arising from pixel quantisation, and dynamic occlusion arising from self-occlusion of the target. Each cost component is evaluated over a discrete grid of target points sampling the workspace volume, and the results are combined into a single scalar cost via weighted normalisation.
+
+The target space is generated as a three-dimensional grid of points within the workspace volume. Two discretisation modalities are supported: a uniform grid with constant spacing (suitable for full-volume \gls{UAV} tracking), and a normally-concentrated grid generated via inverse CDF warping that concentrates points toward the centre of the volume (capturing the higher probability of target presence near the workspace centre). The grid spacing $\Delta$ controls the trade-off between evaluation fidelity and computational cost; a spacing of 1~m produces a manageable number of evaluation points whilst capturing the spatial variation of both cost components.
+
 \subsubsection{Resolution Uncertainty Cost Function}
+\label{sec:res-uncertainty}
+
+The resolution uncertainty cost function quantifies the positional ambiguity that arises when a three-dimensional target point is projected onto a discrete pixel grid. This formulation is based on the analytical uncertainty bounds derived by Wu, Sharma, and Huang \parencite{sharmaAnalysisUncertaintyBounds1998}, who showed that the volume of the three-dimensional uncertainty region at a target point depends on the camera-target geometry, the pixel quantisation step, and the number of observing cameras.
+
+For a given target point $\mathbf{p}$, each camera $i$ projects $\mathbf{p}$ onto its image plane to obtain pixel coordinates $(u_i, v_i)$. If these coordinates lie within the image bounds ($1 \leq u_i \leq W$ and $1 \leq v_i \leq H$, where $W \times H$ is the sensor resolution), the camera is considered to have visibility of the point. For each visible camera, the four corners of the pixel's quantisation cell are back-projected into three-dimensional space:
+%
+\begin{equation}
+\label{eq:backproject}
+\mathbf{w}_{i,c} = \mathbf{R}_i \left( \mathbf{K}_i^{-1} \begin{bmatrix} u_i \pm \delta_u \\ v_i \pm \delta_v \\ 1 \end{bmatrix} \right) + \mathbf{t}_i, \qquad c \in \{1,2,3,4\}
+\end{equation}
+%
+where $\mathbf{K}_i$ is the camera intrinsic matrix, $\mathbf{R}_i$ is the rotation matrix, $\mathbf{t}_i$ is the camera centre, and $\delta_u = \delta_v = 0.5$~pixels is half the quantisation step. These four back-projected rays, together with the camera centre, define a four-sided pyramid in three-dimensional space. The pyramid represents the set of all world points that could produce the observed pixel coordinates $(u_i, v_i)$ within the quantisation uncertainty.
+
+When multiple cameras observe the same target point, the intersection of their respective pyramids defines the three-dimensional uncertainty region, the volume of space within which the true target position is indistinguishable given the pixel-level measurements. The vertices of this polyhedral intersection are computed by finding the intersections of the bounding planes of each pyramid pair. Each pyramid contributes four bounding planes defined by adjacent corner pairs; for $n_v$ visible cameras, $\binom{n_v}{2}$ camera pairs are considered, and for each pair, the three-plane intersections of adjacent surfaces from each pyramid are tested. A candidate vertex is retained only if it lies inside all visible pyramids (tested via the signed distance to each bounding plane).
+
+The uncertainty at each target point is then computed from the covariance of the intersection vertices. The unique vertices are centred about the target point to form a zero-mean point cloud $\mathbf{V}_{\text{centred}}$, and the sample covariance matrix is computed:
+%
+\begin{equation}
+\label{eq:covariance}
+\mathbf{C} = \text{cov}(\mathbf{V}_{\text{centred}})
+\end{equation}
+%
+The eigenvalues $\lambda_1, \lambda_2, \lambda_3$ of $\mathbf{C}$ represent the variances along the principal axes of the uncertainty ellipsoid. The scalar uncertainty measure is the sum of the square roots of the eigenvalues:
+%
+\begin{equation}
+\label{eq:uncertainty-metric}
+U(\mathbf{p}) = \sum_{i=1}^{3} \sqrt{|\lambda_i|}
+\end{equation}
+%
+This metric is proportional to the sum of the semi-axis lengths of the uncertainty ellipsoid and captures the overall spread of the uncertainty region without requiring an explicit ellipsoid fit. An earlier implementation computed the uncertainty as the volume of a fitted ellipsoid ($\frac{4}{3}\pi a b c$) using iterative optimisation (\texttt{fminsearch}), but the eigenvalue-based metric was adopted because it is significantly faster to compute, avoids the sensitivity of iterative methods to initial conditions, and yields comparable results when scaled appropriately.
+
+Penalty values are assigned to target points with insufficient camera coverage: a full penalty $U_{\text{penalty}} = 100$ for points visible to zero cameras, and half the penalty for points visible to exactly one camera (which cannot be triangulated but are at least detected). The resolution uncertainty cost for the entire configuration is the mean uncertainty across all target points:
+%
+\begin{equation}
+\label{eq:res-uncertainty-cost}
+J_{\text{res}} = \frac{1}{N_p} \sum_{p=1}^{N_p} U(\mathbf{p}_p)
+\end{equation}
+
 \subsubsection{Dynamic Occlusion Cost Function}
+\label{sec:dynamic-occlusion}
+
+The dynamic occlusion cost function models the degradation in tracking quality caused by self-occlusion of the target by a vertical planar occluder. This formulation follows the probabilistic model of Rahimian and Kearney \parencite{rahimianOptimalCameraPlacement2017}, which considers all possible orientations of the occluder and penalises configurations where the target cannot be triangulated from any direction.
+
+For each target point $\mathbf{p}$, the cameras that have the point within their field of view and within their effective detection range are identified as visible. The effective range depends on the lens type: 16~m for narrow-angle cameras and 9~m for wide-angle cameras. For each visible camera $i$, the view vector $\hat{\mathbf{v}}_i = (\mathbf{p} - \mathbf{t}_i) / \|\mathbf{p} - \mathbf{t}_i\|$ is computed, representing the unit direction from the camera centre to the target. These view vectors are then projected onto the horizontal plane and their azimuthal angles $\phi_i = \text{atan2}(\hat{v}_{i,y},\, \hat{v}_{i,x})$ are computed and sorted.
+
+The sorted azimuthal angles partition the $360\degree$ around the target into angular sections. For each section, the cameras on the front side of a hypothetical vertical occluder oriented at the section's midpoint are identified. A camera is on the front side if its azimuthal angle differs from the test angle by more than $90\degree$ and less than $270\degree$. Among the front cameras, all pairwise combinations are tested for triangulability: two cameras can triangulate the target if their three-dimensional convergence angle $\theta_{ij} = \arccos(\hat{\mathbf{v}}_i \cdot \hat{\mathbf{v}}_j)$ satisfies:
+%
+\begin{equation}
+\label{eq:triangulability}
+\theta_{\min} \leq \theta_{ij} \leq \theta_{\max}
+\end{equation}
+%
+where $\theta_{\min} = 40\degree$ and $\theta_{\max} = 140\degree$ are the minimum and maximum convergence angles for well-conditioned triangulation. If no pair of front cameras satisfies this constraint, the section is classified as occluded and its angular width is added to the occlusion error. The total occlusion error for a target point is the sum of occluded section angles:
+%
+\begin{equation}
+\label{eq:occlusion-point}
+Q(\mathbf{p}) = \sum_{s \in \text{sections}} \omega_s \cdot \mathbb{1}[\text{not triangulable from front}]
+\end{equation}
+%
+where $\omega_s$ is the angular width of section $s$ in degrees. A target visible to fewer than two cameras receives the maximum penalty of $360\degree$ (and an additional $360\degree$ if visible to zero cameras). The dynamic occlusion cost for the entire configuration is the mean occlusion angle:
+%
+\begin{equation}
+\label{eq:occlusion-cost}
+J_{\text{occ}} = \frac{1}{N_p} \sum_{p=1}^{N_p} Q(\mathbf{p}_p)
+\end{equation}
+
 \subsubsection{Combined Cost Function}
+\label{sec:combined-cost}
+
+The combined cost function integrates both error sources into a single scalar objective using a weighted sum with fixed normalisation constants:
+%
+\begin{equation}
+\label{eq:combined-cost}
+J = w_{\text{res}} \cdot \frac{J_{\text{res}}}{J_{\text{res}}^{\text{norm}}} + w_{\text{occ}} \cdot \frac{J_{\text{occ}}}{J_{\text{occ}}^{\text{norm}}}
+\end{equation}
+%
+where $w_{\text{res}}$ and $w_{\text{occ}}$ are the designer-specified weights (summing to 1), and $J_{\text{res}}^{\text{norm}}$ and $J_{\text{occ}}^{\text{norm}}$ are normalisation constants that bring both cost components to comparable scales. Without normalisation, the occlusion cost (measured in degrees, with raw values typically in the range $200$--$440$) would dominate the uncertainty cost (with raw values typically in the range $20$--$100$) by a factor of approximately $4$--$5\times$, causing the optimiser to effectively ignore resolution uncertainty.
+
+The normalisation constants are set to fixed, round-number values: $J_{\text{res}}^{\text{norm}} = 100$ and $J_{\text{occ}}^{\text{norm}} = 440$, corresponding approximately to the cost of a random (unoptimised) camera configuration. Fixed constants were deliberately chosen over adaptive normalisation (e.g., normalising by the current population's mean or worst cost) because adaptive methods introduce a non-stationary fitness landscape. A configuration that has cost 0.5 in generation 10 might have cost 0.7 in generation 50 if the normalisation denominator changes, which can confuse the selection mechanism and violate the monotonic convergence guarantee of the elitist strategy. Fixed normalisation ensures that the cost function is deterministic for a given chromosome, which is essential for reproducible comparisons across runs.
+
+The combined cost function thus permits the designer to control the trade-off between measurement precision and occlusion robustness via the weights $w_{\text{res}}$ and $w_{\text{occ}}$. Equal weights ($w_{\text{res}} = w_{\text{occ}} = 0.5$) treat both objectives as equally important, while asymmetric weights can prioritise one source of error over the other depending on the application requirements.
+
 \subsection{Termination Criteria}
+\label{sec:termination}
+
+The algorithm terminates after a fixed number of generations $G_{\max}$. An iteration-based termination criterion was selected for its simplicity and reproducibility: every run executes the same number of fitness evaluations, making runtime and computational budgets directly comparable across different configurations and parameter settings. The total number of cost function evaluations per run is $N_{\text{pop}} + G_{\max} \cdot N_C$, where $N_C = p_C \cdot N_{\text{pop}}$ is the number of offspring per generation. For the default parameters ($N_{\text{pop}} = 150$, $G_{\max} = 150$, $p_C = 1.0$), this amounts to $150 + 150 \times 150 = 22{,}650$ evaluations.
+
+Alternative termination criteria based on convergence detection, such as terminating when the best cost has not improved by more than $\epsilon$ over the last $n$ generations, were considered but not adopted. Such criteria risk premature termination if the algorithm encounters a plateau followed by a subsequent improvement, and they introduce additional hyperparameters ($\epsilon$ and $n$) that require tuning. The convergence behaviour is instead monitored post-hoc through the best-cost, population-average, and top-ten-average cost trajectories recorded at each generation (see Section \ref{sec:convergence-results}), allowing the adequacy of the generation budget to be assessed without influencing the search itself.
+
+All cost function evaluations, both for the initial population and for the offspring in each generation, are parallelised across six workers using MATLAB's Parallel Computing Toolbox. Each target point's uncertainty or occlusion contribution is computed independently, enabling the inner evaluation loops to be distributed using \texttt{parfor}. This parallelisation reduces the wall-clock time per generation roughly proportional to the number of available workers, making the 150-generation budget feasible within practical time constraints.
+
+\section{Experimental Verification Framework}
+\label{sec:verification}
+
+The optimisation algorithm developed in the preceding sections operates on a computational model of the camera network: projections are computed using an ideal pinhole camera model, visibility is determined by field-of-view bounds and range constraints, and the cost function aggregates resolution uncertainty and dynamic occlusion over a discrete grid of target points. While this model captures the dominant geometric factors that govern tracking quality, it necessarily omits secondary effects present in a physical deployment, including lens distortion, infrared illumination falloff, marker reflectivity variation with viewing angle, and environmental reflections. Consequently, the simulation-predicted cost of a configuration provides a necessary but not sufficient indicator of its real-world performance. This section describes the framework for bridging the gap between simulated optimality and measured tracking quality.
+
+\subsection{Verification Objectives}
+
+The experimental verification has three objectives. First, to confirm that the optimised camera configuration produces measurably better tracking performance than the default ad-hoc arrangement on the physical OptiTrack system, thereby validating the premise that systematic placement optimisation yields tangible improvements. Second, to quantify the degree to which the simulation cost function correlates with observable tracking metrics, establishing whether the cost function is a reliable proxy for real-world performance. Third, to identify any discrepancies between the simulated and measured performance that would indicate model limitations or calibration sensitivities not captured by the optimiser.
+
+\subsection{Ground Truth and Reference Metrics}
+
+Establishing ground truth for a motion capture system presents a circularity: the system being evaluated is itself a high-precision measurement instrument. Two complementary strategies address this.
+
+\subsubsection{Internal Consistency Metrics}
+
+OptiTrack's Motive software reports a calibration residual after the wanding procedure, defined as the mean ray-convergence offset (in millimetres) across all calibration samples. This residual reflects the combined effect of camera placement geometry, lens distortion correction, and calibration sample quality. For a well-calibrated small-to-medium volume, residuals below 0.5~mm are typical; values below 0.3~mm indicate an excellent calibration. Comparing the calibration residual between the optimised and ad-hoc configurations, using an identical wanding protocol and the same capture volume, provides a direct measure of how placement geometry affects triangulation precision.
+
+Additional internal metrics include:
+\begin{itemize}
+    \item \textbf{Marker reconstruction completeness}: the percentage of captured frames in which all markers in the rigid body or skeleton are successfully reconstructed. This metric directly reflects the coverage and redundancy of the camera network, analogous to Rahimian and Kearney's primary validation metric \parencite{rahimianOptimalCameraPlacement2017}.
+    \item \textbf{Marker dropout rate}: the frequency with which individual markers are lost and regained during a capture sequence, indicating regions of marginal coverage or occlusion.
+    \item \textbf{Spatial coverage uniformity}: the variance in reconstruction quality (residual or jitter) as a function of position within the capture volume, assessed by moving a rigid body through a structured grid of positions.
+\end{itemize}
+
+\subsubsection{External Reference Measurements}
+
+For absolute accuracy assessment, a known geometric reference can be introduced into the capture volume. A rigid body with precisely measured inter-marker distances (known to within the manufacturing tolerance of the calibration fixture) serves as a portable ground truth. By placing this reference at multiple positions within the capture volume and comparing the OptiTrack-reported inter-marker distances against the known values, the absolute accuracy of the system can be mapped spatially. This approach follows the methodology of Aurand et al., who used a linear motion stage as an external reference to map accuracy across a large volume \parencite{aurandAccuracyMapOptical2017}, but substitutes a rigid-body fixture that is more practical for the workspace dimensions considered here.
+
+\subsection{Experimental Protocol}
+
+The verification protocol consists of three phases, each conducted first with the ad-hoc (baseline) camera arrangement and then repeated with the optimised arrangement. The cameras, workspace, and lighting conditions remain identical between the two configurations; only the camera positions and orientations are changed.
+
+\begin{enumerate}
+    \item \textbf{Calibration comparison}: Both configurations are calibrated using the same wanding protocol (identical wand type, comparable wanding duration and coverage). The calibration residual, overall and per-camera, is recorded. This phase isolates the effect of camera geometry on calibration quality.
+    
+    \item \textbf{Static accuracy mapping}: A rigid body is placed at a structured grid of positions spanning the capture volume. At each position, a short static capture (several seconds) is recorded and the mean reconstructed inter-marker distances are compared against the known reference values. The resulting accuracy map reveals spatial variation in reconstruction precision for each configuration.
+    
+    \item \textbf{Dynamic tracking assessment}: A representative motion sequence (e.g., a rigid body traversing a known path, or a human subject performing a standard movement protocol) is captured under both configurations. Marker reconstruction completeness, dropout rates, and frame-by-frame residuals are compared. For the dynamic case, the motion should exercise the full capture volume, including regions near the boundaries where coverage differences between configurations are expected to be most pronounced.
+\end{enumerate}
+
+\subsection{Linking Simulation to Measurement}
+
+The verification framework is designed to close the loop between the simulation cost function and physical performance. The resolution uncertainty cost component (Section \ref{sec:res-uncertainty}) predicts the spatial distribution of triangulation precision; the static accuracy map tests this prediction directly. The dynamic occlusion cost component (Section \ref{sec:dynamic-occlusion}) predicts vulnerability to marker dropout under self-occlusion; the dynamic tracking assessment tests this prediction by measuring reconstruction completeness during motion that induces occlusion events.
+
+If the optimised configuration outperforms the ad-hoc baseline on the physical metrics, and the spatial pattern of improvement is consistent with the simulation predictions (e.g., the regions of largest simulated cost reduction coincide with the regions of largest measured accuracy improvement), then the cost function is validated as a meaningful proxy for real-world performance. Conversely, systematic discrepancies between simulation and measurement would identify directions for model refinement, such as incorporating lens distortion, illumination models, or environment-specific reflection sources into future iterations of the cost function.
 
 
 \section{Results and Discussion}

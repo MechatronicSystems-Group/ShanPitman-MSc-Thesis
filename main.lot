@@ -4,5 +4,7 @@
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {table}{\numberline {5.1}{\ignorespaces Comparison of biological and genetic algorithm terminology.}}{14}{table.caption.12}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Classification of the reviewed \gls {OCP} literature by solver, placement space, and optimisation objective.}}{16}{table.caption.12}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Comparison of biological and genetic algorithm terminology.}}{19}{table.caption.13}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces Genetic algorithm parameter settings.}}{23}{table.caption.15}%
 \addvspace {10pt}
