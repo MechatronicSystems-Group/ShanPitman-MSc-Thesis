@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.7.10)  11 MAR 2026 11:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.7.10)  10 MAR 2026 16:11
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1393,13 +1393,7 @@ File: tikzlibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibraryarrows.code.tex
 File: pgflibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \arrowsize=\dimen433
-)) (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibraryarrows.meta.code.tex
-File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfarrowinset=\dimen434
-\pgfarrowlength=\dimen435
-\pgfarrowwidth=\dimen436
-\pgfarrowlinewidth=\dimen437
-) (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarypositioning.code.tex
+)) (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarycalc.code.tex
 File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -1454,86 +1448,138 @@ Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 ))) (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/latex/pgf-pie\pgf-pie.sty
 Package: pgf-pie 2022/06/14 v0.7 Some LaTeX macros for pie chart by using PGF/Tikz package.
  (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/latex/pgf-pie\tikzlibrarypie.code.tex (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/latex/carlisle\scalefnt.sty)
-\pgfpie@angleEnd=\dimen438
+\pgfpie@angleEnd=\dimen434
 \pgfpie@explodeLength=\count517
 \pgfpie@colorLength=\count518
 \pgfpie@sliceLength=\count519
-)) (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/latex/algorithms\algorithm.sty
-Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating environment
-\@float@every@algorithm=\toks59
-\c@algorithm=\count520
-) (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/latex/algorithms\algorithmic.sty
-Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
-\c@ALC@unique=\count521
-\c@ALC@line=\count522
-\c@ALC@rem=\count523
-\c@ALC@depth=\count524
-\ALC@tlm=\skip267
-\algorithmicindent=\skip268
+)) (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/latex/algorithm2e\algorithm2e.sty
+Package: algorithm2e 2017/07/18 v5.2 algorithms environments
+\c@AlgoLine=\count520
+\algocf@hangindent=\skip267
+ (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/latex/ifoddpage\ifoddpage.sty
+Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
+\c@checkoddpage=\count521
+LaTeX Info: Redefining \checkoddpage on input line 45.
+) (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/latex/relsize\relsize.sty
+Package: relsize 2013/03/29 ver 4.1
+)
+\skiptotal=\skip268
+\skiplinenumber=\skip269
+\skiprule=\skip270
+\skiphlne=\skip271
+\skiptext=\skip272
+\skiplength=\skip273
+\algomargin=\skip274
+\skipalgocfslide=\skip275
+\algowidth=\dimen435
+\inoutsize=\dimen436
+\inoutindent=\dimen437
+\interspacetitleruled=\dimen438
+\interspacealgoruled=\dimen439
+\interspacetitleboxruled=\dimen440
+\algocf@ruledwidth=\skip276
+\algocf@inoutbox=\box193
+\algocf@inputbox=\box194
+\AlCapSkip=\skip277
+\AlCapHSkip=\skip278
+\algoskipindent=\skip279
+\algocf@nlbox=\box195
+\algocf@hangingbox=\box196
+\algocf@untilbox=\box197
+\algocf@skipuntil=\skip280
+\algocf@capbox=\box198
+\algocf@lcaptionbox=\skip281
+\algoheightruledefault=\skip282
+\algoheightrule=\skip283
+\algotitleheightruledefault=\skip284
+\algotitleheightrule=\skip285
+\c@algocfline=\count522
+\c@algocfproc=\count523
+\c@algocf=\count524
+\algocf@algoframe=\box199
+\algocf@algobox=\box256
+) (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/latex/algorithmicx\algpseudocode.sty
+Package: algpseudocode 
+ (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/latex/algorithmicx\algorithmicx.sty
+Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
+
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+\c@ALG@line=\count525
+\c@ALG@rem=\count526
+\c@ALG@nested=\count527
+\ALG@tlm=\skip286
+\ALG@thistlm=\skip287
+\c@ALG@Lnr=\count528
+\c@ALG@blocknr=\count529
+\c@ALG@storecount=\count530
+\c@ALG@tmpcounter=\count531
+\ALG@tmplength=\skip288
+)
+Document Style - pseudocode environments for use with the `algorithmicx' style
 ) (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.sty
 Package: biblatex 2024/03/21 v3.20 programmable bibliographies (PK/MW)
  (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/latex/logreq\logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count525
+\lrq@indent=\count532
  (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/latex/logreq\logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 ))
-\c@tabx@nest=\count526
-\c@listtotal=\count527
-\c@listcount=\count528
-\c@liststart=\count529
-\c@liststop=\count530
-\c@citecount=\count531
-\c@citetotal=\count532
-\c@multicitecount=\count533
-\c@multicitetotal=\count534
-\c@instcount=\count535
-\c@maxnames=\count536
-\c@minnames=\count537
-\c@maxitems=\count538
-\c@minitems=\count539
-\c@citecounter=\count540
-\c@maxcitecounter=\count541
-\c@savedcitecounter=\count542
-\c@uniquelist=\count543
-\c@uniquename=\count544
-\c@refsection=\count545
-\c@refsegment=\count546
-\c@maxextratitle=\count547
-\c@maxextratitleyear=\count548
-\c@maxextraname=\count549
-\c@maxextradate=\count550
-\c@maxextraalpha=\count551
-\c@abbrvpenalty=\count552
-\c@highnamepenalty=\count553
-\c@lownamepenalty=\count554
-\c@maxparens=\count555
-\c@parenlevel=\count556
-\blx@tempcnta=\count557
-\blx@tempcntb=\count558
-\blx@tempcntc=\count559
-\c@blx@maxsection=\count560
-\blx@maxsegment@0=\count561
-\blx@notetype=\count562
-\blx@parenlevel@text=\count563
-\blx@parenlevel@foot=\count564
-\blx@sectionciteorder@0=\count565
-\blx@sectionciteorderinternal@0=\count566
-\blx@entrysetcounter=\count567
-\blx@biblioinstance=\count568
-\labelnumberwidth=\skip269
-\labelalphawidth=\skip270
-\biblabelsep=\skip271
-\bibnamesep=\skip272
-\bibinitsep=\skip273
-\bibparsep=\skip274
-\bibhang=\skip275
+\c@tabx@nest=\count533
+\c@listtotal=\count534
+\c@listcount=\count535
+\c@liststart=\count536
+\c@liststop=\count537
+\c@citecount=\count538
+\c@citetotal=\count539
+\c@multicitecount=\count540
+\c@multicitetotal=\count541
+\c@instcount=\count542
+\c@maxnames=\count543
+\c@minnames=\count544
+\c@maxitems=\count545
+\c@minitems=\count546
+\c@citecounter=\count547
+\c@maxcitecounter=\count548
+\c@savedcitecounter=\count549
+\c@uniquelist=\count550
+\c@uniquename=\count551
+\c@refsection=\count552
+\c@refsegment=\count553
+\c@maxextratitle=\count554
+\c@maxextratitleyear=\count555
+\c@maxextraname=\count556
+\c@maxextradate=\count557
+\c@maxextraalpha=\count558
+\c@abbrvpenalty=\count559
+\c@highnamepenalty=\count560
+\c@lownamepenalty=\count561
+\c@maxparens=\count562
+\c@parenlevel=\count563
+\blx@tempcnta=\count564
+\blx@tempcntb=\count565
+\blx@tempcntc=\count566
+\c@blx@maxsection=\count567
+\blx@maxsegment@0=\count568
+\blx@notetype=\count569
+\blx@parenlevel@text=\count570
+\blx@parenlevel@foot=\count571
+\blx@sectionciteorder@0=\count572
+\blx@sectionciteorderinternal@0=\count573
+\blx@entrysetcounter=\count574
+\blx@biblioinstance=\count575
+\labelnumberwidth=\skip289
+\labelalphawidth=\skip290
+\biblabelsep=\skip291
+\bibnamesep=\skip292
+\bibinitsep=\skip293
+\bibparsep=\skip294
+\bibhang=\skip295
 \blx@bcfin=\read5
 \blx@bcfout=\write5
 \blx@langwohyphens=\language80
-\c@mincomprange=\count569
-\c@maxcomprange=\count570
-\c@mincompwidth=\count571
+\c@mincomprange=\count576
+\c@maxcomprange=\count577
+\c@mincompwidth=\count578
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
  (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\blx-dm.def
@@ -1543,88 +1589,88 @@ Package biblatex Info: Trying to load biblatex style data model...
 Package biblatex Info: ... file 'ieee.dbx' not found.
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count572
-\c@savedafterword=\count573
-\c@annotator=\count574
-\c@savedannotator=\count575
-\c@author=\count576
-\c@savedauthor=\count577
-\c@bookauthor=\count578
-\c@savedbookauthor=\count579
-\c@commentator=\count580
-\c@savedcommentator=\count581
-\c@editor=\count582
-\c@savededitor=\count583
-\c@editora=\count584
-\c@savededitora=\count585
-\c@editorb=\count586
-\c@savededitorb=\count587
-\c@editorc=\count588
-\c@savededitorc=\count589
-\c@foreword=\count590
-\c@savedforeword=\count591
-\c@holder=\count592
-\c@savedholder=\count593
-\c@introduction=\count594
-\c@savedintroduction=\count595
-\c@namea=\count596
-\c@savednamea=\count597
-\c@nameb=\count598
-\c@savednameb=\count599
-\c@namec=\count600
-\c@savednamec=\count601
-\c@translator=\count602
-\c@savedtranslator=\count603
-\c@shortauthor=\count604
-\c@savedshortauthor=\count605
-\c@shorteditor=\count606
-\c@savedshorteditor=\count607
-\c@labelname=\count608
-\c@savedlabelname=\count609
-\c@institution=\count610
-\c@savedinstitution=\count611
-\c@lista=\count612
-\c@savedlista=\count613
-\c@listb=\count614
-\c@savedlistb=\count615
-\c@listc=\count616
-\c@savedlistc=\count617
-\c@listd=\count618
-\c@savedlistd=\count619
-\c@liste=\count620
-\c@savedliste=\count621
-\c@listf=\count622
-\c@savedlistf=\count623
-\c@location=\count624
-\c@savedlocation=\count625
-\c@organization=\count626
-\c@savedorganization=\count627
-\c@origlocation=\count628
-\c@savedoriglocation=\count629
-\c@origpublisher=\count630
-\c@savedorigpublisher=\count631
-\c@publisher=\count632
-\c@savedpublisher=\count633
-\c@language=\count634
-\c@savedlanguage=\count635
-\c@origlanguage=\count636
-\c@savedoriglanguage=\count637
-\c@pageref=\count638
-\c@savedpageref=\count639
-\shorthandwidth=\skip276
-\shortjournalwidth=\skip277
-\shortserieswidth=\skip278
-\shorttitlewidth=\skip279
-\shortauthorwidth=\skip280
-\shorteditorwidth=\skip281
-\locallabelnumberwidth=\skip282
-\locallabelalphawidth=\skip283
-\localshorthandwidth=\skip284
-\localshortjournalwidth=\skip285
-\localshortserieswidth=\skip286
-\localshorttitlewidth=\skip287
-\localshortauthorwidth=\skip288
-\localshorteditorwidth=\skip289
+\c@afterword=\count579
+\c@savedafterword=\count580
+\c@annotator=\count581
+\c@savedannotator=\count582
+\c@author=\count583
+\c@savedauthor=\count584
+\c@bookauthor=\count585
+\c@savedbookauthor=\count586
+\c@commentator=\count587
+\c@savedcommentator=\count588
+\c@editor=\count589
+\c@savededitor=\count590
+\c@editora=\count591
+\c@savededitora=\count592
+\c@editorb=\count593
+\c@savededitorb=\count594
+\c@editorc=\count595
+\c@savededitorc=\count596
+\c@foreword=\count597
+\c@savedforeword=\count598
+\c@holder=\count599
+\c@savedholder=\count600
+\c@introduction=\count601
+\c@savedintroduction=\count602
+\c@namea=\count603
+\c@savednamea=\count604
+\c@nameb=\count605
+\c@savednameb=\count606
+\c@namec=\count607
+\c@savednamec=\count608
+\c@translator=\count609
+\c@savedtranslator=\count610
+\c@shortauthor=\count611
+\c@savedshortauthor=\count612
+\c@shorteditor=\count613
+\c@savedshorteditor=\count614
+\c@labelname=\count615
+\c@savedlabelname=\count616
+\c@institution=\count617
+\c@savedinstitution=\count618
+\c@lista=\count619
+\c@savedlista=\count620
+\c@listb=\count621
+\c@savedlistb=\count622
+\c@listc=\count623
+\c@savedlistc=\count624
+\c@listd=\count625
+\c@savedlistd=\count626
+\c@liste=\count627
+\c@savedliste=\count628
+\c@listf=\count629
+\c@savedlistf=\count630
+\c@location=\count631
+\c@savedlocation=\count632
+\c@organization=\count633
+\c@savedorganization=\count634
+\c@origlocation=\count635
+\c@savedoriglocation=\count636
+\c@origpublisher=\count637
+\c@savedorigpublisher=\count638
+\c@publisher=\count639
+\c@savedpublisher=\count640
+\c@language=\count641
+\c@savedlanguage=\count642
+\c@origlanguage=\count643
+\c@savedoriglanguage=\count644
+\c@pageref=\count645
+\c@savedpageref=\count646
+\shorthandwidth=\skip296
+\shortjournalwidth=\skip297
+\shortserieswidth=\skip298
+\shorttitlewidth=\skip299
+\shortauthorwidth=\skip300
+\shorteditorwidth=\skip301
+\locallabelnumberwidth=\skip302
+\locallabelalphawidth=\skip303
+\localshorthandwidth=\skip304
+\localshortjournalwidth=\skip305
+\localshortserieswidth=\skip306
+\localshorttitlewidth=\skip307
+\localshortauthorwidth=\skip308
+\localshorteditorwidth=\skip309
 Package biblatex Info: Trying to load compatibility code...
 Package biblatex Info: ... file 'blx-compat.def' found.
  (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\blx-compat.def
@@ -1634,19 +1680,19 @@ Package biblatex Info: Trying to load generic definitions...
 Package biblatex Info: ... file 'biblatex.def' found.
  (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.def
 File: biblatex.def 2024/03/21 v3.20 biblatex compatibility (PK/MW)
-\c@textcitecount=\count640
-\c@textcitetotal=\count641
-\c@textcitemaxnames=\count642
-\c@biburlbigbreakpenalty=\count643
-\c@biburlbreakpenalty=\count644
-\c@biburlnumpenalty=\count645
-\c@biburlucpenalty=\count646
-\c@biburllcpenalty=\count647
+\c@textcitecount=\count647
+\c@textcitetotal=\count648
+\c@textcitemaxnames=\count649
+\c@biburlbigbreakpenalty=\count650
+\c@biburlbreakpenalty=\count651
+\c@biburlnumpenalty=\count652
+\c@biburlucpenalty=\count653
+\c@biburllcpenalty=\count654
 \biburlbigskip=\muskip21
 \biburlnumskip=\muskip22
 \biburlucskip=\muskip23
 \biburllcskip=\muskip24
-\c@smartand=\count648
+\c@smartand=\count655
 )
 Package biblatex Info: Trying to load bibliography style 'ieee'...
 Package biblatex Info: ... file 'ieee.bbx' found.
@@ -1664,8 +1710,8 @@ Package biblatex Info: Trying to load bibliography style 'standard'...
 Package biblatex Info: ... file 'standard.bbx' found.
  (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\standard.bbx
 File: standard.bbx 2024/03/21 v3.20 biblatex bibliography style (PK/MW)
-\c@bbx:relatedcount=\count649
-\c@bbx:relatedtotal=\count650
+\c@bbx:relatedcount=\count656
+\c@bbx:relatedtotal=\count657
 )))
 
 Package biblatex Warning: Macro 'volume+number' undefined.
@@ -1676,10 +1722,10 @@ Package biblatex Info: Trying to load citation style 'numeric-comp'...
 Package biblatex Info: ... file 'numeric-comp.cbx' found.
  (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/cbx\numeric-comp.cbx
 File: numeric-comp.cbx 2024/03/21 v3.20 biblatex citation style (PK/MW)
-\c@cbx@tempcnta=\count651
-\c@cbx@tempcntb=\count652
-\c@cbx@tempcntc=\count653
-\c@cbx@tempcntd=\count654
+\c@cbx@tempcnta=\count658
+\c@cbx@tempcntb=\count659
+\c@cbx@tempcntc=\count660
+\c@cbx@tempcntd=\count661
 Package biblatex Info: Redefining '\cite'.
 Package biblatex Info: Redefining '\parencite'.
 Package biblatex Info: Redefining '\footcite'.
@@ -1728,29 +1774,29 @@ Sidefootvsep and sidefootheight: 13.6pt and 594.32022pt
 
 (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/latex/amscls\amsthm.sty
 Package: amsthm 2020/05/29 v2.20.6
-\thm@style=\toks60
-\thm@bodyfont=\toks61
-\thm@headfont=\toks62
-\thm@notefont=\toks63
-\thm@headpunct=\toks64
-\thm@preskip=\skip290
-\thm@postskip=\skip291
-\thm@headsep=\skip292
-\dth@everypar=\toks65
+\thm@style=\toks59
+\thm@bodyfont=\toks60
+\thm@headfont=\toks61
+\thm@notefont=\toks62
+\thm@headpunct=\toks63
+\thm@preskip=\skip310
+\thm@postskip=\skip311
+\thm@headsep=\skip312
+\dth@everypar=\toks64
 )
-\c@thm=\count655
-\c@definition=\count656
-\c@example=\count657
-\c@rem=\count658
-\c@note=\count659
+\c@thm=\count662
+\c@definition=\count663
+\c@example=\count664
+\c@rem=\count665
+\c@note=\count666
  (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/latex/glossaries-extra\glossaries-extra.sty
 Package: glossaries-extra 2025/11/03 v1.9 (NLCT)
  (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/latex/glossaries/base\glossaries.sty
 Package: glossaries 2025/11/09 v4.9 (NLCT)
  (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/latex/mfirstuc\mfirstuc.sty
 Package: mfirstuc 2025/04/03 v2.09 (NLCT)
-\@glsmfirst=\toks66
-\@glsmrest=\toks67
+\@glsmfirst=\toks65
+\@glsmrest=\toks66
 ) (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/latex/xfor\xfor.sty
 Package: xfor 2009/02/05 v1.05 (NLCT)
 ) () (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/latex/tracklang\tracklang.sty
@@ -1762,40 +1808,40 @@ Package tracklang Info: Tracking dialect `british' (language `english') on input
 File: glossaries-english.ldf 2014/11/23 v1.0
 ) (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/latex/datatool\datatool-base.sty
 Package: datatool-base 2025/12/04 v3.4.3 (NLCT)
-\l__datatool_tmpa_int=\count660
-\l__datatool_tmpb_int=\count661
-\l__datatool_tmpc_int=\count662
-\l__datatool_tmpd_int=\count663
-\l__datatool_count_int=\count664
-\l__datatool_tmp_datatype_int=\count665
-\l__datatool_tmpa_dim=\dimen439
-\l__datatool_tmpb_dim=\dimen440
+\l__datatool_tmpa_int=\count667
+\l__datatool_tmpb_int=\count668
+\l__datatool_tmpc_int=\count669
+\l__datatool_tmpd_int=\count670
+\l__datatool_count_int=\count671
+\l__datatool_tmp_datatype_int=\count672
+\l__datatool_tmpa_dim=\dimen441
+\l__datatool_tmpb_dim=\dimen442
  (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/latex/datatool\datatool-l3fp.def
 File: datatool-l3fp.def 2025/12/04 v3.4.3 (NLCT)
 )
-\@dtl@toks=\toks68
-\@dtl@tmpcount=\count666
-\dtl@tmplength=\skip293
-\l__datatool_measure_box=\box193
-\dtl@sortresult=\count667
+\@dtl@toks=\toks67
+\@dtl@tmpcount=\count673
+\dtl@tmplength=\skip313
+\l__datatool_measure_box=\box257
+\dtl@sortresult=\count674
  (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/latex/datatool\datatool-utf8.ldf
 File: datatool-utf8.ldf 2025/12/04 v3.4.3 (NLCT)
 )
-\@dtl@datatype=\count668
-\c_datatool_unknown_int=\count669
-\l__datatool_year_int=\count670
-\l__datatool_month_int=\count671
-\l__datatool_day_int=\count672
-\l__datatool_hour_int=\count673
-\l__datatool_minute_int=\count674
-\l__datatool_second_int=\count675
-\l__datatool_tzhour_int=\count676
-\l__datatool_tzminute_int=\count677
-\l__datatool_julian_int=\count678
-\l__datatool_local_julian_int=\count679
-\l__datatool_prefix_int=\count680
-\l__datatool_suffix_int=\count681
-\@dtl@foreach@level=\count682
+\@dtl@datatype=\count675
+\c_datatool_unknown_int=\count676
+\l__datatool_year_int=\count677
+\l__datatool_month_int=\count678
+\l__datatool_day_int=\count679
+\l__datatool_hour_int=\count680
+\l__datatool_minute_int=\count681
+\l__datatool_second_int=\count682
+\l__datatool_tzhour_int=\count683
+\l__datatool_tzminute_int=\count684
+\l__datatool_julian_int=\count685
+\l__datatool_local_julian_int=\count686
+\l__datatool_prefix_int=\count687
+\l__datatool_suffix_int=\count688
+\@dtl@foreach@level=\count689
 
 
 Package tracklang Warning: No `datatool' support for dialect `british'  on input line 9924.
@@ -1803,70 +1849,70 @@ Package tracklang Warning: No `datatool' support for dialect `british'  on input
 
 Package tracklang Warning: No `datatool' support for dialect `british'  on input line 9924.
 
-\dtl@codeA=\count683
-\dtl@codeB=\count684
+\dtl@codeA=\count690
+\dtl@codeB=\count691
 )
-\gls@level=\count685
-\@gls@tmpb=\toks69
-\gls@tmplen=\skip294
-\l__glossaries_tmpa_dim=\dimen441
-\l__glossaries_tmpb_dim=\dimen442
-\glskeylisttok=\toks70
-\glslabeltok=\toks71
-\glsshorttok=\toks72
-\glslongtok=\toks73
+\gls@level=\count692
+\@gls@tmpb=\toks68
+\gls@tmplen=\skip314
+\l__glossaries_tmpa_dim=\dimen443
+\l__glossaries_tmpb_dim=\dimen444
+\glskeylisttok=\toks69
+\glslabeltok=\toks70
+\glsshorttok=\toks71
+\glslongtok=\toks72
  (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/latex/glossaries/styles\glossary-hypernav.sty
 Package: glossary-hypernav 2025/11/09 v4.9 (NLCT)
 ) (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/latex/glossaries/styles\glossary-list.sty
 Package: glossary-list 2025/11/09 v4.9 (NLCT)
-\glslistdottedwidth=\skip295
+\glslistdottedwidth=\skip315
 ) (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/latex/glossaries/styles\glossary-long.sty
 Package: glossary-long 2025/11/09 v4.9 (NLCT)
-\glsdescwidth=\skip296
-\glspagelistwidth=\skip297
+\glsdescwidth=\skip316
+\glspagelistwidth=\skip317
 ) (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/latex/glossaries/styles\glossary-super.sty
 Package: glossary-super 2025/11/09 v4.9 (NLCT)
  (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/latex/supertabular\supertabular.sty
 Package: supertabular 2025/06/26 v4.2d the supertabular environment
-\c@tracingst=\count686
-\ST@wd=\dimen443
-\ST@rightskip=\skip298
-\ST@leftskip=\skip299
-\ST@parfillskip=\skip300
-\ST@pageleft=\dimen444
-\ST@headht=\dimen445
-\ST@tailht=\dimen446
-\ST@pagesofar=\dimen447
-\ST@pboxht=\dimen448
-\ST@rowht=\dimen449
-\ST@prevht=\dimen450
-\ST@toadd=\dimen451
-\ST@dimen=\dimen452
-\ST@pbox=\box194
+\c@tracingst=\count693
+\ST@wd=\dimen445
+\ST@rightskip=\skip318
+\ST@leftskip=\skip319
+\ST@parfillskip=\skip320
+\ST@pageleft=\dimen446
+\ST@headht=\dimen447
+\ST@tailht=\dimen448
+\ST@pagesofar=\dimen449
+\ST@pboxht=\dimen450
+\ST@rowht=\dimen451
+\ST@prevht=\dimen452
+\ST@toadd=\dimen453
+\ST@dimen=\dimen454
+\ST@pbox=\box258
 )) (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/latex/glossaries/styles\glossary-tree.sty
 Package: glossary-tree 2025/11/09 v4.9 (NLCT)
-\l__glossaries_tree_max_known_level_int=\count687
-\l__glossaries_tree_offset_dim=\dimen453
-\l__glossaries_tree_namewidth_dim=\dimen454
-\l__glossaries_tree_symbolwidth_dim=\dimen455
-\l__glossaries_tree_prenamesym_width_dim=\dimen456
-\l__glossaries_tree_presubnamesym_width_dim=\dimen457
-\l__glossaries_tree_namewidth_padding_dim=\dimen458
-\l__glossaries_tree_symbolwidth_padding_dim=\dimen459
-\l__glossaries_tree_namesymbolwidth_dim=\dimen460
-\l__glossaries_tree_namesymbolwidth_padding_dim=\dimen461
-\l__glossaries_tree_level_int=\count688
-\glstreeindent=\skip301
+\l__glossaries_tree_max_known_level_int=\count694
+\l__glossaries_tree_offset_dim=\dimen455
+\l__glossaries_tree_namewidth_dim=\dimen456
+\l__glossaries_tree_symbolwidth_dim=\dimen457
+\l__glossaries_tree_prenamesym_width_dim=\dimen458
+\l__glossaries_tree_presubnamesym_width_dim=\dimen459
+\l__glossaries_tree_namewidth_padding_dim=\dimen460
+\l__glossaries_tree_symbolwidth_padding_dim=\dimen461
+\l__glossaries_tree_namesymbolwidth_dim=\dimen462
+\l__glossaries_tree_namesymbolwidth_padding_dim=\dimen463
+\l__glossaries_tree_level_int=\count695
+\glstreeindent=\skip321
 ))
-\@glsxtr@leveloffset=\count689
-\glsxtrresourcecount=\count690
-\@glsxtrnewgls@inner=\count691
-\glsshortpltok=\toks74
-\glslongpltok=\toks75
+\@glsxtr@leveloffset=\count696
+\glsxtrresourcecount=\count697
+\@glsxtrnewgls@inner=\count698
+\glsshortpltok=\toks73
+\glslongpltok=\toks74
  (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/latex/glossaries-extra\glossaries-extra-abbrstyles.def
 File: glossaries-extra-abbrstyles.def 2025/11/03 v1.9 (NLCT)
 )
-\mglselementindex=\count692
+\mglselementindex=\count699
 ) (abbreviations.tex))
 runsystem(makeindex -s main.ist -t main.glg -o main.gls main.glo)...executed safely (allowed).
 
@@ -1899,7 +1945,8 @@ Package csquotes Info: Redefining alias 'default' -> 'british'.
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 74.
 (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) (main.aux (Chapters/Introduction.aux) (Chapters/Literature_Review.aux) (Chapters/Systems_Specifications.aux) (Chapters/TrackingAlgorithm.aux) (Chapters/OCP.aux) (Chapters/Conclusion.aux) (Chapters/Appendices.aux))
+)
+No file main.aux.
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 74.
@@ -1920,28 +1967,27 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 74.
 LaTeX Font Info:    ... okay on input line 74.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 74.
 LaTeX Font Info:    ... okay on input line 74.
- (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+(C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count693
-\scratchdimen=\dimen462
-\scratchbox=\box195
-\nofMPsegments=\count694
-\nofMParguments=\count695
-\everyMPshowfont=\toks76
-\MPscratchCnt=\count696
-\MPscratchDim=\dimen463
-\MPnumerator=\count697
-\makeMPintoPDFobject=\count698
-\everyMPtoPDFconversion=\toks77
+\scratchcounter=\count700
+\scratchdimen=\dimen464
+\scratchbox=\box259
+\nofMPsegments=\count701
+\nofMParguments=\count702
+\everyMPshowfont=\toks75
+\MPscratchCnt=\count703
+\MPscratchDim=\dimen465
+\MPnumerator=\count704
+\makeMPintoPDFobject=\count705
+\everyMPtoPDFconversion=\toks76
 ) (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-\c@lstlisting=\count699
+\c@lstlisting=\count706
 Package hyperref Info: Link coloring OFF on input line 74.
- (main.out) (main.out)
 \@outlinefile=\write11
 \openout11 = `main.out'.
 
@@ -2024,7 +2070,7 @@ Package: pdflscape-nometadata 2022-10-28 v0.13 Display of landscape pages in PDF
 Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
-))
+)) ()
 Package biblatex Info: Trying to load language 'british'...
 Package biblatex Info: ... file 'british.lbx' found.
  (C:\Users\shann\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/lbx\british.lbx
@@ -2045,13 +2091,6 @@ Package biblatex Info: ... file 'main.bbl' found.
 
 Package biblatex Warning: The following entry could not be found
 (biblatex)                in the database:
-(biblatex)                nagymate2018optitrack
-(biblatex)                Please verify the spelling and rerun
-(biblatex)                LaTeX afterwards.
-
-
-Package biblatex Warning: The following entry could not be found
-(biblatex)                in the database:
 (biblatex)                zhaoApproximateTechniquesSolving2013
 (biblatex)                Please verify the spelling and rerun
 (biblatex)                LaTeX afterwards.
@@ -2059,7 +2098,7 @@ Package biblatex Warning: The following entry could not be found
 )
 Package biblatex Info: Reference section=0 on input line 74.
 Package biblatex Info: Reference segment=0 on input line 74.
-<Figures/UCT_MSG_wide.png, id=386, 526.8483pt x 120.45pt>
+<Figures/UCT_MSG_wide.png, id=30, 526.8483pt x 120.45pt>
 File: Figures/UCT_MSG_wide.png Graphic file (type png)
 <use Figures/UCT_MSG_wide.png>
 Package pdftex.def Info: Figures/UCT_MSG_wide.png  used on input line 78.
@@ -2142,11 +2181,11 @@ Package microtype Info: Loading generic protrusion settings for font family
 [6
 
 ]
-\c@equdepth=\count700
-\c@myequation=\count701
-\cftbeforemyequationskip=\skip302
-\cftmyequationindent=\skip303
-\cftmyequationnumwidth=\skip304
+\c@equdepth=\count707
+\c@myequation=\count708
+\cftbeforemyequationskip=\skip322
+\cftmyequationindent=\skip323
+\cftmyequationnumwidth=\skip324
  (main.gls-abr) (main.sls) (main.gls)
 
 [7
@@ -2188,829 +2227,56 @@ Chapter 2.
 
  (Chapters/Systems_Specifications.tex
 Chapter 3.
-
-Overfull \hbox (4.23668pt too wide) in paragraph at lines 26--26
-[]|\T1/lmr/bx/n/10 (-20) Subsystem| 
- []
-
-
-Overfull \hbox (4.23668pt too wide) in paragraph at lines 31--31
-[]|\T1/lmr/bx/n/10 (-20) Subsystem| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 39--39
-[]|\T1/lmr/m/n/10 (+20) OMC-
- []
-
-
-Overfull \hbox (2.32518pt too wide) in paragraph at lines 39--39
-[]|\T1/lmr/m/n/10 (-20) Performance| 
- []
-
-
-Underfull \hbox (badness 2512) in paragraph at lines 39--39
-\T1/lmr/m/n/10 (+20) cam-era, gov-ern-ing min-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 40--40
-[]|\T1/lmr/m/n/10 (+20) OMC-
- []
-
-
-Overfull \hbox (2.32518pt too wide) in paragraph at lines 40--40
-[]|\T1/lmr/m/n/10 (-20) Performance| 
- []
-
-
-Underfull \hbox (badness 1728) in paragraph at lines 40--40
-\T1/lmr/m/n/10 (+20) s-i-tional er-ror against a
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 41--41
-[]|\T1/lmr/m/n/10 (+20) OMC-
- []
-
-
-Overfull \hbox (2.32518pt too wide) in paragraph at lines 41--41
-[]|\T1/lmr/m/n/10 (-20) Performance| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 42--42
-[]|\T1/lmr/m/n/10 (+20) OMC-
- []
-
-
-Overfull \hbox (2.32518pt too wide) in paragraph at lines 42--42
-[]|\T1/lmr/m/n/10 (-20) Performance| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 43--43
-[]|\T1/lmr/m/n/10 (+20) OMC-
- []
-
-
-Overfull \hbox (2.32518pt too wide) in paragraph at lines 43--43
-[]|\T1/lmr/m/n/10 (-20) Performance| 
- []
-
-
-Underfull \hbox (badness 6016) in paragraph at lines 43--43
-\T1/lmr/m/n/10 (+20) set re-por-ted by Easy-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 44--44
-[]|\T1/lmr/m/n/10 (+20) OMC-
- []
-
-
-Overfull \hbox (2.32518pt too wide) in paragraph at lines 44--44
-[]|\T1/lmr/m/n/10 (-20) Performance| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 44--45
-[]|\T1/lmr/m/n/10 (+20) Fraction of cap-tured
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 44--45
-\T1/lmr/m/n/10 (+20) frames in which all
- []
-
-
-Underfull \hbox (badness 1117) in paragraph at lines 44--45
-\T1/lmr/m/n/10 (+20) mark-ers are suc-cess-fully
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 46--46
-[]|\T1/lmr/m/n/10 (+20) OMC-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 46--46
-[]|\T1/lmr/m/n/10 (+20) Minimum us-able 3D
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 46--46
-\T1/lmr/m/n/10 (+20) volume within which
- []
-
-
-Underfull \hbox (badness 1769) in paragraph at lines 46--46
-\T1/lmr/m/n/10 (+20) all per-form-ance re-quire-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 47--47
-[]|\T1/lmr/m/n/10 (+20) OMC-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 47--47
-[]|\T1/lmr/m/n/10 (+20) Furthest camera-to-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 48--48
-[]|\T1/lmr/m/n/10 (+20) OMC-
- []
-
-
-Underfull \hbox (badness 1412) in paragraph at lines 48--48
-\T1/lmr/m/n/10 (+20) eras re-quired for multi-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 49--49
-[]|\T1/lmr/m/n/10 (+20) OMC-
- []
-
-
-Underfull \hbox (badness 1803) in paragraph at lines 49--49
-\T1/lmr/m/n/10 (+20) fit within the avail-able
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 50--50
-[]|\T1/lmr/m/n/10 (+20) OMC-
- []
-
-
-Underfull \hbox (badness 4303) in paragraph at lines 50--50
-[]|\T1/lmr/m/n/10 (+20) Bounds total hard-ware
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 51--51
-[]|\T1/lmr/m/n/10 (+20) OMC-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 52--52
-[]|\T1/lmr/m/n/10 (+20) OMC-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 54--54
-[]|\T1/lmr/m/n/10 (+15) OCP-P-
- []
-
-
-Overfull \hbox (2.32518pt too wide) in paragraph at lines 54--54
-[]|\T1/lmr/m/n/10 (-20) Performance| 
- []
-
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 54.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 54.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 54.
-
-Underfull \hbox (badness 2343) in paragraph at lines 54--54
-[]|\T1/lmr/m/n/10 (+20) Fraction of tar-get grid
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 55--55
-[]|\T1/lmr/m/n/10 (+15) OCP-P-
- []
-
-
-Overfull \hbox (2.32518pt too wide) in paragraph at lines 55--55
-[]|\T1/lmr/m/n/10 (-20) Performance| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 56--56
-[]|\T1/lmr/m/n/10 (+15) OCP-P-
- []
-
-
-Overfull \hbox (2.32518pt too wide) in paragraph at lines 56--56
-[]|\T1/lmr/m/n/10 (-20) Performance| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 56--56
-[]|\T1/lmr/m/n/10 (+20) Normalised com-pos-ite
- []
-
-
-Underfull \hbox (badness 6559) in paragraph at lines 56--56
-\T1/lmr/m/n/10 (+20) cost $\OML/lmm/m/it/10 J[]=J[]$ \T1/lmr/m/n/10 (+20) quan-ti-
- []
-
-
-Underfull \hbox (badness 7291) in paragraph at lines 56--56
-\T1/lmr/m/n/10 (+20) fy-ing pixel-quantisation-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 56--56
-\T1/lmr/m/n/10 (+20) induced 3D po-s-i-tion
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 56--56
-\T1/lmr/m/n/10 (+20) un-cer-tainty across the
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 57--57
-[]|\T1/lmr/m/n/10 (+15) OCP-P-
- []
-
-
-Overfull \hbox (2.32518pt too wide) in paragraph at lines 57--57
-[]|\T1/lmr/m/n/10 (-20) Performance| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 58--58
-[]|\T1/lmr/m/n/10 (+15) OCP-P-
- []
-
-
-Overfull \hbox (2.32518pt too wide) in paragraph at lines 58--58
-[]|\T1/lmr/m/n/10 (-20) Performance| 
- []
-
-
-Underfull \hbox (badness 1184) in paragraph at lines 58--58
-[]|\T1/lmr/m/n/10 (+20) Wall-clock time for the
- []
-
-
-Underfull \hbox (badness 1527) in paragraph at lines 58--58
-\T1/lmr/m/n/10 (+20) GA to com-plete a full
- []
-
-
-Underfull \hbox (badness 6510) in paragraph at lines 58--58
-\T1/lmr/m/n/10 (+20) run; bounds the pre-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 59--59
-[]|\T1/lmr/m/n/10 (+15) OCP-P-
- []
-
-
-Overfull \hbox (2.32518pt too wide) in paragraph at lines 59--59
-[]|\T1/lmr/m/n/10 (-20) Performance| 
- []
-
-
-Underfull \hbox (badness 1558) in paragraph at lines 59--59
-[]|\T1/lmr/m/n/10 (+20) Percentage re-duc-tion in
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 60--60
-[]|\T1/lmr/m/n/10 (+15) OCP-P-
- []
-
-
-Overfull \hbox (2.32518pt too wide) in paragraph at lines 60--60
-[]|\T1/lmr/m/n/10 (-20) Performance| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 62--62
-[]|\T1/lmr/m/n/10 (+20) OCP-F-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 63--63
-[]|\T1/lmr/m/n/10 (+20) OCP-F-
- []
-
-
-Underfull \hbox (badness 2790) in paragraph at lines 63--63
-[]|\T1/lmr/m/n/10 (+20) Degree to which work-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 64--64
-[]|\T1/lmr/m/n/10 (+20) OCP-F-
- []
-
-
-Underfull \hbox (badness 5189) in paragraph at lines 64--64
-[]|\T1/lmr/m/n/10 (+20) Consistency of the al-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 64--64
-\T1/lmr/m/n/10 (+20) gorithm's out-put cost
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 64--64
-\T1/lmr/m/n/10 (+20) char-ac-ter-ises stochastic
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 65--65
-[]|\T1/lmr/m/n/10 (+20) OCP-F-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 66--66
-[]|\T1/lmr/m/n/10 (+20) OCP-F-
- []
-
-
+)
 
 [3
 
 
 
 
-] [4] [5{C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}] [6]
-Overfull \hbox (8.51184pt too wide) in paragraph at lines 137--138
- [][] 
- []
-
-Package microtype Info: Character `029' is missing
-(microtype)             in font `T1/lmr/m/sc/10.95'.
-(microtype)             Ignoring protrusion settings for this character.
-
-LaTeX Font Warning: Font shape `T1/lmr/bx/sc' undefined
-(Font)              using `T1/lmr/bx/n' instead on input line 138.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 167--167
-[]|\T1/lmr/m/n/10 (+20) OMC-P-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 168--168
-[]|\T1/lmr/m/n/10 (+20) OMC-P-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 169--169
-[]|\T1/lmr/m/n/10 (+20) OMC-P-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 170--170
-[]|\T1/lmr/m/n/10 (+20) OMC-P-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 171--171
-[]|\T1/lmr/m/n/10 (+20) OMC-P-
- []
-
-
-Underfull \hbox (badness 3148) in paragraph at lines 171--171
-[]|\T1/lmr/m/n/10 (+20) Calibration Re-sid-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 172--172
-[]|\T1/lmr/m/n/10 (+20) OMC-P-
- []
-
-
-
-[7]
-Overfull \hbox (3.14009pt too wide) in paragraph at lines 180--180
-[]|\T1/lmr/bx/n/10 (-20) Imp.| 
- []
-
-
-Overfull \hbox (3.14009pt too wide) in paragraph at lines 185--185
-[]|\T1/lmr/bx/n/10 (-20) Imp.| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 193--193
-[]|\T1/lmr/m/n/10 (+20) OMC-P-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 194--194
-[]|\T1/lmr/m/n/10 (+20) OMC-P-
- []
-
-
-Overfull \hbox (18.81123pt too wide) in paragraph at lines 194--194
-[]|\T1/lmr/m/n/10 (-20) mm(RMS)| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 195--195
-[]|\T1/lmr/m/n/10 (+20) OMC-P-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 196--196
-[]|\T1/lmr/m/n/10 (+20) OMC-P-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 197--197
-[]|\T1/lmr/m/n/10 (+20) OMC-P-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 198--198
-[]|\T1/lmr/m/n/10 (+20) OMC-P-
- []
-
-
-
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 220--220
-[]|\T1/lmr/m/n/10 (+20) OMC-F-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 221--221
-[]|\T1/lmr/m/n/10 (+20) OMC-F-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 221--221
-[]|\T1/lmr/m/n/10 (+20) Maximum De-tec-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 222--222
-[]|\T1/lmr/m/n/10 (+20) OMC-F-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 223--223
-[]|\T1/lmr/m/n/10 (+20) OMC-F-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 224--224
-[]|\T1/lmr/m/n/10 (+20) OMC-F-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 225--225
-[]|\T1/lmr/m/n/10 (+20) OMC-F-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 226--226
-[]|\T1/lmr/m/n/10 (+20) OMC-F-
- []
-
-
-Overfull \hbox (3.14009pt too wide) in paragraph at lines 234--234
-[]|\T1/lmr/bx/n/10 (-20) Imp.| 
- []
-
-
-Overfull \hbox (3.14009pt too wide) in paragraph at lines 239--239
-[]|\T1/lmr/bx/n/10 (-20) Imp.| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 247--247
-[]|\T1/lmr/m/n/10 (+20) OMC-F-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 248--248
-[]|\T1/lmr/m/n/10 (+20) OMC-F-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 249--249
-[]|\T1/lmr/m/n/10 (+20) OMC-F-
- []
-
-
-Overfull \hbox (5.92876pt too wide) in paragraph at lines 249--249
-[]|\T1/lmr/m/n/10 (-20) cameras| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 250--250
-[]|\T1/lmr/m/n/10 (+20) OMC-F-
- []
-
-
-Overfull \hbox (0.59996pt too wide) in paragraph at lines 250--250
-[]|\T1/lmr/m/n/10 (-20) m$[]$/m| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 251--251
-[]|\T1/lmr/m/n/10 (+20) OMC-F-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 251--251
-[]|\T1/lmr/m/n/10 (+20) Within pro-ject
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 252--252
-[]|\T1/lmr/m/n/10 (+20) OMC-F-
- []
-
-
-Underfull \hbox (badness 6725) in paragraph at lines 252--252
-[]|\T1/lmr/m/n/10 (+20) Single-person re-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 253--253
-[]|\T1/lmr/m/n/10 (+20) OMC-F-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 253--253
-[]|\T1/lmr/m/n/10 (+20) All para-met-ers
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 253--254
-[]|\T1/lmr/m/n/10 (+20) Full API-level
- []
-
-
-Underfull \hbox (badness 3250) in paragraph at lines 253--254
-\T1/lmr/m/n/10 (+20) con-trol; com-pat-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 253--254
-\T1/lmr/m/n/10 (+20) ible with OCP
- []
-
-
-
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 281--281
-[]|\T1/lmr/m/n/10 (+20) OCP-P-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 282--282
-[]|\T1/lmr/m/n/10 (+20) OCP-P-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 283--283
-[]|\T1/lmr/m/n/10 (+20) OCP-P-
- []
-
-
-Underfull \hbox (badness 4859) in paragraph at lines 283--283
-[]|\T1/lmr/m/n/10 (+20) Normalised Res-ol-u-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 284--284
-[]|\T1/lmr/m/n/10 (+20) OCP-P-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 285--285
-[]|\T1/lmr/m/n/10 (+20) OCP-P-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 285--285
-[]|\T1/lmr/m/n/10 (+20) Optimisation
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 286--286
-[]|\T1/lmr/m/n/10 (+20) OCP-P-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 287--287
-[]|\T1/lmr/m/n/10 (+20) OCP-P-
- []
-
-
-Underfull \hbox (badness 1810) in paragraph at lines 287--287
-[]|\T1/lmr/m/n/10 (+20) Marker Re-con-struc-
- []
-
-
-
-[10]
-Overfull \hbox (3.14009pt too wide) in paragraph at lines 295--295
-[]|\T1/lmr/bx/n/10 (-20) Imp.| 
- []
-
-
-Overfull \hbox (3.14009pt too wide) in paragraph at lines 300--300
-[]|\T1/lmr/bx/n/10 (-20) Imp.| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 308--308
-[]|\T1/lmr/m/n/10 (+20) OCP-P-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 309--309
-[]|\T1/lmr/m/n/10 (+20) OCP-P-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 310--310
-[]|\T1/lmr/m/n/10 (+20) OCP-P-
- []
-
-
-Overfull \hbox (22.81746pt too wide) in paragraph at lines 310--310
-[]|\T1/lmr/m/n/10 (-20) (dimensionless)| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 311--311
-[]|\T1/lmr/m/n/10 (+20) OCP-P-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 312--312
-[]|\T1/lmr/m/n/10 (+20) OCP-P-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 313--313
-[]|\T1/lmr/m/n/10 (+20) OCP-P-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 314--314
-[]|\T1/lmr/m/n/10 (+20) OCP-P-
- []
-
-[11]
-Underfull \hbox (badness 10000) in paragraph at lines 336--336
-[]|\T1/lmr/m/n/10 (+20) OCP-F-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 336--336
-[]|\T1/lmr/m/n/10 (+20) Camera Count
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 337--337
-[]|\T1/lmr/m/n/10 (+20) OCP-F-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 338--338
-[]|\T1/lmr/m/n/10 (+20) OCP-F-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 339--339
-[]|\T1/lmr/m/n/10 (+20) OCP-F-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 340--340
-[]|\T1/lmr/m/n/10 (+20) OCP-F-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 340--340
-[]|\T1/lmr/m/n/10 (+20) Objective Weight
- []
-
-
-Overfull \hbox (3.14009pt too wide) in paragraph at lines 348--348
-[]|\T1/lmr/bx/n/10 (-20) Imp.| 
- []
-
-
-Overfull \hbox (3.14009pt too wide) in paragraph at lines 353--353
-[]|\T1/lmr/bx/n/10 (-20) Imp.| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 361--361
-[]|\T1/lmr/m/n/10 (+20) OCP-F-
- []
-
-
-Overfull \hbox (5.92876pt too wide) in paragraph at lines 361--361
-[]|\T1/lmr/m/n/10 (-20) cameras| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 362--362
-[]|\T1/lmr/m/n/10 (+20) OCP-F-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 362--362
-\T1/lmr/m/n/10 (+20) rect-an-gu-lar work-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 362--362
-\T1/lmr/m/n/10 (+20) cam-era place-ment
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 363--363
-[]|\T1/lmr/m/n/10 (+20) OCP-F-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 364--364
-[]|\T1/lmr/m/n/10 (+20) OCP-F-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 364--364
-[]|\T1/lmr/m/n/10 (+20) Direct nu-mer-
- []
-
-
-Underfull \hbox (badness 2753) in paragraph at lines 364--364
-\T1/lmr/m/n/10 (+20) ical im-port into
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 364--364
-\T1/lmr/m/n/10 (+20) Motive lay-out
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 365--365
-[]|\T1/lmr/m/n/10 (+20) OCP-F-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 365--365
-[]|\T1/lmr/m/n/10 (+20) User-configurable
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 365--366
-[]|\T1/lmr/m/n/10 (+20) Extendable to
- []
-
-[12]
-
-[13])
-
-[14]
+]
 \openout2 = `Chapters/TrackingAlgorithm.aux'.
 
  (Chapters/TrackingAlgorithm.tex
 Chapter 4.
 
 
-[15
+[4
 
 
 
 
 ])
 
-[16]
+[5]
 
-[17]
+[6]
 \openout2 = `Chapters/OCP.aux'.
 
  (Chapters/OCP.tex
 Chapter 5.
 
+LaTeX Warning: Reference `sec:CameraModelProjection' on page 7 undefined on input line 5.
 
-[18
+
+
+[7
 
 
 
 
 ]
 
+LaTeX Warning: Reference `fig: Vertex tricolouring' on page 8 undefined on input line 15.
+
+
+
 pdfTeX warning: pdflatex (file ./svg-inkscape/fiskFig1_svg-tex.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
 Package svg Info: Last page of `./svg-inkscape/fiskFig1_svg-tex.pdf' is 1 on input line 21.
 (svg-inkscape/fiskFig1_svg-tex.pdf_tex
 
 pdfTeX warning: pdflatex (file ./svg-inkscape/fiskFig1_svg-tex.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<./svg-inkscape/fiskFig1_svg-tex.pdf, id=866, page=1, 265.2911pt x 182.78288pt>
+<./svg-inkscape/fiskFig1_svg-tex.pdf, id=399, page=1, 265.2911pt x 182.78288pt>
 File: ./svg-inkscape/fiskFig1_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/fiskFig1_svg-tex.pdf, page 1>
 Package pdftex.def Info: ./svg-inkscape/fiskFig1_svg-tex.pdf , page1 used on input line 56.
@@ -3018,7 +2284,7 @@ Package pdftex.def Info: ./svg-inkscape/fiskFig1_svg-tex.pdf , page1 used on inp
 )
 Package svg Info: Last page of `./svg-inkscape/fiskFig2_svg-tex.pdf' is 1 on input line 28.
  (svg-inkscape/fiskFig2_svg-tex.pdf_tex
-<./svg-inkscape/fiskFig2_svg-tex.pdf, id=868, page=1, 265.29105pt x 180.97612pt>
+<./svg-inkscape/fiskFig2_svg-tex.pdf, id=401, page=1, 265.29105pt x 180.97612pt>
 File: ./svg-inkscape/fiskFig2_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/fiskFig2_svg-tex.pdf, page 1>
 Package pdftex.def Info: ./svg-inkscape/fiskFig2_svg-tex.pdf , page1 used on input line 56.
@@ -3026,23 +2292,32 @@ Package pdftex.def Info: ./svg-inkscape/fiskFig2_svg-tex.pdf , page1 used on inp
 )
 Package svg Info: Last page of `./svg-inkscape/fiskFig3_svg-tex.pdf' is 1 on input line 37.
  (svg-inkscape/fiskFig3_svg-tex.pdf_tex
-<./svg-inkscape/fiskFig3_svg-tex.pdf, id=870, page=1, 271.31245pt x 187.0004pt>
+<./svg-inkscape/fiskFig3_svg-tex.pdf, id=403, page=1, 271.31245pt x 187.0004pt>
 File: ./svg-inkscape/fiskFig3_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/fiskFig3_svg-tex.pdf, page 1>
 Package pdftex.def Info: ./svg-inkscape/fiskFig3_svg-tex.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 237.60242pt x 163.7733pt.
 )
+Package microtype Info: Character `029' is missing
+(microtype)             in font `T1/lmr/m/sc/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+
+
+LaTeX Font Warning: Font shape `T1/lmr/bx/sc' undefined
+(Font)              using `T1/lmr/bx/n' instead on input line 42.
+
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <9> on input line 42.
-
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 42.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 
-[19]
+[8{C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}]
 
-[20 <./svg-inkscape/fiskFig1_svg-tex.pdf> <./svg-inkscape/fiskFig2_svg-tex.pdf
+[9 <./svg-inkscape/fiskFig1_svg-tex.pdf> <./svg-inkscape/fiskFig2_svg-tex.pdf
 
 pdfTeX warning: pdflatex (file ./svg-inkscape/fiskFig2_svg-tex.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 > <./svg-inkscape/fiskFig3_svg-tex.pdf
@@ -3050,19 +2325,60 @@ pdfTeX warning: pdflatex (file ./svg-inkscape/fiskFig2_svg-tex.pdf): PDF inclusi
 pdfTeX warning: pdflatex (file ./svg-inkscape/fiskFig3_svg-tex.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
 
-[21{C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc}]
+Chapters/OCP.tex:59: Package glossaries-extra Error: Glossary entry `SA' has not been defined.
 
-LaTeX Warning: Citation 'zhaoApproximateTechniquesSolving2013' on page 22 undefined on input line 61.
+See the glossaries-extra package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.59 ...tic search (\gls{GA}, \gls{PSO}, \gls{SA})
+                                                  . This framing is not wron...
+You need to define a glossary entry before you can reference it.
 
 
 
-[22]
+[10{C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc}]
 
-[23]
+LaTeX Warning: Citation 'zhaoApproximateTechniquesSolving2013' on page 11 undefined on input line 61.
 
-[24]
 
-[25]
+Chapters/OCP.tex:63: Package glossaries-extra Error: Glossary entry `SA' has not been defined.
+
+See the glossaries-extra package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.63 ... form. \gls{GA}s, \gls{PSO}, and \gls{SA} 
+                                                  all operate in this manner...
+You need to define a glossary entry before you can reference it.
+
+
+LaTeX Warning: Reference `fig: Heuristic Distribution' on page 11 undefined on input line 63.
+
+
+Chapters/OCP.tex:63: Package glossaries-extra Error: Glossary entry `SA' has not been defined.
+
+See the glossaries-extra package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.63 ...ure, followed by \gls{PSO}, with \gls{SA} 
+                                                  and greedy approaches appe...
+You need to define a glossary entry before you can reference it.
+
+
+
+[11]
+
+[12]
+
+[13]
+
+LaTeX Warning: Reference `tab:ocp-lit-classification' on page 14 undefined on input line 91.
+
+
+
+[14]
 
 Package tabularx Warning: X Columns too narrow (table too wide)
 (tabularx)                 on input line 115.
@@ -3462,18 +2778,28 @@ LaTeX Warning: Float too large for page by 376.39972pt on input line 116.
 
 
 
-[26]
+[15]
 
-[27]
+[16]
 
-LaTeX Warning: Citation 'zhaoApproximateTechniquesSolving2013' on page 28 undefined on input line 127.
-
-
-LaTeX Warning: Citation 'nagymate2018optitrack' on page 28 undefined on input line 129.
+LaTeX Warning: Citation 'zhaoApproximateTechniquesSolving2013' on page 17 undefined on input line 127.
 
 
+LaTeX Warning: Citation 'aurandAccuracyMapOptical2017' on page 17 undefined on input line 129.
 
-[28]
+
+LaTeX Warning: Citation 'nagymate2018optitrack' on page 17 undefined on input line 129.
+
+
+LaTeX Warning: Reference `sec:verification' on page 17 undefined on input line 131.
+
+
+
+[17]
+
+LaTeX Warning: Reference `tab:ga-terminology' on page 18 undefined on input line 146.
+
+
 Underfull \hbox (badness 1097) in paragraph at lines 164--164
 []|\T1/lmr/m/n/10.95 (+20) A ran-dom, her-it-able change
  []
@@ -3483,70 +2809,1091 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 
-[29]
+[18]
 
-[30]
+[19]
 Overfull \hbox (2.41338pt too wide) in paragraph at lines 188--191
 \T1/lmr/m/n/10.95 (-20) Fitness pro-por-tion-ate se-lec-tion: roulette-wheel se-lec-tion, stochastic uni-ver-sal sampling
  []
 
 
+LaTeX Warning: Reference `fig:ga-flowchart' on page 20 undefined on input line 214.
+
+
+Chapters/OCP.tex:232: LaTeX Error: Not allowed in LR mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.232 ...below=of start] {Setup hardware specs,\\t
+                                                  arget space, cost params};
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Chapters/OCP.tex:234: LaTeX Error: Not allowed in LR mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.234 ...low=of setup] {Generate guided initial\\p
+                                                  opulation (Alg. \ref{alg:i...
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: Reference `alg:init-pop' on page 20 undefined on input line 234.
+
+
+Chapters/OCP.tex:236: LaTeX Error: Not allowed in LR mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.236 ...=of init] {Evaluate initial population\\(
+                                                  \texttt{parfor})};
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Chapters/OCP.tex:240: LaTeX Error: Not allowed in LR mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.240 ...=1.3cm of best0] {Tournament selection\\(
+                                                  $k_t = 3$)};
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Chapters/OCP.tex:242: LaTeX Error: Not allowed in LR mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.242 ...low=of select] {Double-point crossover\\(
+                                                  camera-block-aware)};
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Chapters/OCP.tex:244: LaTeX Error: Not allowed in LR mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.244 ...ss, below=of cross] {Gaussian mutation\\(
+                                                  $\mu = 0.2,\ \sigma = 0.1$)};
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Chapters/OCP.tex:246: LaTeX Error: Not allowed in LR mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.246 ...cision, below=1.1cm of mutate] {Repair\\n
+                                                  eeded?};
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Chapters/OCP.tex:248: LaTeX Error: Not allowed in LR mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.248 ....8cm of repair] {Reorient poor cameras\\(
+                                                  \texttt{fixPoorCameras})};
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Chapters/OCP.tex:250: LaTeX Error: Not allowed in LR mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.250 ...elow=1.1cm of repair] {Clamp to bounds\\$
+                                                  [\mathbf{C}_{\min},\, \mat...
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Chapters/OCP.tex:252: LaTeX Error: Not allowed in LR mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.252 ...s, below=of clamp] {Evaluate offspring\\(
+                                                  \texttt{parfor})};
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Chapters/OCP.tex:254: LaTeX Error: Not allowed in LR mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.254 ...f evaloff] {Merge parents + offspring,\\s
+                                                  ort by cost, truncate to $...
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Chapters/OCP.tex:263: LaTeX Error: Not allowed in LR mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.263 ...not, left=2.5cm of select] {Generation\\l
+                                                  oop\\$g = 1 \ldots G_{\max...
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Chapters/OCP.tex:263: LaTeX Error: Not allowed in LR mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.263 ...eft=2.5cm of select] {Generation\\loop\\$
+                                                  g = 1 \ldots G_{\max}$};
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Chapters/OCP.tex:266: Package pgf Error: Unknown arrow tip kind 'Stealth'.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.266     \draw [arrow]
+                        (start) -- (setup);
+This error message was generated by an \errmessage
+command, so I can't give any explicit help.
+Pretend that you're Hercule Poirot: Examine all clues,
+and deduce the truth by order and method.
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+
+Chapters/OCP.tex:267: Package pgf Error: Unknown arrow tip kind 'Stealth'.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.267     \draw [arrow]
+                        (setup) -- (init);
+(That was another \errmessage.)
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+
+Chapters/OCP.tex:268: Package pgf Error: Unknown arrow tip kind 'Stealth'.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.268     \draw [arrow]
+                        (init) -- (eval0);
+(That was another \errmessage.)
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+
+Chapters/OCP.tex:269: Package pgf Error: Unknown arrow tip kind 'Stealth'.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.269     \draw [arrow]
+                        (eval0) -- (best0);
+(That was another \errmessage.)
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+
+Chapters/OCP.tex:270: Package pgf Error: Unknown arrow tip kind 'Stealth'.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.270     \draw [arrow]
+                        (best0) -- (select);
+(That was another \errmessage.)
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+
+Chapters/OCP.tex:271: Package pgf Error: Unknown arrow tip kind 'Stealth'.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.271     \draw [arrow]
+                        (select) -- (cross);
+(That was another \errmessage.)
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+
+Chapters/OCP.tex:272: Package pgf Error: Unknown arrow tip kind 'Stealth'.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.272     \draw [arrow]
+                        (cross) -- (mutate);
+(That was another \errmessage.)
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+
+Chapters/OCP.tex:273: Package pgf Error: Unknown arrow tip kind 'Stealth'.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.273     \draw [arrow]
+                        (mutate) -- (repair);
+(That was another \errmessage.)
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+
+Chapters/OCP.tex:275: Package pgf Error: Unknown arrow tip kind 'Stealth'.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.275     \draw [arrow]
+                        (repair) -- node[above, font=\scriptsize] {Yes} (fix);
+(That was another \errmessage.)
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+
+Chapters/OCP.tex:276: Package pgf Error: Unknown arrow tip kind 'Stealth'.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.276     \draw [arrow]
+                        (repair) -- node[right, font=\scriptsize] {No} (clamp);
+(That was another \errmessage.)
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+
+Chapters/OCP.tex:277: Package pgf Error: Unknown arrow tip kind 'Stealth'.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.277     \draw [arrow]
+                        (fix) |- (clamp);
+(That was another \errmessage.)
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+
+Chapters/OCP.tex:279: Package pgf Error: Unknown arrow tip kind 'Stealth'.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.279     \draw [arrow]
+                        (clamp) -- (evaloff);
+(That was another \errmessage.)
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+
+Chapters/OCP.tex:280: Package pgf Error: Unknown arrow tip kind 'Stealth'.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.280     \draw [arrow]
+                        (evaloff) -- (merge);
+(That was another \errmessage.)
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+
+Chapters/OCP.tex:281: Package pgf Error: Unknown arrow tip kind 'Stealth'.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.281     \draw [arrow]
+                        (merge) -- (updatebest);
+(That was another \errmessage.)
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+
+Chapters/OCP.tex:282: Package pgf Error: Unknown arrow tip kind 'Stealth'.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.282     \draw [arrow]
+                        (updatebest) -- (check);
+(That was another \errmessage.)
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+
+Chapters/OCP.tex:284: Package pgf Error: Unknown arrow tip kind 'Stealth'.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.284     \draw [arrow]
+                        (check) -- node[right, font=\scriptsize] {No} (stop);
+(That was another \errmessage.)
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+
+Chapters/OCP.tex:287: Package pgf Error: Unknown arrow tip kind 'Stealth'.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.287     \draw [arrow]
+                        (check.west) -- node[above, font=\scriptsize] {Yes} ...
+(That was another \errmessage.)
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+
+Chapters/OCP.tex:290: Package pgf Error: Unknown arrow tip kind 'Stealth'.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.290     \draw [dashedarrow]
+                              (genlabel.east) -- ++(0.4,0);
+(That was another \errmessage.)
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+
+Overfull \hbox (249.03464pt too wide) in paragraph at lines 295--296
+ [][] 
+ []
+
+
+LaTeX Warning: Float too large for page by 237.91618pt on input line 298.
+
+
+LaTeX Warning: Reference `sec:lit-review-approaches' on page 20 undefined on input line 304.
+
+
+LaTeX Warning: Reference `sec:cost-function' on page 20 undefined on input line 304.
+
+
+
+[20]
+
+[21]
+
+[22]
+
+LaTeX Warning: Reference `tab:ga-params' on page 23 undefined on input line 334.
+
+
+LaTeX Warning: Reference `sec:elitism' on page 23 undefined on input line 356.
+
+
+
+[23]
+
+LaTeX Warning: Reference `alg:init-pop' on page 24 undefined on input line 367.
+
+Chapters/OCP.tex:373: Undefined control sequence.
+l.373 \REQUIRE
+               Bounds $\mathbf{c}_{\min}$, $\mathbf{c}_{\max}$; section cent...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Chapters/OCP.tex:374: Undefined control sequence.
+l.374 \ENSURE
+              Chromosome $\mathbf{c}$ of length $6k$
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Chapters/OCP.tex:375: Undefined control sequence.
+l.375 \FOR
+          {$i = 1$ \TO $k$}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Chapters/OCP.tex:375: Undefined control sequence.
+l.375 \FOR{$i = 1$ \TO
+                       $k$}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Chapters/OCP.tex:376: Undefined control sequence.
+l.376     \STATE
+                 Randomly select boundary face $f \in \{+X, -X, +Y, -Y, +Z\}$
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Chapters/OCP.tex:377: Undefined control sequence.
+l.377     \STATE
+                 Sample position $\mathbf{p}_i$ uniformly on face $f$
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Chapters/OCP.tex:378: Undefined control sequence.
+l.378     \STATE
+                 Find nearest section centre: $\mathbf{s}^* = \arg\min_{\mat...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Chapters/OCP.tex:379: Undefined control sequence.
+l.379     \STATE
+                 Compute direction: $\hat{\mathbf{d}} = (\mathbf{s}^* - \mat...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Chapters/OCP.tex:380: Undefined control sequence.
+l.380     \STATE
+                 Compute rotation from $\hat{\mathbf{z}}$ to $\hat{\mathbf{d...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Chapters/OCP.tex:381: Undefined control sequence.
+l.381     \STATE
+                 Convert to quaternion: $\mathbf{q} = [\cos(\theta/2),\ \hat...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Chapters/OCP.tex:382: Undefined control sequence.
+l.382     \STATE
+                 Extract Euler angles: $(\alpha_i, \beta_i, \gamma_i) \lefta...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Chapters/OCP.tex:383: Undefined control sequence.
+l.383     \STATE
+                 $\mathbf{c}[(i{-}1) \cdot 6 + 1 : i \cdot 6] \leftarrow [\m...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Chapters/OCP.tex:384: Undefined control sequence.
+l.384 \ENDFOR
+             
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Chapters/OCP.tex:385: Undefined control sequence.
+l.385 \RETURN
+              $\mathbf{c}$
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Chapters/OCP.tex:386: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.386 \end{algorithmic}
+                       
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (17.0pt too wide) detected at line 387
+[][] 
+ []
+
+
+
+[24]
+
+[25]
+
+LaTeX Warning: Reference `sec:initial-pop' on page 26 undefined on input line 430.
+
+
+
+[26]
+
+LaTeX Warning: Reference `alg:ga-main' on page 27 undefined on input line 439.
+
+Chapters/OCP.tex:445: Undefined control sequence.
+l.445 \REQUIRE
+               Cost function $f$; bounds $\mathbf{C}_{\min}$, $\mathbf{C}_{\...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Chapters/OCP.tex:446: Undefined control sequence.
+l.446 \ENSURE
+              Best camera configuration $\mathbf{c}^*$ and cost $f^*$
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Chapters/OCP.tex:447: Undefined control sequence.
+l.447 \STATE
+             Initialise population $P = \{\mathbf{c}_1, \ldots, \mathbf{c}_{...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Reference `alg:init-pop' on page 27 undefined on input line 447.
+
+Chapters/OCP.tex:448: Undefined control sequence.
+l.448 \STATE
+             Evaluate $f(\mathbf{c}_i)$ for all $i \in \{1, \ldots, N_{\text...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Chapters/OCP.tex:449: Undefined control sequence.
+l.449 \STATE
+             $\mathbf{c}^* \leftarrow \arg\min_{\mathbf{c} \in P} f(\mathbf{...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Chapters/OCP.tex:450: Undefined control sequence.
+l.450 \FOR
+          {$g = 1$ \TO $G_{\max}$}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Chapters/OCP.tex:450: Undefined control sequence.
+l.450 \FOR{$g = 1$ \TO
+                       $G_{\max}$}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Chapters/OCP.tex:451: Undefined control sequence.
+l.451     \STATE
+                 Select $N_C$ parents via tournament selection (size $k_t$) ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Chapters/OCP.tex:452: Undefined control sequence.
+l.452     \FOR
+              {$j = 1$ \TO $N_C / 2$}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Chapters/OCP.tex:452: Undefined control sequence.
+l.452     \FOR{$j = 1$ \TO
+                           $N_C / 2$}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Chapters/OCP.tex:453: Undefined control sequence.
+l.453         \STATE
+                     $(\mathbf{y}_{2j-1},\, \mathbf{y}_{2j}) \leftarrow \tex...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Chapters/OCP.tex:454: Undefined control sequence.
+l.454     \ENDFOR
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Chapters/OCP.tex:455: Undefined control sequence.
+l.455     \FOR
+              {$j = 1$ \TO $N_C$}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Chapters/OCP.tex:455: Undefined control sequence.
+l.455     \FOR{$j = 1$ \TO
+                           $N_C$}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Chapters/OCP.tex:456: Undefined control sequence.
+l.456         \STATE
+                     $\mathbf{y}_j \leftarrow \text{Mutate}(\mathbf{y}_j,\, ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Chapters/OCP.tex:457: Undefined control sequence.
+l.457         \IF
+                 {$g \bmod 10 = 0$ \OR $\text{rand}() < 0.2$}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Chapters/OCP.tex:457: Undefined control sequence.
+l.457         \IF{$g \bmod 10 = 0$ \OR
+                                       $\text{rand}() < 0.2$}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Chapters/OCP.tex:458: Undefined control sequence.
+l.458             \STATE
+                         $\mathbf{y}_j \leftarrow \text{fixPoorCameras}(\mat...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Chapters/OCP.tex:459: Undefined control sequence.
+l.459         \ENDIF
+                    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Chapters/OCP.tex:460: Undefined control sequence.
+l.460         \STATE
+                     $\mathbf{y}_j \leftarrow \text{clamp}(\mathbf{y}_j,\, \...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Chapters/OCP.tex:461: Undefined control sequence.
+l.461     \ENDFOR
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Chapters/OCP.tex:462: Undefined control sequence.
+l.462     \STATE
+                 Evaluate $f(\mathbf{y}_j)$ for all $j \in \{1, \ldots, N_C\...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Chapters/OCP.tex:463: Undefined control sequence.
+l.463     \IF
+             {$\min_j f(\mathbf{y}_j) < f^*$}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Chapters/OCP.tex:464: Undefined control sequence.
+l.464         \STATE
+                     $\mathbf{c}^* \leftarrow \arg\min_j \mathbf{y}_j$; \qua...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Chapters/OCP.tex:465: Undefined control sequence.
+l.465     \ENDIF
+                
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Chapters/OCP.tex:466: Undefined control sequence.
+l.466     \STATE
+                 $P \leftarrow \text{sort}(P \cup \{\mathbf{y}_1, \ldots, \m...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Chapters/OCP.tex:467: Undefined control sequence.
+l.467     \STATE
+                 $P \leftarrow P(1 : N_{\text{pop}})$ \hfill \textit{(trunca...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Chapters/OCP.tex:468: Undefined control sequence.
+l.468 \ENDFOR
+             
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Chapters/OCP.tex:469: Undefined control sequence.
+l.469 \RETURN
+              $\mathbf{c}^*$, $f^*$
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Chapters/OCP.tex:470: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.470 \end{algorithmic}
+                       
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (17.0pt too wide) detected at line 471
+[][] 
+ []
+
+
+
+[27]
+
+Chapters/OCP.tex:478: Package glossaries-extra Error: Glossary entry `UAV' has not been defined.
+
+See the glossaries-extra package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.478 ...cing (suitable for full-volume \gls{UAV} 
+                                                  tracking), and a normally-...
+You need to define a glossary entry before you can reference it.
+
+
+
+[28]
+
+[29]
+
+[30]
+
+LaTeX Warning: Reference `sec:convergence-results' on page 31 undefined on input line 568.
+
+
 
 [31]
 
+LaTeX Warning: Citation 'aurandAccuracyMapOptical2017' on page 32 undefined on input line 598.
+
+
+
 [32]
 
-[33]
+LaTeX Warning: Reference `sec:res-uncertainty' on page 33 undefined on input line 614.
+
+
+LaTeX Warning: Reference `sec:dynamic-occlusion' on page 33 undefined on input line 614.
+
+
+
+[33])
 
 [34]
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 371.
-
-
-[35]
-
-[36]
-
-[37]
-
-[38]
-
-[39]
-
-[40]
-
-[41]
-
-LaTeX Warning: Reference `sec:convergence-results' on page 42 undefined on input line 569.
-
-
-
-[42]
-
-[43]
-
-[44])
-
-[45]
 \openout2 = `Chapters/Conclusion.aux'.
 
  (Chapters/Conclusion.tex
 Chapter 6.
 )
 
-[46
+[35
 
 
 
 
 ]
 
-[47
+[36
 
 
 
 ]
 
-[48]
+[37]
 \openout2 = `Chapters/Appendices.aux'.
 
  (Chapters/Appendices.tex)
@@ -3572,24 +3919,38 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were undefined references.
 
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 81DC8A436255AEB4B7EC5A8963ABB780;15707.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  7743E9A792D22582D6C0BACA653199D1;15817.
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                main
+(biblatex)                and rerun LaTeX afterwards.
+
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 64719 strings out of 468221
- 1353877 string characters out of 5432891
- 2504613 words of memory out of 5000000
- 91513 multiletter control sequences out of 15000+600000
- 784170 words of font info for 345 fonts, out of 8000000 for 9000
+ 65099 strings out of 468221
+ 1357088 string characters out of 5432891
+ 2471644 words of memory out of 5000000
+ 92057 multiletter control sequences out of 15000+600000
+ 775687 words of font info for 300 fonts, out of 8000000 for 9000
  1145 hyphenation exceptions out of 8191
  99i,13n,120p,2949b,3017s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx8.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx9.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbxi10.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi6.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi7.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi9.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr7.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr9.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri8.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro10.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy7.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtti10.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (56 pages, 981039 bytes).
+<C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx8.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx9.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbxi10.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi6.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi7.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi9.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr7.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr9.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri8.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro10.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy7.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb><C:/Users/shann/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (45 pages, 856904 bytes).
 PDF statistics:
- 1477 PDF objects out of 1728 (max. 8388607)
- 289 named destinations out of 1000 (max. 500000)
- 100696 words of extra memory for PDF output out of 106986 (max. 10000000)
+ 945 PDF objects out of 1000 (max. 8388607)
+ 223 named destinations out of 1000 (max. 500000)
+ 97424 words of extra memory for PDF output out of 106986 (max. 10000000)
 

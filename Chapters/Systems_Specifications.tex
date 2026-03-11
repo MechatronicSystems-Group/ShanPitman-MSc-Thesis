@@ -2,12 +2,391 @@
 \label{Systems_Specifications}
 
 \section{Introduction}
+
+This chapter translates the qualitative scope statements and design objectives introduced in Chapter~\ref{Introduction} into measurable, verifiable specifications for the two principal subsystems of the full tracking solution: the \gls{OMC} subsystem, comprising the OptiTrack camera network and its supporting software, and the \gls{OCP} subsystem, comprising the genetic algorithm and its cost function. Together these two subsystems form the end-to-end system: the \gls{OCP} algorithm is executed offline to determine the camera configuration, and the resulting arrangement is then deployed for real-time robot tracking by the \gls{OMC} subsystem.
+
+The approach adopted here is informed by NASA systems engineering practice \parencite{nasaSE2017}, in which every requirement is assigned a unique identifier, an importance level, and two acceptance thresholds: a \textit{marginal} value defining the minimum acceptable performance that the system must achieve to fulfil its function, and an \textit{ideal} value defining the target performance under well-optimised conditions. Importance levels are defined as follows:
+
+\begin{itemize}
+    \item \textbf{Critical (C)}: The system cannot fulfil its primary function without meeting this requirement.
+    \item \textbf{High (H)}: Failure to meet this requirement significantly degrades system effectiveness.
+    \item \textbf{Medium (M)}: Desirable for optimal performance; the system remains operational at reduced capacity without it.
+    \item \textbf{Low (L)}: Beneficial but not essential; the system meets its primary objectives regardless.
+\end{itemize}
+
+Each requirement carries a traceability code. Codes of the form \texttt{S-\textit{XX}} refer to qualitative scope specifications defined in Chapter \ref{Introduction}; codes of the form \texttt{R-\textit{XX}} identify an external source (a manufacturer datasheet, a validated literature result, or an established engineering convention) that provides the quantitative basis for the stated threshold. The complete mapping of reference codes to sources is given in Table \ref{tab:trace-refs}.
+
+Table ref{tab:metrics-overview} provides a consolidated overview of all specified metrics before their detailed treatment in the subsystem sections below.
+
+{\small\setlength{\tabcolsep}{4pt}
+\begin{longtable}{p{1.2cm} >{\raggedright\arraybackslash}p{2.6cm} p{1.7cm} p{1.8cm} p{4cm}}
+\caption[Overview of all system specification metrics.]{Overview of all system specification metrics.}
+\label{tab:metrics-overview}\\
+\toprule
+\textbf{ID} & \textbf{Metric} & \textbf{Subsystem} & \textbf{Category} & \textbf{Purpose} \\
+\midrule
+\endfirsthead
+\multicolumn{5}{l}{\small\textit{(Continued from previous page)}}\\[2pt]
+\toprule
+\textbf{ID} & \textbf{Metric} & \textbf{Subsystem} & \textbf{Category} & \textbf{Purpose} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{5}{r}{\small\textit{(Continued on next page)}}\\
+\endfoot
+\bottomrule
+\endlastfoot
+OMC-P-01 & Sensor Resolution        & OMC & Performance & Characterises the spatial sampling capability of each camera, governing minimum detectable marker displacement in the image plane. \\[4pt]
+OMC-P-02 & 3D Position Accuracy     & OMC & Performance & Quantifies end-to-end positional error against a known ground-truth reference; sets the foundation for trajectory estimate quality. \\[4pt]
+OMC-P-03 & Frame Rate               & OMC & Performance & Temporal resolution of the capture system; must be sufficient to sample fast robotic manoeuvres without aliasing. \\[4pt]
+OMC-P-04 & System Latency           & OMC & Performance & Pipeline delay from image capture to pose output; critical for closed-loop controllers that require low-latency state feedback. \\[4pt]
+OMC-P-05 & Calibration Residual     & OMC & Performance & Mean ray-convergence offset reported by EasyWand6; a direct indicator of triangulation precision for a given arrangement. \\[4pt]
+OMC-P-06 & Marker Reconstruction Completeness & OMC & Performance & Fraction of captured frames in which all markers are successfully resolved; reflects network coverage and redundancy. \\
+\midrule
+OMC-F-01 & Capture Volume           & OMC & Functional  & Minimum usable 3D volume within which all performance requirements are simultaneously satisfied. \\[4pt]
+OMC-F-02 & Maximum Detection Range  & OMC & Functional  & Furthest camera-to-marker distance at which a marker can be reliably detected per lens type. \\[4pt]
+OMC-F-03 & Camera Count             & OMC & Functional  & Minimum number of cameras required for multi-view redundancy and 3D reconstruction. \\[4pt]
+OMC-F-04 & Setup Footprint          & OMC & Functional  & Constrains the system to fit within the available laboratory space without structural modification. \\[4pt]
+OMC-F-05 & System Cost              & OMC & Functional  & Bounds total hardware and software expenditure to within the available research budget. \\[4pt]
+OMC-F-06 & Portability              & OMC & Functional  & Ease of disassembly and redeployment without specialist equipment. \\[4pt]
+OMC-F-07 & Configurability          & OMC & Functional  & Ability to adjust tracking parameters without hardware modification. \\
+\midrule
+OCP-P-01 & Workspace Coverage       & OCP & Performance & Fraction of target grid points observed by $\geq 2$ cameras; necessary precondition for triangulation. \\[4pt]
+OCP-P-02 & Triangulation Angle Compliance & OCP & Performance & Fraction of target points where $\geq 1$ camera pair satisfies $40\degree \leq \theta \leq 140\degree$ for well-conditioned reconstruction. \\[4pt]
+OCP-P-03 & Normalised Resolution Uncertainty & OCP & Performance & Normalised composite cost $J_{\text{res}}/J^{\text{norm}}_{\text{res}}$ quantifying pixel-quantisation-induced 3D position uncertainty across the workspace. \\[4pt]
+OCP-P-04 & Mean Dynamic Occlusion Angle & OCP & Performance & Mean angular span per target point from which triangulation fails due to self-occlusion; lower values indicate greater robustness. \\[4pt]
+OCP-P-05 & Optimisation Runtime     & OCP & Performance & Wall-clock time for the GA to complete a full run; bounds the pre-deployment computational cost. \\[4pt]
+OCP-P-06 & Calibration Residual Improvement & OCP & Performance & Percentage reduction in Motive calibration residual vs.\ the ad-hoc baseline; primary experimental validation metric. \\[4pt]
+OCP-P-07 & Marker Reconstruction Improvement & OCP & Performance & Percentage-point increase in reconstruction completeness vs.\ ad-hoc baseline; validates real-world tracking gains. \\
+\midrule
+OCP-F-01 & Camera Count Scalability & OCP & Functional  & Range of camera counts over which the algorithm produces valid configurations without source-code modification. \\[4pt]
+OCP-F-02 & Workspace Parameterizability & OCP & Functional  & Degree to which workspace geometry and camera bounds can be specified as algorithm inputs. \\[4pt]
+OCP-F-03 & Solution Repeatability   & OCP & Functional  & Consistency of the algorithm's output cost across independent runs; characterises stochastic variance. \\[4pt]
+OCP-F-04 & Output Interface         & OCP & Functional  & Format in which the optimised configuration is exported for use by the \gls{OMC} subsystem. \\[4pt]
+OCP-F-05 & Objective Parameterizability & OCP & Functional  & User-adjustable weighting of the resolution and occlusion objectives in the combined cost function. \\
+\end{longtable}}
+
+{\small\setlength{\tabcolsep}{4pt}
+\begin{longtable}{p{1.0cm} p{1.5cm} p{9.8cm}}
+\caption{Reference traceability codes used in the subsystem specification tables.}
+\label{tab:trace-refs}\\
+\toprule
+\textbf{Code} & \textbf{Type} & \textbf{Source} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Code} & \textbf{Type} & \textbf{Source} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+S-01 & Internal & \textit{Ch.~\ref{Introduction}}: The system shall provide real-time 3D position tracking of \gls{UAV} markers within an indoor laboratory flight arena. \\[4pt]
+S-02 & Internal & \textit{Ch.~\ref{Introduction}}: The system shall achieve tracking accuracy and reconstruction completeness sufficient to support closed-loop \gls{UAV} flight control. \\[4pt]
+S-03 & Internal & \textit{Ch.~\ref{Introduction}}: The \gls{OCP} subsystem shall produce a camera configuration that yields measurably better tracking performance than an ad-hoc arrangement. \\[4pt]
+S-04 & Internal & \textit{Ch.~\ref{Introduction}}: The system shall be practically deployable within the constraints of a university research laboratory (space, budget, manpower). \\[4pt]
+R-01 & External & OptiTrack camera specification sheet \parencite{OptiTrackDatasheet}. \\[4pt]
+R-02 & External & Aurand et al.\ (2017) --- accuracy mapping of a 42-camera OptiTrack Prime 41 system; 97\,\% of capture area below 0.2\,mm error \parencite{aurandAccuracyMapOptical2017}. \\[4pt]
+R-03 & External & Nagymát{\'e} \& Kiss (2018) --- review of OptiTrack validation studies; identifies calibration residual thresholds of $<0.5$\,mm (acceptable) and $<0.3$\,mm (excellent) \parencite{nagymateMotionCaptureSystem2018}. \\[4pt]
+R-04 & External & Rahimian \& Kearney (2017) --- physical OptiTrack deployment achieved 86\,\% marker reconstruction (optimised) vs.\ 30\,\% (ad-hoc) \parencite{rahimianOptimalCameraPlacement2017}. \\[4pt]
+R-05 & External & Ziegler et al.\ (2023) --- triangulation error grows exponentially as convergence angle approaches $0\degree$ or $180\degree$; well-conditioned range $40\degree$--$140\degree$ \parencite{zieglerOptimalCameraPlacement2023}. \\
+\end{longtable}}
+
 \section{Overall System Architecture}
-Block Diagram
-\section{OCP Subsystem Requirements}
-\subsection{Performance Requirements}
-\subsection{Functional Requirements}
+
+The system is composed of two coupled subsystems operating on distinct timescales, as illustrated in Figure~\ref{fig:system-block-diagram}. The \gls{OCP} subsystem runs \textit{offline}, prior to physical deployment: it takes the workspace geometry and camera hardware specifications as inputs and outputs an optimal camera configuration via the genetic algorithm described in Chapter~\ref{OCP}. This configuration is then implemented physically by mounting the cameras at the computed positions and orientations. The \gls{OMC} subsystem then operates \textit{online} in real time: the camera network captures infrared images of passive retroreflective markers attached to the \gls{UAV}, the Motive software reconstructs the 3D marker positions by triangulation, and the resulting pose estimates are streamed to the flight controller at the specified frame rate.
+
+The two subsystems are coupled through the camera configuration: the quality of the \gls{OMC} system's real-time output is directly determined by the geometric arrangement of the cameras, which is the quantity that the \gls{OCP} algorithm seeks to optimise. This coupling is the central motivation for the work presented in this thesis.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    node distance=1.1cm and 2.0cm,
+    process/.style={rectangle, rounded corners=3pt, minimum width=3.4cm, minimum height=0.75cm, align=center, draw=black!70, fill=blue!8, font=\small},
+    hardware/.style={rectangle, minimum width=3.4cm, minimum height=0.75cm, align=center, draw=black!70, fill=orange!15, font=\small},
+    datanode/.style={rectangle, minimum width=3.0cm, minimum height=0.65cm, align=center, draw=black!70, fill=green!12, font=\small},
+    externalnode/.style={rectangle, rounded corners=3pt, minimum width=3.4cm, minimum height=0.75cm, align=center, draw=black!70, fill=gray!12, font=\small},
+    arrow/.style={-{Stealth[length=2.5mm]}, thick},
+    dashedarrow/.style={-{Stealth[length=2.5mm]}, thick, dashed, gray!70},
+    grouplabel/.style={font=\small\bfseries, text=black!70},
+]
+\node (specs)  [process]                                        {Workspace \& Camera\\Specifications};
+\node (ga)     [process, below=of specs]                        {GA Optimiser\\(Ch.~\ref{OCP})};
+\node (config) [datanode, below=of ga]                          {Optimal Camera\\Configuration};
+\draw[arrow] (specs)  -- (ga);
+\draw[arrow] (ga)     -- (config);
+
+\node (mount)  [hardware, right=4.5cm of specs, yshift=-0.75cm] {7$\times$ OptiTrack Cameras\\(IR illuminators + sensors)};
+\node (motive) [process,  below=of mount]                       {Motive Software\\(Calibration \& 3D Reconstruction)};
+\node (pose)   [datanode, below=of motive]                      {3D Pose Estimates\\($\mathbf{x}, \mathbf{q}$ per marker)};
+\node (ctrl)   [externalnode, below=of pose]                    {UAV Flight Controller};
+\draw[arrow] (mount)  -- (motive);
+\draw[arrow] (motive) -- (pose);
+\draw[arrow] (pose)   -- (ctrl);
+
+\draw[dashedarrow] (config.east) -- node[above, font=\scriptsize, text=black] {Physical deployment} (mount.west);
+
+\node[grouplabel, above=0.5cm of specs] {OCP Subsystem (Offline)};
+\node[grouplabel, above=0.5cm of mount] {OMC Subsystem (Real-Time)};
+
+\begin{scope}[on background layer]
+    \node[draw=blue!30, fill=blue!4, rounded corners=5pt,
+          fit=(specs)(ga)(config), inner sep=0.45cm] {};
+    \node[draw=orange!40, fill=orange!4, rounded corners=5pt,
+          fit=(mount)(motive)(pose)(ctrl), inner sep=0.45cm] {};
+\end{scope}
+\end{tikzpicture}
+\caption[Overall system architecture block diagram.]{Overall system architecture. The \gls{OCP} subsystem (left) operates offline to determine the optimal camera placement, which is then physically implemented. The \gls{OMC} subsystem (right) operates in real time to stream 3D pose estimates to the \gls{UAV} flight controller.}
+\label{fig:system-block-diagram}
+\end{figure}
+
+%----------------------------------------------------------------------------------------
 \section{OMC Subsystem Requirements}
+%----------------------------------------------------------------------------------------
+
+The \gls{OMC} subsystem is responsible for the physical capture and three-dimensional reconstruction of marker positions within the flight arena. Its specifications are principally informed by the requirements of closed-loop \gls{UAV} control, which demands low-latency, high-frequency, and accurate state feedback, and by the physical characteristics of the OptiTrack hardware deployed. The values below are substantiated by the OptiTrack camera datasheet \parencite{OptiTrackDatasheet} and validated by systematic accuracy studies in the literature \parencite{aurandAccuracyMapOptical2017, nagymateMotionCaptureSystem2018}.
+
 \subsection{Performance Requirements}
+
+Table~\ref{tab:omc-perf-desc} defines each metric; the quantitative thresholds are given in Table~\ref{tab:omc-perf}.
+
+{\small\setlength{\tabcolsep}{4pt}
+\begin{longtable}{p{1.5cm} p{3.0cm} p{7.5cm}}
+\caption[OMC performance metric definitions.]{OMC performance metric definitions. Quantitative thresholds are given in Table~\ref{tab:omc-perf}.}
+\label{tab:omc-perf-desc}\\
+\toprule
+\textbf{ID} & \textbf{Metric} & \textbf{Description} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{l}{\small\textit{(Continued from previous page)}}\\[2pt]
+\toprule
+\textbf{ID} & \textbf{Metric} & \textbf{Description} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+OMC-P-01 & Sensor Resolution & Minimum imaging array resolution per camera, governing the fineness of marker localisation in the image plane. \\[4pt]
+OMC-P-02 & 3D Position Accuracy & Root-mean-square error of reconstructed marker positions against an external dimensional reference at representative locations across the capture volume. \\[4pt]
+OMC-P-03 & Frame Rate & Temporal sampling rate of the camera system. Must be sufficient to capture maximum \gls{UAV} velocities without spatial aliasing or motion blur. \\[4pt]
+OMC-P-04 & System Latency & End-to-end pipeline delay from image acquisition to 3D pose availability at the flight controller. Directly constrains the bandwidth of any feedback loop using \gls{OMC} state estimates. \\[4pt]
+OMC-P-05 & Calibration Residual & Mean ray-convergence offset (mm) reported by Motive following the wanding calibration procedure. Reflects geometric consistency of the camera network and triangulation precision. \\[4pt]
+OMC-P-06 & Marker Reconstruction Completeness & Fraction of captured frames in which all markers in the rigid body are successfully resolved. Values below the marginal threshold render continuous trajectory estimation unreliable. \\
+\end{longtable}}
+
+{\small\setlength{\tabcolsep}{4pt}
+\begin{longtable}{p{1.5cm} p{1.8cm} p{0.7cm} p{1.0cm} p{2.0cm} p{2.0cm}}
+\caption[OMC subsystem performance specifications.]{OMC subsystem performance specifications. Importance: C\,=\,Critical, H\,=\,High, M\,=\,Medium, L\,=\,Low. Metric definitions are given in Table~\ref{tab:omc-perf-desc}.}
+\label{tab:omc-perf}\\
+\toprule
+\textbf{ID} & \textbf{Trace} & \textbf{Imp.} & \textbf{Units} & \textbf{Marginal} & \textbf{Ideal} \\
+\midrule
+\endfirsthead
+\multicolumn{6}{l}{\small\textit{(Continued from previous page)}}\\[2pt]
+\toprule
+\textbf{ID} & \textbf{Trace} & \textbf{Imp.} & \textbf{Units} & \textbf{Marginal} & \textbf{Ideal} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{6}{r}{\small\textit{(Continued on next page)}}\\
+\endfoot
+\bottomrule
+\endlastfoot
+OMC-P-01 & S-01, R-01 & H & MP & $\geq 1.3$ & $\geq 1.7$ \\[4pt]
+OMC-P-02 & S-02, R-02 & C & mm\,(RMS) & $< 1.0$ & $< 0.3$ \\[4pt]
+OMC-P-03 & S-02, R-01 & H & fps & $\geq 120$ & $\geq 240$ \\[4pt]
+OMC-P-04 & S-02, R-01 & H & ms & $< 10$ & $< 5.5$ \\[4pt]
+OMC-P-05 & S-02, R-03 & H & mm & $< 0.5$ & $< 0.3$ \\[4pt]
+OMC-P-06 & S-02, R-04 & C & \% & $> 90$ & $> 99$ \\
+\end{longtable}}
+
 \subsection{Functional Requirements}
+
+Table~\ref{tab:omc-func-desc} defines each metric; the quantitative thresholds are given in Table~\ref{tab:omc-func}.
+
+{\small\setlength{\tabcolsep}{4pt}
+\begin{longtable}{p{1.5cm} p{3.0cm} p{7.5cm}}
+\caption[OMC functional metric definitions.]{OMC functional metric definitions. Quantitative thresholds are given in Table~\ref{tab:omc-func}.}
+\label{tab:omc-func-desc}\\
+\toprule
+\textbf{ID} & \textbf{Metric} & \textbf{Description} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{l}{\small\textit{(Continued from previous page)}}\\[2pt]
+\toprule
+\textbf{ID} & \textbf{Metric} & \textbf{Description} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+OMC-F-01 & Capture Volume & Usable 3D volume in which all performance requirements (OMC-P-01 to OMC-P-06) are simultaneously satisfied. Defines the flight envelope available to the \gls{UAV}. \\[4pt]
+OMC-F-02 & Maximum Detection Range & Maximum camera-to-marker distance at which a standard 12\,mm retroreflective marker can be reliably detected for each lens type. \\[4pt]
+OMC-F-03 & Camera Count & Minimum number of cameras required to simultaneously achieve the prescribed coverage and accuracy requirements across the full capture volume. \\[4pt]
+OMC-F-04 & Setup Footprint & Maximum floor area and ceiling height required for system installation. Must not exceed the dimensions of the available laboratory space. \\[4pt]
+OMC-F-05 & System Cost & Total expenditure on camera hardware, cabling, networking, and licensing. Must remain within the available research project budget. \\[4pt]
+OMC-F-06 & Portability & Ease with which the camera network can be disassembled and redeployed. Mounts should not require permanent structural fixings. \\[4pt]
+OMC-F-07 & Configurability & Degree to which capture parameters (frame rate, exposure, marker profiles) can be adjusted by the user via software without hardware modification. \\
+\end{longtable}}
+
+{\small\setlength{\tabcolsep}{4pt}
+\begin{longtable}{p{1.5cm} p{1.8cm} p{0.7cm} p{1.0cm} p{2.8cm} p{2.8cm}}
+\caption[OMC subsystem functional specifications.]{OMC subsystem functional specifications. Metric definitions are given in Table~\ref{tab:omc-func-desc}.}
+\label{tab:omc-func}\\
+\toprule
+\textbf{ID} & \textbf{Trace} & \textbf{Imp.} & \textbf{Units} & \textbf{Marginal} & \textbf{Ideal} \\
+\midrule
+\endfirsthead
+\multicolumn{6}{l}{\small\textit{(Continued from previous page)}}\\[2pt]
+\toprule
+\textbf{ID} & \textbf{Trace} & \textbf{Imp.} & \textbf{Units} & \textbf{Marginal} & \textbf{Ideal} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{6}{r}{\small\textit{(Continued on next page)}}\\
+\endfoot
+\bottomrule
+\endlastfoot
+OMC-F-01 & S-01 & C & m$^3$ & $\geq 256$\newline $(8{\times}8{\times}4)$ & Full room volume \\[4pt]
+OMC-F-02 & S-01, R-01 & H & m & $\geq 9$ (wide) & $\geq 16$ (narrow) \\[4pt]
+OMC-F-03 & S-02, S-04 & H & cameras & $\geq 4$ & $\geq 7$ \\[4pt]
+OMC-F-04 & S-01, S-04 & M & m$^2$\,/\,m & $\leq 90$\,m$^2$; ceiling $\leq 5$\,m & Adaptable to varied rooms \\[4pt]
+OMC-F-05 & S-04 & M & --- & Within project budget & Minimised subject to meeting OMC-P-01--06 \\[4pt]
+OMC-F-06 & S-04 & L & --- & Mounts removable without specialist tools & Single-person redeployment in $< 4$\,h \\[4pt]
+OMC-F-07 & S-03, S-04 & M & --- & All parameters user-adjustable in Motive & Full API-level control; compatible with OCP algorithm output \\
+\end{longtable}}
+
+%----------------------------------------------------------------------------------------
+\section{OCP Subsystem Requirements}
+%----------------------------------------------------------------------------------------
+
+The \gls{OCP} subsystem is the offline computational tool that determines the camera configuration to be physically implemented. Its performance requirements are defined at two levels: \textit{internal} metrics that characterise the quality of the solution produced by the algorithm relative to the simulation model (OCP-P-01 through OCP-P-05), and \textit{external} or verification metrics that characterise the real-world improvement when the optimised configuration is deployed on the physical system (OCP-P-06 and OCP-P-07). The internal metrics derive directly from the cost function components developed in Section~\ref{sec:cost-function}, namely the resolution uncertainty model of Wu, Sharma, and Huang \parencite{sharmaAnalysisUncertaintyBounds1998} and the dynamic occlusion model of Rahimian and Kearney \parencite{rahimianOptimalCameraPlacement2017}. The external metrics follow the experimental validation framework described in Section~\ref{sec:verification}.
+
+\subsection{Performance Requirements}
+
+Table~\ref{tab:ocp-perf-desc} defines each metric; the quantitative thresholds are given in Table~\ref{tab:ocp-perf}. Internal metrics (OCP-P-01 to OCP-P-05) characterise simulation-domain solution quality; external metrics (OCP-P-06 and OCP-P-07) characterise real-world improvement.
+
+{\small\setlength{\tabcolsep}{4pt}
+\begin{longtable}{p{1.5cm} p{3.2cm} p{7.3cm}}
+\caption[OCP performance metric definitions.]{OCP performance metric definitions. Quantitative thresholds are given in Table~\ref{tab:ocp-perf}.}
+\label{tab:ocp-perf-desc}\\
+\toprule
+\textbf{ID} & \textbf{Metric} & \textbf{Description} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{l}{\small\textit{(Continued from previous page)}}\\[2pt]
+\toprule
+\textbf{ID} & \textbf{Metric} & \textbf{Description} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+OCP-P-01 & Workspace Coverage & Fraction of discrete target-space grid points observed by $\geq 2$ cameras simultaneously. A point visible to fewer than two cameras cannot be triangulated. \\[4pt]
+OCP-P-02 & Triangulation Angle Compliance & Fraction of target grid points for which $\geq 1$ camera pair satisfies $40\degree \leq \theta_{ij} \leq 140\degree$. Configurations violating this constraint produce ill-conditioned depth estimates even when the point is visible. \\[4pt]
+OCP-P-03 & Normalised Resolution Uncertainty & Normalised cost $J_{\text{res}} / J^{\text{norm}}_{\text{res}}$ (Eq.~\ref{eq:combined-cost}). $J^{\text{norm}}_{\text{res}} = 100$ is the approximate cost of a random configuration; values below 1.0 represent improvement over the unoptimised baseline. \\[4pt]
+OCP-P-04 & Mean Dynamic Occlusion Angle & Mean angular span per target point (degrees) from which the target cannot be triangulated under the dynamic occluder model (Eq.~\ref{eq:occlusion-point}). Lower values indicate greater robustness to arbitrary occluder orientations. \\[4pt]
+OCP-P-05 & Optimisation Runtime & Wall-clock time to complete a full run of $G_{\max}$ generations on the available parallel hardware. Bounds the pre-deployment time cost of running the optimiser. \\[4pt]
+OCP-P-06 & Calibration Residual Improvement & Percentage reduction in Motive calibration residual (mm) achieved by the optimised configuration relative to the ad-hoc baseline, using identical wanding protocol and capture volume. \\[4pt]
+OCP-P-07 & Marker Reconstruction Improvement & Increase in marker reconstruction completeness (percentage points) achieved by the optimised vs.\ ad-hoc configuration. Analogous to the 56\,pp improvement demonstrated by Rahimian and Kearney \parencite{rahimianOptimalCameraPlacement2017}. \\
+\end{longtable}}
+
+{\small\setlength{\tabcolsep}{4pt}
+\begin{longtable}{p{1.5cm} p{2.0cm} p{0.7cm} p{1.5cm} p{1.8cm} p{1.5cm}}
+\caption[OCP subsystem performance specifications.]{OCP subsystem performance specifications. Importance: C\,=\,Critical, H\,=\,High, M\,=\,Medium, L\,=\,Low. Metric definitions are given in Table~\ref{tab:ocp-perf-desc}.}
+\label{tab:ocp-perf}\\
+\toprule
+\textbf{ID} & \textbf{Trace} & \textbf{Imp.} & \textbf{Units} & \textbf{Marginal} & \textbf{Ideal} \\
+\midrule
+\endfirsthead
+\multicolumn{6}{l}{\small\textit{(Continued from previous page)}}\\[2pt]
+\toprule
+\textbf{ID} & \textbf{Trace} & \textbf{Imp.} & \textbf{Units} & \textbf{Marginal} & \textbf{Ideal} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{6}{r}{\small\textit{(Continued on next page)}}\\
+\endfoot
+\bottomrule
+\endlastfoot
+OCP-P-01 & S-02, S-03, R-04 & C & \% & $> 90$ & $> 99$ \\[4pt]
+OCP-P-02 & S-02, S-03, R-05 & C & \% & $> 80$ & $> 95$ \\[4pt]
+OCP-P-03 & S-03 & H & (dimensionless) & $< 0.5$ & $< 0.3$ \\[4pt]
+OCP-P-04 & S-03, R-04 & H & degrees & $< 120$ & $< 60$ \\[4pt]
+OCP-P-05 & S-03, S-04 & H & min & $< 60$ & $< 30$ \\[4pt]
+OCP-P-06 & S-02, S-03, R-03 & H & \% red. & $\geq 20$ & $\geq 50$ \\[4pt]
+OCP-P-07 & S-02, S-03, R-04 & H & pp & $\geq 20$ & $\geq 50$ \\
+\end{longtable}}
+
+\subsection{Functional Requirements}
+
+Table~\ref{tab:ocp-func-desc} defines each metric; the quantitative thresholds are given in Table~\ref{tab:ocp-func}.
+
+{\small\setlength{\tabcolsep}{4pt}
+\begin{longtable}{p{1.5cm} p{3.2cm} p{7.3cm}}
+\caption[OCP functional metric definitions.]{OCP functional metric definitions. Quantitative thresholds are given in Table~\ref{tab:ocp-func}.}
+\label{tab:ocp-func-desc}\\
+\toprule
+\textbf{ID} & \textbf{Metric} & \textbf{Description} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{l}{\small\textit{(Continued from previous page)}}\\[2pt]
+\toprule
+\textbf{ID} & \textbf{Metric} & \textbf{Description} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+OCP-F-01 & Camera Count Scalability & Range of camera counts for which the algorithm, chromosome representation (Eq.~\ref{eq:chromosome}), and cost function produce valid optimised configurations without source-code modification. \\[4pt]
+OCP-F-02 & Workspace Parameterizability & Degree to which the workspace geometry, camera mounting bounds, and target-space grid resolution can be configured by the user as algorithm inputs without modifying source code. \\[4pt]
+OCP-F-03 & Solution Repeatability & Consistency of the optimised cost $f^*$ across independent runs with different random seeds. Characterises stochastic variance and bounds the reliability of the solution quality claim. \\[4pt]
+OCP-F-04 & Output Interface & Format in which the algorithm exports the optimal configuration $\mathbf{c}^*$ for physical implementation and potential import into the \gls{OMC} software. \\[4pt]
+OCP-F-05 & Objective Weight Parameterizability & User-adjustable weighting of $w_{\text{res}}$ and $w_{\text{occ}}$ in the combined cost function (Eq.~\ref{eq:combined-cost}), allowing the designer to bias the optimiser toward precision or occlusion robustness. \\
+\end{longtable}}
+
+{\small\setlength{\tabcolsep}{4pt}
+\begin{longtable}{p{1.5cm} p{1.8cm} p{0.7cm} p{1.0cm} p{3.2cm} p{2.8cm}}
+\caption[OCP subsystem functional specifications.]{OCP subsystem functional specifications. Metric definitions are given in Table~\ref{tab:ocp-func-desc}.}
+\label{tab:ocp-func}\\
+\toprule
+\textbf{ID} & \textbf{Trace} & \textbf{Imp.} & \textbf{Units} & \textbf{Marginal} & \textbf{Ideal} \\
+\midrule
+\endfirsthead
+\multicolumn{6}{l}{\small\textit{(Continued from previous page)}}\\[2pt]
+\toprule
+\textbf{ID} & \textbf{Trace} & \textbf{Imp.} & \textbf{Units} & \textbf{Marginal} & \textbf{Ideal} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{6}{r}{\small\textit{(Continued on next page)}}\\
+\endfoot
+\bottomrule
+\endlastfoot
+OCP-F-01 & S-04 & M & cameras & $4 \leq k \leq 10$ & Any $k \geq 4$ \\[4pt]
+OCP-F-02 & S-03, S-04 & M & --- & Accepts user-defined rectangular workspace dimensions and camera placement bounds & Supports arbitrary convex workspace geometry \\[4pt]
+OCP-F-03 & S-03 & M & \%\,CV & $\leq 15$ & $\leq 5$ \\[4pt]
+OCP-F-04 & S-03, S-04 & M & --- & Exports $(x,y,z)$ and $(\alpha,\beta,\gamma)$ per camera in a structured file (\texttt{.csv} or \texttt{.mat}) & Direct numerical import into Motive layout interface \\[4pt]
+OCP-F-05 & S-03 & M & --- & User-configurable $w_{\text{res}}, w_{\text{occ}} \geq 0$,\newline $w_{\text{res}} + w_{\text{occ}} = 1$ & Extendable to $n$-objective framework \\
+\end{longtable}}
+
+%----------------------------------------------------------------------------------------
 \section{Constraints and Assumptions}
+%----------------------------------------------------------------------------------------
+
+The specifications above are defined subject to the following constraints and assumptions, which bound the scope of the system and its verification:
+
+\begin{enumerate}
+
+    \item \textbf{Indoor rectangular workspace.} The system is designed for a single indoor room with a flat ceiling and clear floor. The target space is a rectangular volume of $8 \times 8 \times 4$\,m, corresponding to the bounds $[-4, 4] \times [-4, 4] \times [0, 4]$\,m in the world frame.
+
+    \item \textbf{Passive retroreflective marker tracking.} The \gls{OMC} subsystem is assumed to track passive infrared-retroreflective markers (12\,mm diameter) attached to the \gls{UAV}. The specifications do not apply to markerless pose estimation or active LED markers.
+
+    \item \textbf{Wall- and ceiling-mounted cameras.} Camera positions are constrained to the four walls and the ceiling (the floor is excluded, since a floor-mounted camera oriented upward contributes negligibly to coverage of the flight volume). The mounting bounds match the OCP algorithm search space: $[-5, 5] \times [-4.5, 4.5] \times [0, 4.8]$\,m (Section~\ref{sec:algorithm-config}).
+
+    \item \textbf{Controlled infrared environment.} The specifications assume a laboratory prepared to minimise infrared noise: windows covered or blacked out, highly reflective surfaces minimised, and no competing high-brightness IR sources within the camera fields of view.
+
+    \item \textbf{Static workspace structure.} Obstacles within the capture volume are assumed to be static for the purposes of the \gls{OCP} model. Dynamic occlusion arising from the \gls{UAV} body itself is captured by the dynamic occluder model (OCP-P-04), but moving people or additional vehicles are not modelled.
+
+    \item \textbf{Offline optimisation paradigm.} The \gls{OCP} algorithm is run once prior to physical deployment and does not adapt in real time to camera failures or workspace changes. Re-optimisation is required if the room geometry or camera count changes.
+
+    \item \textbf{Pinhole camera model.} The cost function assumes ideal pinhole projection without lens distortion. In physical deployment, residual post-calibration distortion is assumed negligible relative to the pixel-quantisation uncertainty captured by the resolution model.
+
+    \item \textbf{Seven-camera configuration.} The primary specifications are defined for the $k = 7$ camera system (three wide-angle, four narrow-angle lenses) available for this work. Scalability bounds (OCP-F-01) reflect the validated range of the current implementation.
+
+\end{enumerate}

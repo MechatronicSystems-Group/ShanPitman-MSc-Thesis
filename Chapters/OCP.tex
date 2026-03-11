@@ -126,7 +126,7 @@ A persistent weakness of the \gls{OCP} literature is the gap between simulated o
 
 The most substantive experimental validation in the reviewed literature is that of Rahimian and Kearney, who deployed their simulated-annealing-optimised camera configurations on a physical OptiTrack system and compared tracking completeness against an ad-hoc arrangement \parencite{rahimianOptimalCameraPlacement2017}. Their metric was the percentage of captured frames in which all 37 markers on a moving human subject were successfully reconstructed: the optimised placement achieved full marker reconstruction on 86\% of frames, compared to only 30\% under the ad-hoc configuration. This nearly three-fold improvement provides the most direct evidence in the literature that simulation-based \gls{OCP} translates to measurable real-world gains. Aissaoui et al.\ similarly validated their guided GA by comparing the reconstruction error of a physical multi-camera system before and after optimisation, reporting reduced marker dropout rates in the optimised configuration \parencite{aissaouiDesigningCameraPlacement2018}. Zhao et al.\ conducted real-life experiments with a seven-camera surveillance network to validate their \gls{BIP} formulation against greedy and LP-relaxation solvers, measuring observability of walking subjects in a $7.6 \times 3.7$~m area \parencite{zhaoApproximateTechniquesSolving2013}.
 
-The question of what constitutes ground truth for validating a camera placement optimiser warrants careful consideration. In \gls{MoCap}, ground truth refers to the true three-dimensional position of the tracked markers, against which the system's reconstructed positions are compared. Optical motion capture systems such as OptiTrack are themselves frequently used as the ground truth reference for validating other tracking modalities (inertial measurement units, visual odometry, LiDAR-based localisation), owing to their sub-millimetre precision when properly calibrated. Aurand et al.\ systematically mapped the accuracy of a 42-camera OptiTrack Prime~41 system across a 135~m$^3$ capture volume by comparing single-marker motion against a ThorLabs linear motion stage with 5~$\mu$m positioning accuracy, finding that 97\% of the capture area exhibited errors below 200~$\mu$m \parencite{aurandAccuracyMapOptical2017}. Nagymáté and Kiss provided a comprehensive review of OptiTrack validation studies, noting that the majority of the biomechanical literature under-documents system setup parameters (camera type, number, frame rate, marker size), which undermines repeatability \parencite{nagymate2018optitrack}. This observation reinforces the importance of fully specifying the camera configuration, which is precisely what the \gls{OCP} optimiser determines.
+The question of what constitutes ground truth for validating a camera placement optimiser warrants careful consideration. In \gls{MoCap}, ground truth refers to the true three-dimensional position of the tracked markers, against which the system's reconstructed positions are compared. Optical motion capture systems such as OptiTrack are themselves frequently used as the ground truth reference for validating other tracking modalities (inertial measurement units, visual odometry, LiDAR-based localisation), owing to their sub-millimetre precision when properly calibrated. Aurand et al.\ systematically mapped the accuracy of a 42-camera OptiTrack Prime 41 system across a 135~m$^3$ capture volume by comparing single-marker motion against a ThorLabs linear motion stage with 5~$\mu$m positioning accuracy, finding that 97\% of the capture area exhibited errors below 200~$\mu$m \parencite{aurandAccuracyMapOptical2017}. Nagymáté and Kiss provided a comprehensive review of OptiTrack validation studies, noting that the majority of the biomechanical literature under-documents system setup parameters (camera type, number, frame rate, marker size), which undermines repeatability \parencite{nagymate2018optitrack}. This observation reinforces the importance of fully specifying the camera configuration, which is precisely what the \gls{OCP} optimiser determines.
 
 For the present work, the primary validation pathway is to compare the tracking performance of the optimised camera configuration against the default ad-hoc arrangement on the physical OptiTrack system, using metrics that bridge the gap between the simulation cost function and observable tracking quality. The calibration residual reported by OptiTrack's Motive software, which represents the mean offset between converging rays during 3D marker reconstruction, provides a direct measure of the system's triangulation precision for a given camera arrangement. Additionally, marker reconstruction completeness (the fraction of frames in which all markers are successfully resolved) and spatial coverage uniformity can be assessed empirically. These metrics are discussed further in Section \ref{sec:verification}.
 
@@ -208,23 +208,23 @@ fitness score based
 
 
 \section{Methodology}
-\section{Methodology}
 \label{sec:methodology}
 
 This section describes the implementation of the real-coded guided genetic algorithm developed to solve the \gls{OCP} for a seven-camera OptiTrack motion capture system. The algorithm operates on a continuous placement space, directly encoding camera positions and orientations as real-valued chromosomes, and evaluates candidate configurations against a composite cost function that captures both resolution uncertainty and dynamic occlusion. The overall workflow is illustrated in Figure \ref{fig:ga-flowchart}.
 
 \begin{figure}[htbp]
     \centering
+    \resizebox{!}{0.9\textheight}{%
     \begin{tikzpicture}[
         node distance=1.1cm and 1.5cm,
         % Block styles
-        startstop/.style={rectangle, rounded corners, minimum width=3.2cm, minimum height=0.8cm, text centered, draw=black, fill=red!15, font=\small},
-        process/.style={rectangle, minimum width=4.2cm, minimum height=0.8cm, text centered, draw=black, fill=blue!10, font=\small},
-        decision/.style={diamond, minimum width=3.5cm, minimum height=1cm, text centered, draw=black, fill=yellow!15, font=\small, aspect=2.2},
-        io/.style={trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=0.8cm, text centered, draw=black, fill=green!10, font=\small},
+        startstop/.style={rectangle, rounded corners, minimum width=3.2cm, minimum height=0.8cm, align=center, draw=black, fill=red!15, font=\small},
+        process/.style={rectangle, minimum width=4.2cm, minimum height=0.8cm, align=center, draw=black, fill=blue!10, font=\small},
+        decision/.style={diamond, minimum width=3.5cm, minimum height=1cm, align=center, draw=black, fill=yellow!15, font=\small, aspect=2.2},
+        io/.style={trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=0.8cm, align=center, draw=black, fill=green!10, font=\small},
         arrow/.style={-{Stealth[length=2.5mm]}, thick},
         dashedarrow/.style={-{Stealth[length=2.5mm]}, thick, dashed, gray},
-        annot/.style={font=\scriptsize\itshape, text=gray},
+        annot/.style={font=\scriptsize\itshape, align=center, text=gray},
     ]
     % Create nodes
     \node (start) [startstop] {Start};
@@ -292,7 +292,8 @@ This section describes the implementation of the real-coded guided genetic algor
     % Repair annotation
     \node [annot, right=0.3cm of fix.east, text width=2.8cm] {Every 10th gen\\or 20\% chance};
     
-    \end{tikzpicture}
+    \end{tikzpicture}%
+    }% end resizebox
     \caption[Flowchart of the guided genetic algorithm.]{High-level flowchart of the real-coded guided genetic algorithm for camera placement optimisation. The generation loop (left annotation) repeats until the maximum generation count $G_{\max}$ is reached. Dashed elements indicate conditional paths.}
     \label{fig:ga-flowchart}
 \end{figure}
