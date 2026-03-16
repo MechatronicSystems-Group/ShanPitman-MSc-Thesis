@@ -277,18 +277,6 @@
       \verb 10.1007/978-3-031-32606-6_6
       \endverb
     \endentry
-    \entry{OpenMVCamRT1062a}{misc}{}{}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{https://openmv.io/products/openmv-cam-rt}
-      \field{journaltitle}{OpenMV}
-      \field{title}{{{OpenMV Cam RT1062}}}
-      \field{urlday}{1}
-      \field{urlmonth}{8}
-      \field{urlyear}{2025}
-      \field{urldateera}{ce}
-    \endentry
     \entry{sharmaAnalysisUncertaintyBounds1998}{article}{}{}
       \name{author}{1}{}{%
         {{hash=e480f911d13c8fef86576f5c5d41aa60}{%

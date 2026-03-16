@@ -209,12 +209,11 @@ fitness score based
 
 \section{Methodology}
 \label{sec:methodology}
-
-This section describes the implementation of the real-coded guided genetic algorithm developed to solve the \gls{OCP} for a seven-camera OptiTrack motion capture system. The algorithm operates on a continuous placement space, directly encoding camera positions and orientations as real-valued chromosomes, and evaluates candidate configurations against a composite cost function that captures both resolution uncertainty and dynamic occlusion. The overall workflow is illustrated in Figure \ref{fig:ga-flowchart}.
+This section describes the implementation of the real-coded guided genetic algorithm used to optimise the arrangement of a camera configuration used for \gls{MoCap}. The algorithm operates on a continuous placement space, directly encoding camera positions and orientations as real-valued chromosomes, and evaluates candidate configurations against a composite cost function that scores the arrangment based on both the resolution uncertainty of the solution and its robustness against dynamic occlusion. The overall workflow is illustrated in Figure \ref{fig:ga-flowchart}.
 
 \begin{figure}[htbp]
     \centering
-    \resizebox{!}{0.9\textheight}{%
+    \resizebox{!}{0.92\textheight}{%
     \begin{tikzpicture}[
         node distance=1.1cm and 1.5cm,
         % Block styles
@@ -222,7 +221,7 @@ This section describes the implementation of the real-coded guided genetic algor
         process/.style={rectangle, minimum width=4.2cm, minimum height=0.8cm, align=center, draw=black, fill=blue!10, font=\small},
         decision/.style={diamond, minimum width=3.5cm, minimum height=1cm, align=center, draw=black, fill=yellow!15, font=\small, aspect=2.2},
         io/.style={trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=0.8cm, align=center, draw=black, fill=green!10, font=\small},
-        arrow/.style={-{Stealth[length=2.5mm]}, thick},
+        arrow/.style={-{Stealth[length=1.5mm]}, thick},
         dashedarrow/.style={-{Stealth[length=2.5mm]}, thick, dashed, gray},
         annot/.style={font=\scriptsize\itshape, align=center, text=gray},
     ]
@@ -251,7 +250,7 @@ This section describes the implementation of the real-coded guided genetic algor
     
     \node (evaloff) [process, below=of clamp] {Evaluate offspring\\(\texttt{parfor})};
     
-    \node (merge) [process, below=of evaloff] {Merge parents + offspring,\\sort by cost, truncate to $N_{\text{pop}}$};
+    \node (merge) [process, below=of evaloff] {Elitism: \\ Merge parents + offspring,\\sort by cost, truncate to $N_{\text{pop}}$};
     
     \node (updatebest) [process, below=of merge] {Update $\mathbf{c}^*$ if improved};
     
@@ -294,7 +293,7 @@ This section describes the implementation of the real-coded guided genetic algor
     
     \end{tikzpicture}%
     }% end resizebox
-    \caption[Flowchart of the guided genetic algorithm.]{High-level flowchart of the real-coded guided genetic algorithm for camera placement optimisation. The generation loop (left annotation) repeats until the maximum generation count $G_{\max}$ is reached. Dashed elements indicate conditional paths.}
+    \caption[Flowchart of the guided genetic algorithm.]{High-level flowchart of the real-coded guided genetic algorithm for camera placement optimisation. The generation loop (left annotation) repeats until the maximum generation count $G_{\max}$ is reached.}
     \label{fig:ga-flowchart}
 \end{figure}
 
@@ -302,24 +301,24 @@ This section describes the implementation of the real-coded guided genetic algor
 \subsection{Algorithm Configuration}
 \label{sec:algorithm-config}
 
-A real-coded genetic algorithm was selected as the optimisation solver for three principal reasons. First, the camera placement variables, three spatial coordinates $(x, y, z)$ and three Euler angles $(\alpha, \beta, \gamma)$ per camera, are inherently continuous. A binary encoding would require a discretisation step that introduces quantisation artefacts and constrains the solution to a finite grid, as discussed in Section \ref{sec:lit-review-approaches}. Olague and Mohr demonstrated the suitability of real-valued chromosomes for camera placement by encoding continuous camera parameters directly, avoiding the Hamming cliff problem inherent to binary representations \parencite{olagueOptimalCameraPlacement2002}. Aissaoui et al.\ adopted the same representation for their guided genetic algorithm applied to \gls{MoCap} camera networks \parencite{aissaouiDesigningCameraPlacement2018}. Second, the cost function employed here (Section \ref{sec:cost-function}) involves ray-casting visibility checks, covariance-based uncertainty estimation, and probabilistic occlusion modelling, none of which admit linearisation into the algebraic form required by \gls{BIP} or \gls{MILP} solvers. The GA treats the cost function as a black box, requiring only a scalar fitness value for each candidate, which permits arbitrarily complex objective functions. Third, the population-based nature of the GA provides broad exploration of the search space, mitigating the risk of entrapment in local minima that single-point solvers like gradient descent or simulated annealing are more susceptible to.
+A real-coded genetic algorithm was selected as the optimisation solver for three principal reasons. First, the camera placement variables, three spatial coordinates $(x, y, z)$ and three Euler angles $(\alpha, \beta, \gamma)$ per camera, are inherently continuous. A binary encoding would require a discretisation step that introduces quantisation artefacts, and constrains the solution to a finite grid, as discussed in Section \ref{sec:lit-review-approaches}. Olague and Mohr demonstrated the suitability of real-valued chromosomes for camera placement by encoding continuous camera parameters directly, avoiding the Hamming cliff effect inherent to binary representations where nearby points sometimes require multiple bit flips \parencite{olagueOptimalCameraPlacement2002}. Aissaoui et al. adopted the same representation for their guided genetic algorithm applied to \gls{MoCap} camera networks \parencite{aissaouiDesigningCameraPlacement2018}. Secondly, the cost function employed here (Section \ref{sec:cost-function}) involves ray-casting visibility checks, covariance-based uncertainty estimation, and probabilistic occlusion modelling, none of which admit a linearised algebraic form required by \gls{BIP} or \gls{MILP} solvers. The GA treats the cost function as a black box, requiring only a scalar fitness value for each candidate, which permits arbitrarily complex objective functions. Third, the population-based nature of the GA provides broad exploration of the search space, mitigating the risk of entrapment in local minima that single-point solvers like gradient descent or simulated annealing are more susceptible to.
 
 \subsubsection{Chromosome Representation}
 
-Each candidate camera configuration is encoded as a single real-valued chromosome of length $6k$, where $k$ is the number of cameras. For the seven-camera system considered here, $k = 7$ and the chromosome length is $n_{\text{var}} = 42$. The chromosome is structured as $k$ contiguous six-gene blocks:
+Each candidate camera configuration is encoded as a single real-valued chromosome of length $6k$, where $k$ is the number of cameras. To verify that the \gls{GA} provides an improved solution against an ad-hoc configuration, the the seven-camera, $k = 7$, OptiTrack available in the MechatronicSystems.Group Lab was designed for, resulting in a chromosome length of $n_{\text{var}} = 42$. The chromosome is structured as $k$ contiguous six-gene blocks:
 %
 \begin{equation}
 \label{eq:chromosome}
 \mathbf{c} = \bigl[\underbrace{x_1, y_1, z_1, \alpha_1, \beta_1, \gamma_1}_{\text{Camera 1}},\ \underbrace{x_2, y_2, z_2, \alpha_2, \beta_2, \gamma_2}_{\text{Camera 2}},\ \ldots,\ \underbrace{x_k, y_k, z_k, \alpha_k, \beta_k, \gamma_k}_{\text{Camera } k}\bigr]
 \end{equation}
 %
-where $(x_i, y_i, z_i)$ specifies the position of camera $i$ in the world frame and $(\alpha_i, \beta_i, \gamma_i)$ are the Euler angles (XYZ convention) defining its orientation. This block structure is fundamental to the design of the crossover and mutation operators: the six genes constituting a single camera are treated as an atomic unit to preserve the physical coupling between a camera's position and its orientation. Splitting position from orientation during crossover would produce offspring where a camera points in a direction that was optimised for an entirely different position, yielding invalid configurations.
+where $(x_i, y_i, z_i)$ specifies the position of camera $i$ in the world frame and $(\alpha_i, \beta_i, \gamma_i)$ are the Euler angles (XYZ convention) defining its orientation with respect to the world axes. This block structure is fundamental to the design of the crossover and mutation operators: the six genes comprising a single camera's pose are treated as a unit to preserve the physical coupling between a camera's position and its orientation. Splitting position from orientation during crossover would produce offspring where a camera points in a direction that was optimised for an entirely different position, yielding bizarre configurations.
 
-The OptiTrack system under consideration comprises a configurable mix of narrow-angle cameras (focal length $f = 5.5$~mm) and wide-angle cameras (focal length $f_w = 3.5$~mm). When wide-angle lenses are available, the lens assignment is deterministic by chromosome slot index rather than encoded as an additional gene: cameras at designated slot indices receive the wide-angle lens, and the remaining cameras receive the narrow-angle lens. For example, in the default seven-camera configuration, cameras at even-indexed slots are assigned wide-angle lenses, yielding three wide-angle and four narrow-angle cameras. This deterministic assignment ensures that crossover and mutation cannot violate the hardware constraint on the number of each lens type, since the lens type is a property of the slot, not of the genes occupying it. When all cameras share the same lens type, this assignment reduces to a uniform intrinsic configuration and the distinction is transparent to the GA operators. The corresponding effective detection ranges are 16~m for the narrow-angle and 9~m for the wide-angle lenses, as specified in the OptiTrack datasheet. This design is parameterised via a configurable list of wide-angle slot indices (\texttt{wideAngleCamIndices}), allowing the user to adapt the system to any available lens inventory without modifying the GA logic.
+The OptiTrack system considered comprises a configurable mix of four narrow-angle cameras (focal length $f = 5.5$~mm) and three wide-angle cameras (focal length $f_w = 3.5$~mm). When wide-angle lenses are available, the lens assignment is deterministic by chromosome slot index rather than encoded as an additional gene: cameras at designated slot indices receive the wide-angle lens, and the remaining cameras receive the narrow-angle lens. For example, in the default seven-camera configuration, cameras at even-indexed slots are assigned wide-angle lenses, yielding three wide-angle and four narrow-angle cameras. This deterministic assignment ensures that crossover and mutation cannot violate the hardware constraint on the number of each lens type, since the lens type is a property of the slot, not of the genes occupying it. When all cameras share the same lens type, this assignment reduces to a uniform intrinsic configuration and the distinction is transparent to the GA operators. The corresponding effective detection ranges are 16~m for the narrow-angle and 9~m for the wide-angle lenses, as specified in the OptiTrack datasheet. This design is parameterised via a configurable list of wide-angle slot indices (\texttt{wideAngleCamIndices}), allowing the user to adapt the system to their available inventory without modifying the GA logic.
 
 \subsubsection{Search Space Bounds}
 
-The search space is defined by the physical workspace and mounting constraints. The workspace volume for the target space is $[-4, 4] \times [-4, 4] \times [0, 4]$~m, matching the available flight envelope. Camera positions are permitted within slightly enlarged bounds to allow wall and ceiling mounting:
+The search space is defined by the physical workspace and mounting constraints. The workspace volume for the target space is $[-4, 4] \times [-4, 4] \times [0, 4]$~m, matching the flight envelope where the OptiTrack cameras are currently housed. Camera positions are permitted within slightly enlarged bounds to match the wall and ceiling mounting availability:
 %
 \begin{equation}
 \label{eq:bounds}
@@ -327,7 +326,7 @@ The search space is defined by the physical workspace and mounting constraints. 
 \mathbf{c}_{\max} = [5,\ 4.5,\ 4.8,\ \pi,\ \pi,\ \pi]
 \end{equation}
 %
-The position bounds extend beyond the target volume to model mounting on walls and the ceiling, while the orientation bounds span the full $[-\pi, \pi]$ range for each Euler angle. These per-camera bounds are tiled across all $k$ cameras to produce the chromosome-level bounds $\mathbf{C}_{\min} = \text{repmat}(\mathbf{c}_{\min}, 1, k)$ and $\mathbf{C}_{\max} = \text{repmat}(\mathbf{c}_{\max}, 1, k)$. After mutation, any gene that exceeds its bound is clamped to the nearest boundary value.
+The position bounds extend beyond the target volume to model mounting on walls and the ceiling, while the orientation bounds span the full $[-\pi, \pi]$ range for each Euler angle. These per-camera bounds are repeated across all $k$ cameras to produce the chromosome-level bounds $\mathbf{C}_{\min} = \text{repmat}(\mathbf{c}_{\min}, 1, k)$ and $\mathbf{C}_{\max} = \text{repmat}(\mathbf{c}_{\max}, 1, k)$. After mutation, any gene that exceeds its bound is clamped to the nearest boundary value.
 
 \subsubsection{Parameter Selection}
 \label{sec:param-selection}
@@ -352,18 +351,44 @@ Tournament size & $k_t$ & 3 \\
 \end{tabular}
 \end{table}
 
-A population size of 150 balances diversity against computational expense. Each fitness evaluation requires projecting every target point through every camera and, for the combined cost function, computing both the resolution uncertainty and the occlusion metric. With parallel evaluation across six workers, a population of 150 completes a single generation in a reasonable time whilst maintaining sufficient genetic diversity to avoid premature convergence.
+A population size of 150 balances diversity against computational expense. Each fitness evaluation requires projecting every target point through every camera and, for the combined cost function, computing both the resolution uncertainty and the occlusion score. With parallel evaluation across six workers, a population of 150 completes a single generation in a reasonable time whilst maintaining sufficient genetic diversity to avoid premature convergence.
 
-The crossover fraction $p_C = 1.0$ means that the entire population participates in crossover, producing $N_{\text{pop}}$ offspring per generation. Combined with the elitist replacement strategy (Section \ref{sec:elitism}), this aggressive crossover rate ensures thorough exploration: all parents contribute genetic material, but only the best $N_{\text{pop}}$ individuals from the combined parent-offspring pool survive to the next generation.
+The crossover fraction $p_C = 1.0$ means that the entire population participates in crossover, producing $N_{\text{pop}}$ offspring per generation. Combined with the elitist replacement strategy (Section \ref{sec:elitism}), this aggressive crossover rate ensures thorough exploration: all parents contribute genetic material, but only the best $N_{\text{pop}}$ individuals from the combined parent-offspring pool survive to the next generation, ensuring monotonic convergence.
 
-The mutation probability $\mu = 0.2$ specifies the per-gene probability of mutation. On average, $0.2 \times 42 \approx 8$ genes are perturbed per offspring, which introduces sufficient variation to escape local optima without being so disruptive as to destroy good solutions. The mutation step size $\sigma = 0.1$ controls the standard deviation of the Gaussian perturbation applied to mutated genes. Since position genes are measured in metres and orientation genes in radians, this value produces perturbations of approximately $\pm 0.2$~m and $\pm 0.2$~rad at one standard deviation, which are physically meaningful adjustments for the workspace dimensions considered.
+The mutation probability $\mu = 0.2$ specifies the per-gene probability of mutation. On average, $0.2 \times 42 \approx 8$ genes are perturbed per offspring, which introduces sufficient variation to escape local optima without being so disruptive as to destroy good solutions. The mutation step size $\sigma = 0.1$ controls the standard deviation of the Gaussian perturbation applied to mutated genes, i.e how much to alter the current pose values from their current assignment. Since position genes are measured in metres and orientation genes in radians, this value perturbs the current values by $\pm 0.2$~m and $\pm 0.2$~rad or $\pm 11.5 \degree$ at one standard deviation, which are physically meaningful adjustments for the workspace dimensions considered.
 
 \subsubsection{Initial Population}
 \label{sec:initial-pop}
 
-An unguided random initialisation distributes cameras uniformly throughout the search volume, which would place many cameras in the interior of the workspace where they cannot observe targets, or orient them away from the target space. Aissaoui et al.\ demonstrated that seeding the initial population with domain knowledge significantly accelerates convergence by restricting the search to physically plausible configurations from the outset \parencite{aissaouiDesigningCameraPlacement2018}. The implementation adopts a guided initialisation strategy that places cameras on the boundary faces of the workspace and orients them toward the interior.
+An unguided random initialisation distributes cameras uniformly throughout the search volume, which would place many cameras in the interior of the workspace where they cannot observe targets and render them vulnerable to being damaged or damaging the robotic platform under consideration or could randomly orient them away from the target space. Aissaoui et al.\ demonstrated that seeding the initial population with domain knowledge significantly accelerates convergence by restricting the search to physically plausible configurations from the outset \parencite{aissaouiDesigningCameraPlacement2018}. Furthermore, it was stated in the literature that the success of a \gls{GA} largely hinges on its initial population [NEED CITATION]. The implementation adopts a guided initialisation strategy that places cameras on the boundary faces of the workspace and orients them toward the interior.
 
-The workspace is first subdivided into $\lfloor k/2 \rfloor$ sections, where $k$ is the number of cameras. The section centres are distributed on a balanced two-dimensional grid at the mid-height of the workspace. If the number of sections is odd, one section centre is placed at the geometric centre of the volume, with the remaining centres distributed on the grid. These section centres serve as initial aiming targets for the cameras.
+The workspace is first subdivided into $\lfloor k/2 \rfloor$ sections, where $k$ is the number of cameras. The section centres are distributed on a balanced two-dimensional grid at the mid-height of the workspace. If the number of sections is odd, one section centre is placed at the geometric centre of the volume, with the remaining centres distributed on the grid, as seen in \ref{fig:section-centres-guided-ga}. These section centres serve as initial aiming targets for the cameras.
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[t]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/GA/Methodology/Section Centres Verification 4 cams}
+        \caption{$k=4$ cameras: workspace partitioned into $\lfloor 4/2 \rfloor = 2$ sections, yielding a $2\times1$ grid of section centres.}
+        \label{fig:section-centres-4cams}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/GA/Methodology/Section Centres Verification 6 cams}
+        \caption{$k=6$ cameras: workspace partitioned into $\lfloor 6/2 \rfloor = 3$ sections, yielding a balanced $3\times1$ grid of section centres.}
+        \label{fig:section-centres-6cams}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/GA/Methodology/Section Centres Verification 10 Cams}
+        \caption{$k=10$ cameras: workspace partitioned into $\lfloor 10/2 \rfloor = 5$ sections. Because 5 is odd, one additional section centre is placed at the geometric centre of the workspace.}
+        \label{fig:section-centres-10cams}
+    \end{subfigure}
+
+    \caption[Workspace subdivision into section centres for the Guided GA initialisation]{The workspace is partitioned into $\lfloor k/2 \rfloor$ sections whose centres serve as aiming targets for the initial camera population. When the number of sections is odd, as in~\subref{fig:section-centres-10cams}, an extra section centre is placed at the geometric centre of the volume to ensure every camera has a meaningful inward-facing target.}
+    \label{fig:section-centres-guided-ga}
+\end{figure}
 
 For each camera in the initial chromosome, a position is generated by randomly selecting one of five boundary faces (four walls and the ceiling, excluding the floor) and sampling uniformly on that face. The camera is then oriented toward the nearest section centre by computing the direction vector from the camera position to the centre and converting it to Euler angles via an axis-angle to quaternion to Euler angle decomposition. This procedure is summarised in Algorithm \ref{alg:init-pop}.
 

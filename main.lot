@@ -1,20 +1,19 @@
 \babel@toc {british}{}\relax 
 \addvspace {10pt}
 \addvspace {10pt}
+\contentsline {table}{\numberline {2.1}{\ignorespaces Overview of all system specification metrics.}}{3}{table.2.1}%
+\contentsline {table}{\numberline {2.2}{\ignorespaces Reference traceability codes used in the subsystem specification tables.}}{4}{table.2.2}%
+\contentsline {table}{\numberline {2.3}{\ignorespaces OMC performance metric definitions.}}{6}{table.2.3}%
+\contentsline {table}{\numberline {2.4}{\ignorespaces OMC subsystem performance specifications.}}{6}{table.2.4}%
+\contentsline {table}{\numberline {2.5}{\ignorespaces OMC functional metric definitions.}}{7}{table.2.5}%
+\contentsline {table}{\numberline {2.6}{\ignorespaces OMC subsystem functional specifications.}}{7}{table.2.6}%
+\contentsline {table}{\numberline {2.7}{\ignorespaces OCP performance metric definitions.}}{8}{table.2.7}%
+\contentsline {table}{\numberline {2.8}{\ignorespaces OCP subsystem performance specifications.}}{9}{table.2.8}%
+\contentsline {table}{\numberline {2.9}{\ignorespaces OCP functional metric definitions.}}{9}{table.2.9}%
+\contentsline {table}{\numberline {2.10}{\ignorespaces OCP subsystem functional specifications.}}{9}{table.2.10}%
 \addvspace {10pt}
-\contentsline {table}{\numberline {3.1}{\ignorespaces Overview of all system specification metrics.}}{4}{table.3.1}%
-\contentsline {table}{\numberline {3.2}{\ignorespaces Reference traceability codes used in the subsystem specification tables.}}{6}{table.3.2}%
-\contentsline {table}{\numberline {3.3}{\ignorespaces OMC performance metric definitions.}}{8}{table.3.3}%
-\contentsline {table}{\numberline {3.4}{\ignorespaces OMC subsystem performance specifications.}}{9}{table.3.4}%
-\contentsline {table}{\numberline {3.5}{\ignorespaces OMC functional metric definitions.}}{9}{table.3.5}%
-\contentsline {table}{\numberline {3.6}{\ignorespaces OMC subsystem functional specifications.}}{10}{table.3.6}%
-\contentsline {table}{\numberline {3.7}{\ignorespaces OCP performance metric definitions.}}{11}{table.3.7}%
-\contentsline {table}{\numberline {3.8}{\ignorespaces OCP subsystem performance specifications.}}{11}{table.3.8}%
-\contentsline {table}{\numberline {3.9}{\ignorespaces OCP functional metric definitions.}}{12}{table.3.9}%
-\contentsline {table}{\numberline {3.10}{\ignorespaces OCP subsystem functional specifications.}}{12}{table.3.10}%
 \addvspace {10pt}
-\addvspace {10pt}
-\contentsline {table}{\numberline {5.1}{\ignorespaces Classification of the reviewed \gls {OCP} literature by solver, placement space, and optimisation objective.}}{27}{table.caption.13}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces Comparison of biological and genetic algorithm terminology.}}{30}{table.caption.14}%
-\contentsline {table}{\numberline {5.3}{\ignorespaces Genetic algorithm parameter settings.}}{34}{table.caption.16}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Classification of the reviewed \gls {OCP} literature by solver, placement space, and optimisation objective.}}{23}{table.caption.13}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Comparison of biological and genetic algorithm terminology.}}{26}{table.caption.14}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces Genetic algorithm parameter settings.}}{30}{table.caption.16}%
 \addvspace {10pt}
