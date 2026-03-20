@@ -81,28 +81,29 @@
 \contentsline {subsection}{\numberline {4.2.4}Crossover Techniques}{27}{subsection.4.2.4}%
 \contentsline {subsection}{\numberline {4.2.5}Convergence Analysis}{27}{subsection.4.2.5}%
 \contentsline {section}{\numberline {4.3}Methodology}{27}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Algorithm Configuration}{27}{subsection.4.3.1}%
-\contentsline {subsubsection}{\numberline {4.3.1.1}Chromosome Representation}{29}{subsubsection.4.3.1.1}%
-\contentsline {subsubsection}{\numberline {4.3.1.2}Search Space Bounds}{30}{subsubsection.4.3.1.2}%
-\contentsline {subsubsection}{\numberline {4.3.1.3}Parameter Selection}{30}{subsubsection.4.3.1.3}%
-\contentsline {subsubsection}{\numberline {4.3.1.4}Initial Population}{31}{subsubsection.4.3.1.4}%
-\contentsline {subsubsection}{\numberline {4.3.1.5}Tournament Selection}{32}{subsubsection.4.3.1.5}%
-\contentsline {subsubsection}{\numberline {4.3.1.6}Double-Point Crossover}{33}{subsubsection.4.3.1.6}%
-\contentsline {subsubsection}{\numberline {4.3.1.7}Mutation}{33}{subsubsection.4.3.1.7}%
+\contentsline {subsection}{\numberline {4.3.1}Simulation Environment and Required Tools}{27}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Algorithm Configuration}{29}{subsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.2.1}Chromosome Representation}{29}{subsubsection.4.3.2.1}%
+\contentsline {subsubsection}{\numberline {4.3.2.2}Search Space Bounds}{30}{subsubsection.4.3.2.2}%
+\contentsline {subsubsection}{\numberline {4.3.2.3}Parameter Selection}{30}{subsubsection.4.3.2.3}%
+\contentsline {subsubsection}{\numberline {4.3.2.4}Initial Population}{31}{subsubsection.4.3.2.4}%
+\contentsline {subsubsection}{\numberline {4.3.2.5}Tournament Selection}{33}{subsubsection.4.3.2.5}%
+\contentsline {subsubsection}{\numberline {4.3.2.6}Double-Point Crossover}{33}{subsubsection.4.3.2.6}%
+\contentsline {subsubsection}{\numberline {4.3.2.7}Mutation}{34}{subsubsection.4.3.2.7}%
 \contentsline {paragraph}{Camera Repair Operator.}{34}{section*.18}%
-\contentsline {subsubsection}{\numberline {4.3.1.8}Elitism}{34}{subsubsection.4.3.1.8}%
-\contentsline {subsection}{\numberline {4.3.2}Cost Function}{35}{subsection.4.3.2}%
-\contentsline {subsubsection}{\numberline {4.3.2.1}Resolution Uncertainty Cost Function}{36}{subsubsection.4.3.2.1}%
-\contentsline {subsubsection}{\numberline {4.3.2.2}Dynamic Occlusion Cost Function}{37}{subsubsection.4.3.2.2}%
-\contentsline {subsubsection}{\numberline {4.3.2.3}Combined Cost Function}{38}{subsubsection.4.3.2.3}%
-\contentsline {subsection}{\numberline {4.3.3}Termination Criteria}{39}{subsection.4.3.3}%
-\contentsline {section}{\numberline {4.4}Experimental Verification Framework}{39}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Verification Objectives}{39}{subsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.3.2.8}Elitism}{35}{subsubsection.4.3.2.8}%
+\contentsline {subsection}{\numberline {4.3.3}Cost Function}{35}{subsection.4.3.3}%
+\contentsline {subsubsection}{\numberline {4.3.3.1}Resolution Uncertainty Cost Function}{36}{subsubsection.4.3.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.3.2}Dynamic Occlusion Cost Function}{38}{subsubsection.4.3.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3.3}Combined Cost Function}{38}{subsubsection.4.3.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}Termination Criteria}{39}{subsection.4.3.4}%
+\contentsline {section}{\numberline {4.4}Experimental Verification Framework}{40}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Verification Objectives}{40}{subsection.4.4.1}%
 \contentsline {subsection}{\numberline {4.4.2}Ground Truth and Reference Metrics}{40}{subsection.4.4.2}%
 \contentsline {subsubsection}{\numberline {4.4.2.1}Internal Consistency Metrics}{40}{subsubsection.4.4.2.1}%
-\contentsline {subsubsection}{\numberline {4.4.2.2}External Reference Measurements}{40}{subsubsection.4.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.4.2.2}External Reference Measurements}{41}{subsubsection.4.4.2.2}%
 \contentsline {subsection}{\numberline {4.4.3}Experimental Protocol}{41}{subsection.4.4.3}%
-\contentsline {subsection}{\numberline {4.4.4}Linking Simulation to Measurement}{41}{subsection.4.4.4}%
+\contentsline {subsection}{\numberline {4.4.4}Linking Simulation to Measurement}{42}{subsection.4.4.4}%
 \contentsline {section}{\numberline {4.5}Results and Discussion}{42}{section.4.5}%
 \contentsline {subsection}{\numberline {4.5.1}Convergence Behaviour}{42}{subsection.4.5.1}%
 \contentsline {subsection}{\numberline {4.5.2}Cost Function Evaluation}{42}{subsection.4.5.2}%

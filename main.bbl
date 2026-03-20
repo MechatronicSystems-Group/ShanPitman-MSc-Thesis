@@ -802,6 +802,56 @@
       \verb 10.1080/10255842.2014.931517
       \endverb
     \endentry
+    \entry{corkeRoboticsVisionControl2023}{book}{}{}
+      \name{author}{3}{}{%
+        {{hash=c0e503339314930d140b67b5e7c55c3e}{%
+           family={Corke},
+           familyi={C\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+        {{hash=e1d09b0b50f87f28a8557358d926e63f}{%
+           family={Jachimczyk},
+           familyi={J\bibinitperiod},
+           given={Witold},
+           giveni={W\bibinitperiod}}}%
+        {{hash=a4b85e54b24b4fcb5e4f062b204d9fce}{%
+           family={Pillat},
+           familyi={P\bibinitperiod},
+           given={Remo},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cham}%
+      }
+      \list{publisher}{1}{%
+        {Springer International Publishing}%
+      }
+      \strng{namehash}{e205d8d0b1c867856ff22150cf6334d9}
+      \strng{fullhash}{0430f7e63a76b922b79385f0aa1652e4}
+      \strng{fullhashraw}{0430f7e63a76b922b79385f0aa1652e4}
+      \strng{bibnamehash}{0430f7e63a76b922b79385f0aa1652e4}
+      \strng{authorbibnamehash}{0430f7e63a76b922b79385f0aa1652e4}
+      \strng{authornamehash}{e205d8d0b1c867856ff22150cf6334d9}
+      \strng{authorfullhash}{0430f7e63a76b922b79385f0aa1652e4}
+      \strng{authorfullhashraw}{0430f7e63a76b922b79385f0aa1652e4}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{isbn}{978-3-031-07261-1 978-3-031-07262-8}
+      \field{series}{Springer {{Tracts}} in {{Advanced Robotics}}}
+      \field{shorttitle}{Robotics, {{Vision}} and {{Control}}}
+      \field{title}{Robotics, {{Vision}} and {{Control}}: {{Fundamental Algorithms}} in {{MATLAB}}®}
+      \field{urlday}{5}
+      \field{urlmonth}{3}
+      \field{urlyear}{2025}
+      \field{volume}{147}
+      \field{year}{2023}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.1007/978-3-031-07262-8
+      \endverb
+    \endentry
   \enddatalist
   \missing{nagymate2018optitrack}
   \missing{zhaoApproximateTechniquesSolving2013}
